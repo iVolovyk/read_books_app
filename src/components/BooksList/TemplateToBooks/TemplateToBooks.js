@@ -1,4 +1,5 @@
 import React from 'react';
+import menuBook from '../../../assets/icons/library/menu_book-24px.svg';
 
 const TemplateToBooks = list => {
   console.log(list.list.listBooks);
@@ -7,6 +8,7 @@ const TemplateToBooks = list => {
       <table border="1">
         <thead>
           <tr>
+            <th />
             <th>Назва</th>
             <th>Автор</th>
             <th>Рік</th>
@@ -16,6 +18,9 @@ const TemplateToBooks = list => {
         <tbody>
           {list.list.listBooks.map(el => (
             <tr key={el.id}>
+              <td>
+                <img src={menuBook} alt="menu_book" />
+              </td>
               <td>{el.name}</td>
               <td>{el.author}</td>
               <td>{el.year}</td>
