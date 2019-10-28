@@ -1,30 +1,30 @@
 import React from 'react';
-import menuBook from '../../../assets/icons/library/menu_book-24px.svg';
+// import menuBook from '../../../assets/icons/library/menu_book-24px.svg';
+import css from './TemplateToBooks.module.css';
 
 const TemplateToBooks = list => {
-  console.log(list.list.listBooks);
+  // console.log(list.list.listBooks);
   return (
     <>
-      <table border="1">
+      <table className={css.wrapTable}>
         <thead>
-          <tr>
-            <th />
-            <th>Назва</th>
-            <th>Автор</th>
-            <th>Рік</th>
-            <th>Стор.</th>
+          <tr className={css.tableHead}>
+            <th className={css.tabName}>Назва</th>
+            <th className={css.tabAuthor}>Автор</th>
+            <th className={css.tabYear}>Рік</th>
+            <th className={css.tabPage}>Стор.</th>
           </tr>
         </thead>
         <tbody>
           {list.list.listBooks.map(el => (
-            <tr key={el.id}>
-              <td>
-                <img src={menuBook} alt="menu_book" />
+            <tr className={css.tableBody} key={el.id}>
+              <td className={css.tabName}>
+                <div className={css.iconWrap} />
+                {el.name}
               </td>
-              <td>{el.name}</td>
-              <td>{el.author}</td>
-              <td>{el.year}</td>
-              <td>{el.st}</td>
+              <td className={css.tabAuthor}>{el.author}</td>
+              <td className={css.tabYear}>{el.year}</td>
+              <td className={css.tabPage}>{el.page}</td>
             </tr>
           ))}
         </tbody>

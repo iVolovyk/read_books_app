@@ -2,11 +2,11 @@ import React from 'react';
 import TemplateToBooks from '../TemplateToBooks/TemplateToBooks';
 import css from '../BooksList.module.css';
 
-const NowReadBooks = list => (
+const PlanReadBooks = list => (
   <>
-    <h2 className={css.titleTable}>Читаю</h2>
+    <h2 className={css.titleTable}>Маю намір прочитати</h2>
     <TemplateToBooks list={list} />
   </>
 );
 
-export default NowReadBooks;
+export default PlanReadBooks;

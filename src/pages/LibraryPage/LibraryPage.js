@@ -7,8 +7,6 @@ class LibraryPage extends Component {
   render() {
     return (
       <>
-        <h2>LibraryPage</h2>
-
         <BooksList />
       </>
     );
