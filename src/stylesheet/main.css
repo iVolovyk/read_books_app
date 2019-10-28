@@ -1,3 +1,44 @@
 @import './libs/normalize.css';
 @import './fonts.css';
 @import './vars.css';
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(28, 38, 52);
+  line-height: 1.2;
+  min-width: 320px;
+}
+img {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+button {
+  cursor: pointer;
+}
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.container {
+  margin: 0 auto;
+}
