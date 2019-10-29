@@ -78,6 +78,7 @@
   display: none;
 }
 .title {
+  padding-right: 1rem;
   color: #898f9f;
 }
 
@@ -115,7 +116,7 @@
   }
   /* Page */
   .wrapPage {
-    width: 10%;
+    width: 15%;
     flex-direction: column;
   }
   /* Rating */

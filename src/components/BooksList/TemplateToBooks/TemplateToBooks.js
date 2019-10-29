@@ -32,7 +32,7 @@ const TemplateToBooks = list => {
             </div>
             <div className={css.wrapPage}>
               <div className={`${css.pageHead} ${css.title}`}>
-                Стор.<span>:</span>
+                Сторінок<span>:</span>
               </div>
               <div className={css.pageBody}>{el.page}</div>
             </div>
