@@ -43,3 +43,52 @@ tbody td {
 .tabPage {
   width: 10%;
 } */
+
+/* ====================================================================== */
+
+/* .ulBooks {
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+.liBooks {
+  display: flex;
+}
+.wrapHead {
+  position: relative;
+  width: 33%;
+}
+.wrapBody {
+  width: 67%;
+}
+.nameHead {
+  visibility: hidden;
+  padding: 6px;
+}
+.authorHead {
+}
+.yearHead {
+}
+.pageHead {
+}
+.ratingHead {
+  visibility: hidden;
+}
+
+.iconWrap {
+}
+.nameBody {
+  position: relative;
+  left: -50%;
+  width: 150%;
+}
+.authorBody {
+}
+.yearBody {
+}
+.pageBody {
+}
+.ratingBody {
+}
+.ratingIcon {
+} */
