@@ -1,0 +1,148 @@
+/* .container {
+ background-color: #f5f7fa;
+ margin-top: 60px;
+ min-height: 800px;
+ width: 300px;
+ margin: auto;
+} */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 40px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #898f9f;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+label:not(:last-child) {
+  margin-right: 20px;
+}
+
+input {
+  padding: 6px;
+}
+
+.title {
+  background-color: #ffffff;
+  border: none;
+  border-top:  1px solid #cdd1da;
+}
+
+.author {
+  background-color: #f5f7fa;
+  border: 1px solid #cdd1da;
+}
+
+.year {
+  background-color: #f5f7fa;
+  border: 1px solid #cdd1da;
+  width: 50px;
+}
+
+.pageNumber {
+  background-color: #f5f7fa;
+  margin-right: 40px;
+  border: 1px solid #cdd1da;
+  width: 50px;
+}
+
+.button {
+ width: 180px;
+ margin-top: 28px;
+ background-color: #f5f7fa;
+ font-family: Montserrat;
+ font-weight: 500;
+ font-size: 13px;
+ border: 1px solid #00183e;
+ outline-color: none;
+ padding: 6px;
+}
+
+.button:hover:focus {
+  background-color: #ff6b00;
+}
+
+
+
+@media (min-width: 768px) {
+  .container {
+    width: 680px;
+  }
+
+  .tablet {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
+
+  .title {
+    width: 560px;
+  }
+
+  .author {
+    width: 270px;
+  }
+
+  .year {
+    width: 116px;
+  }
+
+  .pageNumber {
+    width: 134px;
+  }
+
+  .button {
+    width: 180px;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+   }
+}
+
+
+@media (min-width: 1264px) {
+  .container {
+    width: 1228px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tablet {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .title {
+    width: 380px;
+  }
+
+  .author {
+    width: 210px;
+  }
+  .year {
+    width: 110px;
+  }
+
+  .pageNumber {
+    width: 150px;
+  }
+
+ input {
+  padding: 10px;
+}
+
+}
+
