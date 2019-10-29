@@ -1,10 +1,10 @@
-/* .container {
+.container {
  background-color: #f5f7fa;
  margin-top: 60px;
  min-height: 800px;
  width: 300px;
  margin: auto;
-} */
+}
 
 .form {
   display: flex;
@@ -34,7 +34,7 @@ input {
 .title {
   background-color: #ffffff;
   border: none;
-  border-top:  1px solid #cdd1da;
+  border-top: 1px solid #cdd1da;
 }
 
 .author {
@@ -56,22 +56,20 @@ input {
 }
 
 .button {
- width: 180px;
- margin-top: 28px;
- background-color: #f5f7fa;
- font-family: Montserrat;
- font-weight: 500;
- font-size: 13px;
- border: 1px solid #00183e;
- outline-color: none;
- padding: 6px;
+  width: 180px;
+  margin-top: 28px;
+  background-color: #f5f7fa;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 13px;
+  border: 1px solid #00183e;
+  outline-color: none;
+  padding: 6px;
 }
 
 .button:hover:focus {
   background-color: #ff6b00;
 }
-
-
 
 @media (min-width: 768px) {
   .container {
@@ -105,9 +103,8 @@ input {
     padding: 8px;
     margin-left: auto;
     margin-right: auto;
-   }
+  }
 }
-
 
 @media (min-width: 1264px) {
   .container {
@@ -140,9 +137,7 @@ input {
     width: 150px;
   }
 
- input {
-  padding: 10px;
+  input {
+    padding: 10px;
+  }
 }
-
-}
-
