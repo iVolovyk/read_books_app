@@ -6,29 +6,31 @@ const TemplateToBooks = list => {
   // console.log(list.list.listBooks);
   return (
     <>
-      <table className={css.wrapTable}>
-        <thead>
-          <tr className={css.tableHead}>
-            <th className={css.tabName}>Назва</th>
-            <th className={css.tabAuthor}>Автор</th>
-            <th className={css.tabYear}>Рік</th>
-            <th className={css.tabPage}>Стор.</th>
-          </tr>
-        </thead>
-        <tbody>
-          {list.list.listBooks.map(el => (
-            <tr className={css.tableBody} key={el.id}>
-              <td className={css.tabName}>
-                <div className={css.iconWrap} />
-                {el.name}
-              </td>
-              <td className={css.tabAuthor}>{el.author}</td>
-              <td className={css.tabYear}>{el.year}</td>
-              <td className={css.tabPage}>{el.page}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ul>
+        <li>Назва</li>
+        <li>Автор</li>
+        <li>Рік</li>
+        <li>Стор.</li>
+        <li>Рейтинг</li>
+      </ul>
+
+      <ul>
+        {list.list.listBooks.map(el => (
+          <li key={el.id}>
+            <div className={css.iconWrap} />
+            <div>{el.name}</div>
+            <div>{el.author}</div>
+            <div>{el.year}</div>
+            <div>{el.page}</div>
+            {el.rating !== undefined && (
+              <>
+                <div>{el.rating}</div>
+                <div>ICON</div>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

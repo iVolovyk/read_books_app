@@ -5,14 +5,16 @@
       "name": "to DO book",
       "author": "Jack",
       "year": "2018",
-      "page": "12"
+      "page": "12",
+      "rating": "0"
     },
     {
       "id": "2",
       "name": "must book",
       "author": "Tom",
       "year": "3025",
-      "page": "25"
+      "page": "25",
+      "rating": "0"
     }
   ],
   "nowRead": [

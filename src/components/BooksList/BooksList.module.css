@@ -1,6 +1,7 @@
 .bookList {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 10px;
 }
 .titleTable {
   font-size: 1.125rem;
