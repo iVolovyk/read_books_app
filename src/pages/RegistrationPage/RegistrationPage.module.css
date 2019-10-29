@@ -1,3 +1,5 @@
+.reg_section {
+}
 .container {
   margin: 0 auto;
   width: 300px;
@@ -5,9 +7,22 @@
 
 .reg_form {
   width: 100%;
-  background-image: url(../../assets/images/signupBg.jpg);
+  background-image: url('../../assets/images/signupBg.jpg');
 }
-
-.reg_section {
+.reg_social {
+  text-align: center;
 }
-/* #f6f7fc */
+.reg_social_button {
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: #f6f7fc;
+  text-decoration: none;
+  color: #000;
+}
+.reg_form form {
+  width: 300px;
+  margin: 0 auto;
+}
+.reg_form input {
+  display: block;
+}
