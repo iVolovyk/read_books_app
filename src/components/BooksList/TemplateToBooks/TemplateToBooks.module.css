@@ -1,7 +1,7 @@
 .ulBooks {
   font-weight: 600;
   list-style: none;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
   padding: 0;
 }
 .liBooks {
@@ -25,8 +25,8 @@
 }
 .libLogo {
   position: absolute;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
   left: -2rem;
   top: 0.25rem;
 }
@@ -74,10 +74,77 @@
 .ratingBody {
   width: 60%;
 }
-.ratingIcon {
+.wrapEditIcon {
   display: none;
 }
-
 .title {
   color: #898f9f;
+}
+
+/* ============= media 768 ===================== */
+
+@media (min-width: 768px) {
+  .liBooks {
+    display: flex;
+    position: relative;
+  }
+
+  /* .libLogo {
+    right: 20rem;
+    top: 0.75rem;
+  } */
+
+  /* Name */
+  .wrapName {
+    flex-direction: column;
+    width: 45%;
+    padding-right: 1rem;
+  }
+  .nameHead {
+    display: flex;
+  }
+  /* Author */
+  .wrapAuthor {
+    width: 15%;
+    flex-direction: column;
+  }
+  /* Year */
+  .wrapYear {
+    width: 10%;
+    flex-direction: column;
+  }
+  /* Page */
+  .wrapPage {
+    width: 10%;
+    flex-direction: column;
+  }
+  /* Rating */
+  .wrapRating {
+    display: block;
+    width: 10%;
+    flex-direction: column;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* Edit link */
+  .wrapEditIcon {
+    position: absolute;
+    display: flex;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 2px solid rgb(34, 32, 32);
+    border-radius: 50%;
+    right: 2rem;
+    top: 1.35rem;
+  }
+  .wrapEditIcon:hover,
+  .wrapEditIcon:active {
+    background-color: rgb(208, 214, 214);
+  }
+  .editIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

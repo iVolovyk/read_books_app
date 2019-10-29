@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './TemplateToBooks.module.css';
 import { ReactComponent as LibLogo } from '../../../assets/icons/library/menu_book-24px.svg';
+import { ReactComponent as PenLogo } from '../../../assets/icons/pen/create-24px.svg';
 
 const TemplateToBooks = list => {
   // console.log(list.list.listBooks);
@@ -38,13 +39,15 @@ const TemplateToBooks = list => {
               <div className={`${css.ratingHead} ${css.title}`}>
                 Рейтинг<span>:</span>
               </div>
-              {el.rating !== undefined && (
-                <>
-                  <div className={css.ratingBody}>{el.rating}</div>
-                </>
-              )}
+              {/* {el.rating !== undefined && (
+                <> */}
+              <div className={css.ratingBody}>{el.rating}</div>
+              {/* </>
+              )} */}
             </div>
-            <div className={css.ratingIcon}>ICON</div>
+            <div className={css.wrapEditIcon}>
+              <PenLogo className={css.editIcon} />
+            </div>
           </li>
         ))}
       </ul>
