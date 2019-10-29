@@ -1,9 +1,9 @@
 .container {
- background-color: #f5f7fa;
- margin-top: 60px;
- min-height: 800px;
- width: 300px;
- margin: auto;
+  background-color: #f5f7fa;
+  margin-top: 60px;
+  min-height: 800px;
+  width: 300px;
+  margin: auto;
 }
 
 .form {
