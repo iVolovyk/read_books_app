@@ -2,7 +2,7 @@
   "toRead": [
     {
       "id": "1",
-      "name": "to DO book to DO book",
+      "name": "Еo DO book to DO book to DO book to DO book to DO book to DO book",
       "author": "Jack",
       "year": "2018",
       "page": "12",
@@ -10,7 +10,7 @@
     },
     {
       "id": "2",
-      "name": "must book must book",
+      "name": "Must book must book",
       "author": "Tom",
       "year": "3025",
       "page": "25",
@@ -20,14 +20,14 @@
   "nowRead": [
     {
       "id": "5",
-      "name": "disyai book disyai book",
+      "name": "Disyai book disyai book",
       "author": "God",
       "year": "2018",
       "page": "152"
     },
     {
       "id": "6",
-      "name": "now now book now now book",
+      "name": "Now now book now now book",
       "author": "Roma",
       "year": "1825",
       "page": "125"
@@ -36,14 +36,14 @@
   "finishRead": [
     {
       "id": "9",
-      "name": "all ok book",
+      "name": "All ok book",
       "author": "Cate",
       "year": "1988",
       "page": "900"
     },
     {
       "id": "10",
-      "name": "tooglyk book",
+      "name": "Tooglyk book",
       "author": "Kotlin",
       "year": "1987",
       "page": "800"

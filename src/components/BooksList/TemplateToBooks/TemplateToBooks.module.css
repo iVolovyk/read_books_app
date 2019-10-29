@@ -92,3 +92,86 @@ tbody td {
 }
 .ratingIcon {
 } */
+.ulBooks {
+  font-weight: 600;
+  list-style: none;
+  line-height: 1.5rem;
+  padding: 0;
+}
+.liBooks {
+  padding: 0 4rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  padding: 1rem 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Name */
+.wrapName {
+  display: flex;
+  position: relative;
+}
+.nameHead {
+  display: none;
+}
+.nameBody {
+  line-height: 1.2rem;
+}
+.libLogo {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  left: -2rem;
+  top: 0.25rem;
+}
+
+/* Author */
+.wrapAuthor {
+  display: flex;
+}
+.authorHead {
+  width: 40%;
+}
+.authorBody {
+  width: 60%;
+}
+
+/* Year */
+.wrapYear {
+  display: flex;
+}
+.yearHead {
+  width: 40%;
+}
+.yearBody {
+  width: 60%;
+}
+
+/* Page */
+.wrapPage {
+  display: flex;
+}
+.pageHead {
+  width: 40%;
+}
+.pageBody {
+  width: 60%;
+}
+
+/* Rating */
+.wrapRating {
+  display: none;
+}
+.ratingHead {
+  width: 40%;
+}
+.ratingBody {
+  width: 60%;
+}
+.ratingIcon {
+  display: none;
+}
+
+.title {
+  color: #898f9f;
+}
