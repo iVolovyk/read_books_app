@@ -6,7 +6,7 @@
       "author": "Jack",
       "year": "2018",
       "page": "12",
-      "rating": "0"
+      "rating": 1
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "author": "Tom",
       "year": "3025",
       "page": "25",
-      "rating": "0"
+      "rating": 5
     }
   ],
   "nowRead": [

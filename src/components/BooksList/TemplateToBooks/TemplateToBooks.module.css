@@ -131,9 +131,11 @@
   .wrapEditIcon {
     position: absolute;
     display: flex;
-    width: 1.75rem;
-    height: 1.75rem;
-    border: 2px solid rgb(34, 32, 32);
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid#898f9f;
     border-radius: 50%;
     right: 2rem;
     top: 1.35rem;
@@ -143,8 +145,8 @@
     background-color: rgb(208, 214, 214);
   }
   .editIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    fill: #898f9f;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }

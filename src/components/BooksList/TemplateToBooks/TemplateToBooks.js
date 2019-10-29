@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './TemplateToBooks.module.css';
+// import RatingStars from '../RatingStars/RatingStars';
 import { ReactComponent as LibLogo } from '../../../assets/icons/library/menu_book-24px.svg';
 import { ReactComponent as PenLogo } from '../../../assets/icons/pen/create-24px.svg';
 
@@ -41,7 +42,11 @@ const TemplateToBooks = list => {
               </div>
               {/* {el.rating !== undefined && (
                 <> */}
-              <div className={css.ratingBody}>{el.rating}</div>
+              <div className={css.ratingBody}>
+                {/* <RatingStars /> */}
+                {el.rating <= 5 && `${el.rating}/5`}
+                {el.rating === undefined && `0/5`}
+              </div>
               {/* </>
               )} */}
             </div>
