@@ -4,7 +4,14 @@ class TrainingPage extends Component {
   state = {};
 
   render() {
-    return <h2>TrainingPage</h2>;
+    return (
+      <div className="container">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis,
+          saepe!
+        </p>
+      </div>
+    );
   }
 }
 
