@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './LibraryPage.module.css';
+// import Backdrop from '../../components/Backdrop/Backdrop';
 
 class LibraryPage extends Component {
   state = { title: '', author: '', year: '', pageNumber: '' };
@@ -83,6 +84,16 @@ class LibraryPage extends Component {
             Додати
           </button>
         </form>
+        {/* <Backdrop isOpen>
+          {({ onClose }) => (
+            <p>
+              Сюда поместить свой компонент!!!
+              <button type="button" onClick={onClose}>
+                ok
+              </button>
+            </p>
+          )}
+        </Backdrop> */}
       </div>
     );
   }

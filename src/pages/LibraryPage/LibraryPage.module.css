@@ -1,10 +1,10 @@
-.container {
+/* .container {
   background-color: #f5f7fa;
   margin-top: 60px;
   min-height: 800px;
   width: 300px;
   margin: auto;
-}
+} */
 
 .form {
   display: flex;
@@ -23,17 +23,13 @@ label {
   line-height: 30px;
 }
 
-label:not(:last-child) {
-  margin-right: 20px;
-}
-
 input {
   padding: 6px;
 }
 
 .title {
-  background-color: #ffffff;
   border: none;
+  background-color: #ffffff;
   border-top: 1px solid #cdd1da;
 }
 
@@ -45,14 +41,11 @@ input {
 .year {
   background-color: #f5f7fa;
   border: 1px solid #cdd1da;
-  width: 50px;
 }
 
 .pageNumber {
   background-color: #f5f7fa;
-  margin-right: 40px;
   border: 1px solid #cdd1da;
-  width: 50px;
 }
 
 .button {
@@ -65,9 +58,11 @@ input {
   border: 1px solid #00183e;
   outline-color: none;
   padding: 6px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.button:hover:focus {
+.button:hover {
   background-color: #ff6b00;
 }
 
@@ -80,6 +75,10 @@ input {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+  }
+
+  label:not(:last-child) {
+  margin-right: 20px;
   }
 
   .title {
@@ -101,8 +100,7 @@ input {
   .button {
     width: 180px;
     padding: 8px;
-    margin-left: auto;
-    margin-right: auto;
+
   }
 }
 

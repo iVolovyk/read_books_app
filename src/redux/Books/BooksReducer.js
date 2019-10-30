@@ -11,6 +11,16 @@ const books = (state = [], { type, payload }) => {
   }
 };
 
+const itemsReducer = (state = [], { type, payload }) => {
+  switch (type) {
+    case Type.ADD_BOOK_SUCCESS:
+      return [payload, ...state];
+    default:
+      return state;
+  }
+};
+
 export const BooksReducer = combineReducers({
   books,
+  itemsReducer,
 });
