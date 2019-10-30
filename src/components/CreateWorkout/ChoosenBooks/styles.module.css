@@ -1,0 +1,72 @@
+/* {books.map(item => (
+    <li key={item.id}>
+      <p>{item.name}</p>
+      <p>{item.author}</p>
+      <p>{item.pages}</p>
+      <p>delete</p>
+    </li>
+  ))} */
+
+@font-face {
+  font-family: 'open sans';
+  font-weight: 400;
+}
+
+.ChosenBooks {
+  width: 100%;
+}
+.bookName {
+  display: none;
+}
+
+.bookList {
+  padding: 0px 20px;
+  width: 100%;
+}
+.bookInfo {
+  list-style: none;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  border-top: 1px solid #dfe6ec;
+  border-bottom: 1px solid #dfe6ec;
+  margin-bottom: 16px;
+}
+
+.bookInfo:last-child {
+  margin-bottom: 35px;
+}
+
+.characteristics {
+  color: #1c2534;
+  font-family: 'open sans';
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.mobileHeadline {
+  color: #8890a1;
+  font-family: 'open sans';
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.characteristics:nth-child(2) span {
+  padding-right: 30px;
+}
+.characteristics:nth-child(3) span {
+  padding-right: 12px;
+}
+.characteristics:nth-child(4) span {
+  padding-right: 50px;
+}
+
+@media (max-width: 767px) {
+  .notMobileHeadline {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .mobileHeadline {
+    display: none;
+  }
+}
