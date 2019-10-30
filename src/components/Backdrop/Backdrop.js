@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './Backdrop.module.css';
 
-// импортировать компонент:
-// import Backdrop from '../../components/Backdrop/Backdrop';
-
-// В нужном моменте вызвать так! isOpen = получает буль!!!
-// <Backdrop isOpen={true/false}>
-// {({ onClose }) => <p>Сюда поместить свой компонент!!!</p>}
-// </Backdrop>
-
 class Backdrop extends Component {
   state = { on: false };
 
