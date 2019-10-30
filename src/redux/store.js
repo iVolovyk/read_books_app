@@ -1,12 +1,23 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
-// импортируем сюда свои редюсеры
+
+import sessionReducer from './session/sessionReducers';
+import booksReducer from './books/booksReducers';
+import resultsReducer from './results/resultsReducers';
+import loaderReducer from './loader/loaderReducers';
+import bookIdReducer from './bookId/bookIdReducer';
+import goalReducer from './goal/goalReducers';
+import controlsReducer from './controls/controlsReducers';
 
 const rootReducer = combineReducers({
-  session: (prevState = {}, action) => {
-    return { a: 1 };
-  },
+  session: sessionReducer,
+  books: booksReducer,
+  results: resultsReducer,
+  isLoading: loaderReducer,
+  bookIdInSummaryModal: bookIdReducer,
+  goal: goalReducer,
+  componentController: controlsReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);
