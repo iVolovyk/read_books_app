@@ -1,0 +1,124 @@
+.checkText {
+  font-size: 15px;
+}
+
+.formWrap {
+  /* width: 300px;
+  margin: 0 auto; */
+}
+
+.checkbox {
+  display: none;
+}
+
+.fakeCheckbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 0;
+  background-image: url('../../assets/icons/check/checkEmpty.png');
+}
+
+.checkbox:checked + .fakeCheckbox {
+  background-image: url('../../assets/icons/check/check.png');
+}
+
+.ulBooks {
+  list-style: none;
+  padding: 0;
+}
+
+.ChosenBooks {
+  width: 100%;
+}
+
+.ChosenBooks {
+  width: 100%;
+}
+.bookList {
+  padding: 0px 20px;
+  width: 100%;
+}
+.bookInfo {
+  list-style: none;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  border-top: 1px solid #dfe6ec;
+  border-bottom: 1px solid #dfe6ec;
+  margin-bottom: 16px;
+}
+.bookInfo:last-child {
+  /* margin-bottom: 35px; */
+}
+.bookInfo {
+  color: #1c2534;
+  font-family: 'open sans';
+  font-size: 13px;
+  line-height: 16px;
+}
+.mobileHeadline {
+  color: #8890a1;
+  font-family: 'open sans';
+  font-size: 13px;
+  line-height: 16px;
+}
+.authorsNameSername span {
+  padding-right: 40px;
+}
+.yearOfPublication span {
+  padding-right: 60px;
+}
+.numberOfBookPages span {
+  padding-right: 22px;
+}
+@media (min-width: 768px) {
+  .notMobileHeadline {
+    display: flex;
+    color: #8890a1;
+    font-family: Montserrat;
+    font-size: 13px;
+  }
+  .bookName {
+    padding-right: 240px;
+  }
+  .authorName {
+    padding-right: 120px;
+  }
+  .year {
+    padding-right: 60px;
+  }
+  .pageNumber {
+    padding-right: 62px;
+  }
+  .bookList {
+    padding: 0px;
+  }
+  .bookInfo {
+    display: flex;
+  }
+  .bookHeadline {
+    width: 285px;
+    margin-right: 22px;
+  }
+  .authorsNameSername {
+    width: 145px;
+    margin-right: 14px;
+  }
+  .yearOfPublication {
+    width: 100px;
+    margin-right: 0px;
+  }
+  .numberOfBookPages {
+    width: 30px;
+    margin-right: 26px;
+  }
+  .delete {
+    width: 80px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .libraryIcon {
+    width: 40px;
+    margin-top: 10px;
+  }
+}
