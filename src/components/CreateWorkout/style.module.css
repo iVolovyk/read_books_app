@@ -88,11 +88,16 @@
     align-items: center;
   }
   .headline {
-    color: orange;
+    color: white;
     font-weight: 600;
   }
 
   .bookChooser {
+    flex-direction: row;
     justify-content: space-around;
+  }
+  .addButt {
+    margin-left: 20px;
+    margin-top: 40px;
   }
 }

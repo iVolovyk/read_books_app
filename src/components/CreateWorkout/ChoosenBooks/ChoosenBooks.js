@@ -2,45 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 import { ReactComponent as Deletelogo } from '../../../assets/icons/delete/delete-24px.svg';
+import { ReactComponent as LibraryBook } from '../../../assets/icons/library/menu_book-24px.svg';
 
 // eslint-disable-next-line no-unused-vars
 const ChosenBooks = ({ books }) => {
+  const mobileMaxWidth = 767;
+  const tabletWidth = 768;
+  const deviseWidth = document.documentElement.clientWidth;
   return (
     <div className={styles.ChosenBooks}>
-      <div className={styles.notMobileHeadline}>
-        <p className={styles.bookName}>Назва Книги</p>
-        <p>Автор</p>
-        <p>Сторінок</p>
-        <p>Видалити</p>
-      </div>
+      {deviseWidth > mobileMaxWidth && (
+        <div className={styles.notMobileHeadline}>
+          <p className={styles.bookName}>Назва Книги</p>
+          <p className={styles.authorName}>Автор</p>
+          <p className={styles.year}>Рік</p>
+          <p className={styles.pageNumber}>Сторінок</p>
+        </div>
+      )}
       <ul className={styles.bookList}>
         <li className={styles.bookInfo}>
-          <p className={styles.characteristics}> Теория происхождения теорий</p>
-          <p className={styles.characteristics}>
-            <span className={styles.mobileHeadline}>Автор:</span> Пупа
+          <LibraryBook className={styles.libraryIcon} />
+          <p className={styles.bookHeadline}>Теория происхождения теорий</p>
+          <p className={styles.authorsNameSername}>
+            {deviseWidth < tabletWidth && (
+              <span className={styles.mobileHeadline}>Автор:</span>
+            )}
+            Пупа
           </p>
-          <p className={styles.characteristics}>
-            <span className={styles.mobileHeadline}>Сторінок:</span> 30
+          <p className={styles.yearOfPublication}>
+            {deviseWidth < tabletWidth && (
+              <span className={styles.mobileHeadline}>Рік:</span>
+            )}
+            2014
           </p>
-          <p className={styles.characteristics}>
-            <span className={styles.mobileHeadline}>Рік:</span> 2014
+          <p className={styles.numberOfBookPages}>
+            {deviseWidth < tabletWidth && (
+              <span className={styles.mobileHeadline}>Сторінок:</span>
+            )}
+            30
           </p>
-          <Deletelogo />
-        </li>
-        <li className={styles.bookInfo}>
-          <p> Гипотеза возникновения гипотиз</p>
-          <p>
-            <span>Автор:</span> Лупа
-          </p>
-          <p>
-            <span>Сторінок:</span> 43
-          </p>
-          <p>
-            <span>Рік:</span> 2014
-          </p>
-          <p>
-            <span>Видалити:</span>delete
-          </p>
+          <Deletelogo className={styles.delete} />
         </li>
       </ul>
     </div>
