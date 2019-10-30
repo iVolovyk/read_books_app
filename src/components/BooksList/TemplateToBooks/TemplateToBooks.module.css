@@ -80,50 +80,50 @@
     flex-direction: row;
     align-items: center;
   }
-  .liBooks:nth-child() {
-    padding-right: 15px;
-  }
 
   /* Name */
   .nameHead {
-    width: 240px;
+    width: 260px;
   }
   .nameBody {
-    width: 180px;
+    width: 200px;
     padding: 0 10px;
   }
   /* Author */
   .authorHead {
-    width: 100px;
+    width: 120px;
   }
   .authorBody {
-    width: 100px;
+    width: 120px;
     padding: 0 10px;
   }
   /* Year */
   .yearHead {
-    width: 90px;
+    width: 110px;
   }
   .yearBody {
-    width: 90px;
+    width: 110px;
     padding: 0 10px;
   }
   /* Page */
   .pageHead {
-    width: 90px;
+    width: 110px;
   }
   .pageBody {
-    width: 90px;
+    width: 110px;
     padding: 0 10px;
   }
 
   /* Rating */
   .ratingHead {
-    width: 70px;
+    width: 90px;
   }
   .ratingBody {
-    width: 70px;
+    width: 90px;
     padding: 0 10px;
+  }
+  .wrapPenLogo {
+    right: 0;
   }
   .penLogo {
     top: 50%;
@@ -136,46 +136,46 @@
     content: '';
     display: none;
   }
-  @media (min-width: 1028px) {
+  @media (min-width: 1280px) {
     /* Name */
     .nameHead {
-      width: 240px;
+      width: 480px;
     }
     .nameBody {
-      width: 180px;
+      width: 450px;
       padding: 0 10px;
     }
     /* Author */
     .authorHead {
-      width: 100px;
+      width: 190px;
     }
     .authorBody {
-      width: 100px;
+      width: 200px;
       padding: 0 10px;
     }
     /* Year */
     .yearHead {
-      width: 90px;
+      width: 170px;
     }
     .yearBody {
-      width: 90px;
+      width: 180px;
       padding: 0 10px;
     }
     /* Page */
     .pageHead {
-      width: 90px;
+      width: 170px;
     }
     .pageBody {
-      width: 90px;
+      width: 180px;
       padding: 0 10px;
     }
 
     /* Rating */
     .ratingHead {
-      width: 70px;
+      width: 140px;
     }
     .ratingBody {
-      width: 70px;
+      width: 140px;
       padding: 0 10px;
     }
   }
