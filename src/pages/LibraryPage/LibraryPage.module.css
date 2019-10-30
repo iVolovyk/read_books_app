@@ -25,26 +25,7 @@ label {
 
 input {
   padding: 6px;
-}
-
-.title {
-  border: none;
   background-color: #ffffff;
-  border-top: 1px solid #cdd1da;
-}
-
-.author {
-  background-color: #f5f7fa;
-  border: 1px solid #cdd1da;
-}
-
-.year {
-  background-color: #f5f7fa;
-  border: 1px solid #cdd1da;
-}
-
-.pageNumber {
-  background-color: #f5f7fa;
   border: 1px solid #cdd1da;
 }
 
@@ -107,6 +88,7 @@ input {
 @media (min-width: 1264px) {
   .container {
     width: 1228px;
+    max-width: 100%;
   }
 
   .form {
