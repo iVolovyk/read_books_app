@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
-import { booksReducer } from './books/booksReducer';
+import { booksReducer } from './books/booksReducers';
 // импортируем сюда свои редюсеры
 
 const rootReducer = combineReducers({
