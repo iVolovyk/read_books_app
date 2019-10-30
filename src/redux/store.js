@@ -1,35 +1,23 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
-import reducer from './session/sessionReducers';
-// импортируем сюда свои редюсеры
 
-// const rootReducer = combineReducers({
-//   session: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-//   books: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-//   result: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-//   isLoading: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-//   bookIdInSummaryModal: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-//   goal: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-//   componentController: (prevState = {}, action) => {
-//     return { a: 1 };
-//   },
-// });
+import sessionReducer from './session/sessionReducers';
+import booksReducer from './books/booksReducers';
+import resultsReducer from './results/resultsReducers';
+import loaderReducer from './loader/loaderReducers';
+import bookIdReducer from './bookId/bookIdReducer';
+import goalReducer from './goal/goalReducers';
+import controlsReducer from './controls/controlsReducers';
 
 const rootReducer = combineReducers({
-  session: reducer,
+  session: sessionReducer,
+  books: booksReducer,
+  results: resultsReducer,
+  isLoading: loaderReducer,
+  bookIdInSummaryModal: bookIdReducer,
+  goal: goalReducer,
+  componentController: controlsReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);
