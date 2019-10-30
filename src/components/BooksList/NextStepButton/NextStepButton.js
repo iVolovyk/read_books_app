@@ -1,10 +1,12 @@
 import React from 'react';
+import css from './NextStepButton.module.css';
 
 const NextStepButton = () => (
-  <>
-    {/* TODO */}
-    must be ICON
-  </>
+  <div className={css.wrapNextStepBtn}>
+    <button className={css.nextStepButton} type="button">
+      Далі
+    </button>
+  </div>
 );
 
 export default NextStepButton;
