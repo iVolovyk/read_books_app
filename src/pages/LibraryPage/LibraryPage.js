@@ -1,17 +1,25 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import css from './LibraryPage.module.css';
+import { registration } from '../../redux/session/sessionOperations';
 // import Backdrop from '../../components/Backdrop/Backdrop';
 
 class LibraryPage extends Component {
   state = { title: '', author: '', year: '', pageNumber: '' };
+
+  componentDidMount() {
+    this.props.registration(this.props.location.search);
+    localStorage.setItem('token', this.props.location.search);
+  }
 
   resetState = () => {
     this.setState({
       title: '',
       author: '',
       year: '',
+
       pageNumber: '',
     });
   };
@@ -99,8 +107,17 @@ class LibraryPage extends Component {
   }
 }
 
-export default LibraryPage;
-
 LibraryPage.propTypes = {
   addBooks: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+  registration,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(LibraryPage);
