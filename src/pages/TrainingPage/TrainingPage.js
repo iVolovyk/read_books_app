@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './TrainingPage.module.css';
+import CreateWorkout from '../../components/CreateWorkout/CreateWorkout';
 
 class TrainingPage extends Component {
   state = {};
@@ -68,9 +69,7 @@ class TrainingPage extends Component {
                     <div style={{ backgroundColor: '#98f' }}>Goal</div>
                   </section>
                   <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#fd7' }}>
-                      CreateWorckout
-                    </div>
+                    <CreateWorkout />
                   </section>
                   <section className={css.treningSection}>
                     <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
@@ -80,9 +79,7 @@ class TrainingPage extends Component {
                 <>
                   <div className={css.leftArea}>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#fd7' }}>
-                        CreateWorckout
-                      </div>
+                      <CreateWorkout />
                     </section>
                     <section className={css.treningSection}>
                       <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
