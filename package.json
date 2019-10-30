@@ -49,5 +49,18 @@
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": ".lintstagedrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iVolovyk/read_books_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iVolovyk/read_books_app/issues"
+  },
+  "homepage": "https://github.com/iVolovyk/read_books_app#readme"
 }
