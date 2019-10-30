@@ -1,14 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
-import { BooksReducer } from './Books/BooksReducer';
+import { booksReducer } from './books/booksReducer';
 // импортируем сюда свои редюсеры
 
 const rootReducer = combineReducers({
   session: (prevState = {}, action) => {
     return { a: 1 };
   },
-  BooksReducer,
+  booksReducer,
 });
 
 const enhancer = applyMiddleware(ReduxThunk);

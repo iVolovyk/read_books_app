@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LibraryPage from './LibraryPage';
-import { addBooks } from '../../redux/Books/BooksActions';
+import { addBooks } from '../../redux/books/booksActions';
 
 const mapDispatchToProps = {
   addBooks,

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
-import { addBookStart, addBookSuccess, addBookError } from './BooksActions';
+import { addBookStart, addBookSuccess, addBookError } from './booksActions';
 
 export const addBook = book => dispatch => {
   dispatch(addBookStart());

@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 40px 40px;
+  margin: 0 auto;
 }
 
 label {
@@ -63,7 +64,7 @@ input {
 }
 
 .button:hover {
-  background-color: #ff6b00;
+  background-color: #ff9a17;
 }
 
 @media (min-width: 768px) {

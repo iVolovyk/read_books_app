@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { combineReducers } from 'redux';
-import { Type } from './BooksActions';
+import { Type } from './booksActions';
 
 const books = (state = [], { type, payload }) => {
   switch (type) {
@@ -20,7 +20,7 @@ const itemsReducer = (state = [], { type, payload }) => {
   }
 };
 
-export const BooksReducer = combineReducers({
+export const booksReducer = combineReducers({
   books,
   itemsReducer,
 });
