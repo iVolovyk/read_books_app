@@ -78,7 +78,7 @@ input {
   }
 
   label:not(:last-child) {
-  margin-right: 20px;
+    margin-right: 20px;
   }
 
   .title {
@@ -100,7 +100,6 @@ input {
   .button {
     width: 180px;
     padding: 8px;
-
   }
 }
 
