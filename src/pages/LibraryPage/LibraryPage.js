@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import css from './LibraryPage.module.css';
+
 import { registration } from '../../redux/session/sessionOperations';
 // import Backdrop from '../../components/Backdrop/Backdrop';
 
@@ -36,6 +38,7 @@ class LibraryPage extends Component {
   };
 
   render() {
+
     const { title, author, year, pageNumber } = this.state;
     return (
       <div className={css.container}>
@@ -103,6 +106,7 @@ class LibraryPage extends Component {
           )}
         </Backdrop> */}
       </div>
+
     );
   }
 }
