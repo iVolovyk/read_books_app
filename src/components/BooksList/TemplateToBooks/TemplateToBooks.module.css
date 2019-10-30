@@ -18,7 +18,6 @@
   position: relative;
 }
 .nameHead {
-  display: none;
 }
 .nameBody {
   line-height: 1.2rem;
@@ -41,6 +40,14 @@
 .authorBody {
   width: 60%;
 }
+.authorBody:before {
+  width: 40%;
+  content: 'Автор:';
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .authorbody: before;
+}
 
 /* Year */
 .wrapYear {
@@ -52,6 +59,11 @@
 .yearBody {
   width: 60%;
 }
+.yearBody:before {
+  width: 40%;
+  content: 'Рік:';
+  display: inline-block;
+}
 
 /* Page */
 .wrapPage {
@@ -62,6 +74,11 @@
 }
 .pageBody {
   width: 60%;
+}
+.pageBody:before {
+  width: 40%;
+  content: 'Сторінка:';
+  display: inline-block;
 }
 
 /* Rating */
