@@ -16,12 +16,10 @@
   }
 
   .leftArea {
-    flex: 0 0 864px
+    flex: 0 0 864px;
   }
 
   .rightArea {
-    flex: 0 0 300px
+    flex: 0 0 300px;
   }
-
-
 }
