@@ -5,7 +5,7 @@ import PlanRadeBooks from './PlanReadBooks/PlanReadBooks';
 import NextStepButton from './NextStepButton/NextStepButton';
 import StartHelper from './StartHelper/StartHelper';
 
-import listBooks from '../../bookList.json';
+import listBooks from './toDeletebookList';
 import css from './BooksList.module.css';
 
 const BookList = () => (
