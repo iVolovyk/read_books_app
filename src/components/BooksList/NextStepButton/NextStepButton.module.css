@@ -1,0 +1,9 @@
+.wrapNextStepBtn {
+  text-align: center;
+}
+.nextStepButton {
+  border: 1px solid rgb(230, 124, 38);
+  background-color: rgb(255, 115, 0);
+  color: white;
+  padding: 5px 20px;
+}
