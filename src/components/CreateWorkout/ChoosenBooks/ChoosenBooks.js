@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 import { ReactComponent as Deletelogo } from '../../../assets/icons/delete/delete-24px.svg';
 
+// eslint-disable-next-line no-unused-vars
 const ChosenBooks = ({ books }) => {
   return (
     <div className={styles.ChosenBooks}>
