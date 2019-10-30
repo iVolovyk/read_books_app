@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import styles from './WorkoutInfo.module.css';
 import BooksBase from '../../books.json';
@@ -52,6 +53,7 @@ export default class Timer extends Component {
                       checked={checked}
                       onChange={this.handleChange}
                     />
+
                     <span className={styles.fakeCheckbox} />
                     <span className={styles.bookHeadline}>{title}</span>
 

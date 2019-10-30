@@ -3,8 +3,6 @@
 }
 
 .formWrap {
-  /* width: 300px;
-  margin: 0 auto; */
 }
 
 .checkbox {
@@ -41,14 +39,10 @@
 }
 .bookInfo {
   list-style: none;
-  padding-top: 16px;
-  padding-bottom: 20px;
-  border-top: 1px solid #dfe6ec;
-  border-bottom: 1px solid #dfe6ec;
+
   margin-bottom: 16px;
 }
 .bookInfo:last-child {
-  /* margin-bottom: 35px; */
 }
 .bookInfo {
   color: #1c2534;
@@ -63,7 +57,6 @@
   line-height: 16px;
 }
 .authorsNameSername span {
-  padding-right: 40px;
 }
 .yearOfPublication span {
   padding-right: 60px;
@@ -75,7 +68,7 @@
   .notMobileHeadline {
     display: flex;
     color: #8890a1;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 13px;
   }
   .bookName {
@@ -95,9 +88,11 @@
   }
   .bookInfo {
     display: flex;
+    margin: 0;
   }
   .bookHeadline {
     width: 285px;
+
     margin-right: 22px;
   }
   .authorsNameSername {
