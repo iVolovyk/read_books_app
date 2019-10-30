@@ -6,10 +6,13 @@ class TrainingPage extends Component {
 
   render() {
     return (
-      <>
-        <h2>TrainingPage</h2>
+      <div className="container">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis,
+          saepe!
+        </p>
         <CreateWorkout />
-      </>
+      </div>
     );
   }
 }
