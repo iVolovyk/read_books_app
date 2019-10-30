@@ -1,170 +1,182 @@
 .ulBooks {
   font-weight: 600;
-  list-style: none;
-  line-height: 1.2rem;
   padding: 0;
 }
 .liBooks {
+  position: relative;
+  list-style: none;
   padding: 0 4rem;
   background-color: #ffffff;
   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
   padding: 1rem 3rem;
   margin-bottom: 1rem;
 }
-
-/* Name */
-.wrapName {
-  display: flex;
+.nameBody {
   position: relative;
 }
-.nameHead {
-}
-.nameBody {
-  line-height: 1.2rem;
-}
+
 .libLogo {
   position: absolute;
   width: 1rem;
   height: 1rem;
-  left: -2rem;
-  top: 0.25rem;
+  top: 20%;
+  left: 4%;
 }
-
-/* Author */
-.wrapAuthor {
-  display: flex;
+.wrapPenLogo {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #898f9f;
+  border-radius: 50%;
+  top: 50%;
+  right: 4%;
+  transform: translate(-50%, -50%);
 }
-.authorHead {
-  width: 40%;
+.wrapPenLogo:hover,
+.wrapPenLogo:active {
+  background-color: rgb(208, 214, 214);
 }
-.authorBody {
-  width: 60%;
+.penLogo {
+  position: absolute;
+  fill: #898f9f;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .authorBody:before {
-  width: 40%;
+  width: 100px;
   content: 'Автор:';
   display: inline-block;
 }
-@media (min-width: 768px) {
-  .authorbody: before;
-}
-
-/* Year */
-.wrapYear {
-  display: flex;
-}
-.yearHead {
-  width: 40%;
-}
-.yearBody {
-  width: 60%;
-}
 .yearBody:before {
-  width: 40%;
+  width: 100px;
   content: 'Рік:';
   display: inline-block;
 }
-
-/* Page */
-.wrapPage {
-  display: flex;
-}
-.pageHead {
-  width: 40%;
-}
-.pageBody {
-  width: 60%;
-}
 .pageBody:before {
-  width: 40%;
+  width: 100px;
   content: 'Сторінка:';
   display: inline-block;
 }
-
-/* Rating */
-.wrapRating {
-  display: none;
-}
-.ratingHead {
-  width: 40%;
-}
-.ratingBody {
-  width: 60%;
-}
-.wrapEditIcon {
-  display: none;
-}
-.title {
-  padding-right: 1rem;
+.authorBody:before,
+.yearBody:before,
+.pageBody:before {
   color: #898f9f;
 }
 
-/* ============= media 768 ===================== */
-
 @media (min-width: 768px) {
+  .wrapHead {
+    display: flex;
+    flex-direction: row;
+  }
+  .libLogo {
+    top: 30%;
+    left: 2%;
+  }
   .liBooks {
     display: flex;
-    position: relative;
+    flex-direction: row;
+    align-items: center;
   }
-
-  /* .libLogo {
-    right: 20rem;
-    top: 0.75rem;
-  } */
+  .liBooks:nth-child() {
+    padding-right: 15px;
+  }
 
   /* Name */
-  .wrapName {
-    flex-direction: column;
-    width: 45%;
-    padding-right: 1rem;
-  }
   .nameHead {
-    display: flex;
+    width: 240px;
+  }
+  .nameBody {
+    width: 180px;
+    padding: 0 10px;
   }
   /* Author */
-  .wrapAuthor {
-    width: 15%;
-    flex-direction: column;
+  .authorHead {
+    width: 100px;
+  }
+  .authorBody {
+    width: 100px;
+    padding: 0 10px;
   }
   /* Year */
-  .wrapYear {
-    width: 10%;
-    flex-direction: column;
+  .yearHead {
+    width: 90px;
+  }
+  .yearBody {
+    width: 90px;
+    padding: 0 10px;
   }
   /* Page */
-  .wrapPage {
-    width: 15%;
-    flex-direction: column;
+  .pageHead {
+    width: 90px;
   }
-  /* Rating */
-  .wrapRating {
-    display: block;
-    width: 10%;
-    flex-direction: column;
-    width: 2rem;
-    height: 2rem;
+  .pageBody {
+    width: 90px;
+    padding: 0 10px;
   }
 
-  /* Edit link */
-  .wrapEditIcon {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    border: 2px solid#898f9f;
-    border-radius: 50%;
-    right: 2rem;
-    top: 1.35rem;
+  /* Rating */
+  .ratingHead {
+    width: 70px;
   }
-  .wrapEditIcon:hover,
-  .wrapEditIcon:active {
-    background-color: rgb(208, 214, 214);
+  .ratingBody {
+    width: 70px;
+    padding: 0 10px;
   }
-  .editIcon {
-    fill: #898f9f;
-    width: 1.5rem;
-    height: 1.5rem;
+  .penLogo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .authorBody:before,
+  .yearBody:before,
+  .pageBody:before {
+    content: '';
+    display: none;
+  }
+  @media (min-width: 1028px) {
+    /* Name */
+    .nameHead {
+      width: 240px;
+    }
+    .nameBody {
+      width: 180px;
+      padding: 0 10px;
+    }
+    /* Author */
+    .authorHead {
+      width: 100px;
+    }
+    .authorBody {
+      width: 100px;
+      padding: 0 10px;
+    }
+    /* Year */
+    .yearHead {
+      width: 90px;
+    }
+    .yearBody {
+      width: 90px;
+      padding: 0 10px;
+    }
+    /* Page */
+    .pageHead {
+      width: 90px;
+    }
+    .pageBody {
+      width: 90px;
+      padding: 0 10px;
+    }
+
+    /* Rating */
+    .ratingHead {
+      width: 70px;
+    }
+    .ratingBody {
+      width: 70px;
+      padding: 0 10px;
+    }
   }
 }
