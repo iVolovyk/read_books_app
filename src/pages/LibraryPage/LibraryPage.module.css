@@ -5,11 +5,12 @@
   flex-direction: column;
   align-items: center;
   width: 300px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .library {
-    width: 680px;
+    width: 746px;
   }
 }
 

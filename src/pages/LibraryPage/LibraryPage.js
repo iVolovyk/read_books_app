@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { registration } from '../../redux/session/sessionOperations';
 import AddBook from '../../components/AddBook/AddBookContainer';
+import BookList from '../../components/BooksList/BoolksListContainer';
 import css from './LibraryPage.module.css';
-import SummeryModal from '../../components/SummeryModal/summeryModal';
 
 class LibraryPage extends Component {
   componentDidMount() {
@@ -19,13 +19,14 @@ class LibraryPage extends Component {
 
         <AddBook />
         <h3>Book List</h3>
+        <BookList />
         <h3>Summary Modal</h3>
       </div>
     );
   }
 }
 
-const mapStateToProps = _state => ({});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
   registration,
