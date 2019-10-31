@@ -26,7 +26,7 @@ class LibraryPage extends Component {
   }
 }
 
-const mapStateToProps = _state => ({});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
   registration,
