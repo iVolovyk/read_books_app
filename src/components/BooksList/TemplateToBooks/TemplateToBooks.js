@@ -31,9 +31,15 @@ const TemplateToBooks = list => {
             {/* {windowWidth >= tabletWidth && ( */}
             <>
               <div className={css.ratingBody}>
-                {/* <StarRatingComponent editing={false} starCount={5} value={value} /> */}
-                {el.rating <= 5 && `${el.rating}/5`}
-                {el.rating === undefined && `0/5`}
+                <StarRatingComponent
+                  name={el.id}
+                  className={css.starRatingComponent}
+                  editing={false}
+                  starCount={5}
+                  value={el.rating}
+                />
+                {/* {el.rating <= 5 && `${el.rating}/5`}
+                {el.rating === undefined && `0/5`} */}
               </div>
               <div className={css.wrapPenLogo}>
                 <PenLogo className={css.penLogo} />

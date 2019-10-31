@@ -13,6 +13,7 @@
 }
 .nameBody {
   position: relative;
+  padding: 10px 0;
 }
 
 .libLogo {
@@ -64,6 +65,8 @@
 .yearBody:before,
 .pageBody:before {
   color: #898f9f;
+}
+.starRatingComponent {
 }
 
 @media (min-width: 768px) {
