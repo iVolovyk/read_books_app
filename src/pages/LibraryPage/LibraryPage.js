@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// Google Login
+import queryString from 'query-string';
+import * as sessionActions from '../../redux/session/sessionActions';
+import logInWithGoogleOperation from '../../redux/session/sessionOperations';
 
-import { registration } from '../../redux/session/sessionOperations';
 import AddBook from '../../components/AddBook/AddBookContainer';
 
 class LibraryPage extends Component {
   componentDidMount() {
-    const { location } = this.props;
+    const { location, logInWithGoogle, logInWithGoogleHandler } = this.props;
     const search = queryString.parse(location.search);
-    console.log(search.token);
 
-    this.props.registration(this.props.location.search);
-    localStorage.setItem('token', this.props.location.search);
+    logInWithGoogle(search.token);
+    logInWithGoogleHandler();
   }
 
   render() {
@@ -24,10 +26,22 @@ class LibraryPage extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+// const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {
-  registration,
+// const mapDispatchToProps = {
+//   logInWithGoogle,
+//   logInWithGoogleOperation,
+// };
+
+const mapDispatchToProps = dispatch => ({
+  logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
+  logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
+});
+
+LibraryPage.propTypes = {
+  location: PropTypes.shape({}).isRequired,
+  logInWithGoogle: PropTypes.func.isRequired,
+  logInWithGoogleHandler: PropTypes.func.isRequired,
 };
 
 export default connect(
