@@ -1,13 +1,14 @@
-import { combineReducers } from 'redux';
 import { Type } from './loaderActions';
 
-const loaderReducer = (state = null, { type, payload }) => {
+const loaderReducer = (state = false, { type }) => {
   switch (type) {
     case Type.LOADER_ON:
-      return payload;
+      return true;
     case Type.LOADER_OFF:
-      return payload;
+      return false;
     default:
       return state;
   }
 };
+
+export default loaderReducer;

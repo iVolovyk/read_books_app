@@ -5,9 +5,7 @@ export const Type = {
 
 export const loaderOn = () => ({
   type: Type.LOADER_ON,
-  payload: true,
 });
 export const loaderOff = () => ({
   type: Type.LOADER_OFF,
-  payload: false,
 });
