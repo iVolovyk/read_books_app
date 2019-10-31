@@ -37,7 +37,7 @@ class AddBook extends Component {
   render() {
     const { title, author, year, pageNumber } = this.state;
     return (
-      <div className={css.container}>
+      <>
         <form className={css.form} onSubmit={this.handleSubmit}>
           <label htmlFor="Назва книги" className={css.label}>
             Назва книги
@@ -91,7 +91,7 @@ class AddBook extends Component {
             Додати
           </button>
         </form>
-      </div>
+      </>
     );
   }
 }
