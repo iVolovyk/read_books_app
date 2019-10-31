@@ -7,7 +7,7 @@ html {
 }
 
 ::selection {
-  background-color: rgba(231, 224, 26, .6);
+  background-color: rgba(231, 224, 26, 0.6);
 }
 
 *,
