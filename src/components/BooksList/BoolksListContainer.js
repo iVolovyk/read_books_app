@@ -3,6 +3,7 @@ import BooksList from './BooksList';
 // import { getPlaneReadBooks } from '../../redux/books/booksSelectors';git
 
 const mapStateToProps = state => ({
+  in: state,
   // readBooks: getReadBooks(state),
   // nowReadBooks: getNowReadBooks(state),
   // planeReadBooks: getPlaneReadBooks(state),
