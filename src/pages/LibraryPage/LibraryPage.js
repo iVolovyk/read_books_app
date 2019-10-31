@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { registration } from '../../redux/session/sessionOperations';
 import AddBook from '../../components/AddBook/AddBookContainer';
+import css from './LibraryPage.module.css';
 
 class LibraryPage extends Component {
   componentDidMount() {
@@ -11,8 +12,17 @@ class LibraryPage extends Component {
 
   render() {
     return (
-      <div>
-        <AddBook />
+
+      <div className={css.library}>
+      <h3>Header</h3>
+        <h2>LibraryPage</h2>
+        
+       <AddBook />
+        <h3>Book List</h3>
+        <h3>Summary Modal</h3>
+
+      
+
       </div>
     );
   }
