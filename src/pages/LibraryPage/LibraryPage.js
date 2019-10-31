@@ -38,7 +38,6 @@ class LibraryPage extends Component {
   };
 
   render() {
-
     const { title, author, year, pageNumber } = this.state;
     return (
       <div className={css.container}>
@@ -106,7 +105,6 @@ class LibraryPage extends Component {
           )}
         </Backdrop> */}
       </div>
-
     );
   }
 }

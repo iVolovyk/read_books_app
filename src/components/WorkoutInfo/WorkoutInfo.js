@@ -33,49 +33,51 @@ export default class Timer extends Component {
       <>
         {deviseWidth > mobileMaxWidth && (
           <div className={styles.headTable}>
-            <p className={styles.bookName}>Назва книги</p>
-            <p className={styles.authorName}>Автор</p>
-            <p className={styles.year}>Рік</p>
-            <p className={styles.pageNumber}>Стор.</p>
+            <p className={styles.bookNameTable}>Назва книги</p>
+            <p className={styles.authorNameTable}>Автор</p>
+            <p className={styles.yearTable}>Рік</p>
+            <p className={styles.pageNumberTable}>Стор.</p>
           </div>
         )}
 
         <div>
-          <ul className={styles.listBook}>
+          <ul className={styles.listBooks}>
             {books.map(({ title, author, year, pageNumber, checked, id }) => (
               <li key={id}>
-                <label className={styles.bookInfo}>
-                  <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    name={id}
-                    checked={checked}
-                    onChange={this.handleChange}
-                  />
+                <label>
+                  <div className={styles.itemBook}>
+                    <input
+                      className={styles.checkbox}
+                      type="checkbox"
+                      name={id}
+                      checked={checked}
+                      onChange={this.handleChange}
+                    />
 
-                  <span className={styles.fakeCheckbox} />
-                  <span className={styles.bookHeadline}>{title}</span>
+                    <p className={styles.fakeCheckbox} />
+                    <p className={styles.titleBook}>{title}</p>
 
-                  <p className={styles.authorsNameSername}>
-                    {deviseWidth < tabletWidth && (
-                      <span className={styles.mobileHeadline}>Автор:</span>
-                    )}
-                    {author}
-                  </p>
+                    <p className={styles.author}>
+                      {deviseWidth < tabletWidth && (
+                        <p className={styles.mobileHeadline}>Автор:</p>
+                      )}
+                      {author}
+                    </p>
 
-                  <p className={styles.yearOfPublication}>
-                    {deviseWidth < tabletWidth && (
-                      <span className={styles.mobileHeadline}>Рік:</span>
-                    )}
-                    {year}
-                  </p>
+                    <p className={styles.year}>
+                      {deviseWidth < tabletWidth && (
+                        <p className={styles.mobileHeadline}>Рік:</p>
+                      )}
+                      {year}
+                    </p>
 
-                  <p className={styles.numberOfBookPages}>
-                    {deviseWidth < tabletWidth && (
-                      <span className={styles.mobileHeadline}>Сторінок:</span>
-                    )}
-                    {pageNumber}
-                  </p>
+                    <p className={styles.pages}>
+                      {deviseWidth < tabletWidth && (
+                        <p className={styles.mobileHeadline}>Сторінок:</p>
+                      )}
+                      {pageNumber}
+                    </p>
+                  </div>
                 </label>
               </li>
             ))}

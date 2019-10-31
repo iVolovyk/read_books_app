@@ -1,26 +1,10 @@
-.checkbox {
-  display: none;
-}
-
-.fakeCheckbox {
-  /* display: inline-block; */
-  width: 18px;
-  height: 18px;
-  border: 0;
-  background-image: url('../../assets/icons/check/checkEmpty.png');
-}
-
-.checkbox:checked + .fakeCheckbox {
-  background-image: url('../../assets/icons/check/check.png');
-}
-
 .headTable {
   width: 100%;
   border-top: 1px solid #e0e5eb;
   border-bottom: 1px solid #e0e5eb;
 }
 
-.bookName {
+.bookNameTable {
   width: 49%;
   display: inline-block;
   font-family: 'Montserrat';
@@ -30,7 +14,7 @@
   margin: 3px 0;
 }
 
-.authorName {
+.authorNameTable {
   width: 25%;
   display: inline-block;
   font-family: 'Montserrat';
@@ -40,7 +24,7 @@
   margin: 3px 0;
 }
 
-.year {
+.yearTable {
   width: 13%;
   display: inline-block;
   font-family: 'Montserrat';
@@ -50,7 +34,7 @@
   margin: 3px 0;
 }
 
-.pageNumber {
+.pageNumberTable {
   width: 13%;
   display: inline-block;
   font-family: 'Montserrat';
@@ -58,4 +42,75 @@
   color: #898f9f;
   font-size: 13px;
   margin: 3px 0;
+}
+
+.listBooks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 168px;
+  overflow: scroll;
+}
+
+.checkbox {
+  display: none;
+}
+
+.fakeCheckbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 0;
+  background-image: url('../../assets/icons/check/checkEmpty.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkbox:checked + .fakeCheckbox {
+  background-image: url('../../assets/icons/check/check.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.itemBook {
+  font-family: 'Open Sans';
+  color: rgb(36, 42, 55);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.fakeCheckbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  margin-right: 17px;
+}
+
+.titleBook {
+  display: inline-block;
+  width: 44%;
+  margin: 0;
+}
+
+.author {
+  display: inline-block;
+  width: 25%;
+  margin: 0;
+}
+
+.year {
+  display: inline-block;
+  width: 13%;
+  margin: 0;
+}
+
+.pages {
+  display: inline-block;
+  margin: 0;
+}
+
+@media (min-width: 1279px) {
+  .titleBook {
+    width: 45%;
+  }
 }
