@@ -5,6 +5,7 @@ import CreateWorkout from '../../components/CreateWorkout/CreateWorkout';
 import Goal from '../../components/Goal/Goal';
 import Timer from '../../components/DablTimerContainer/DablTimerContainer';
 import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
+import Result from '../../components/Result/ResultConteiner';
 
 class TrainingPage extends Component {
   state = {};
@@ -35,7 +36,7 @@ class TrainingPage extends Component {
                     <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
                   </section>
                   <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#512' }}>Result</div>
+                    <Result />
                   </section>
                 </>
               ) : (
@@ -56,8 +57,8 @@ class TrainingPage extends Component {
                       <Goal />
                     </section>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#512' }}>Result</div>
-                    </section>{' '}
+                      <Result />
+                    </section>
                   </div>
                 </>
               )}
