@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LibraryPage from './LibraryPage';
+import AddBook from './AddBook';
 import { addBooks } from '../../redux/books/booksActions';
 
 const mapDispatchToProps = {
@@ -9,4 +9,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps,
-)(LibraryPage);
+)(AddBook);
