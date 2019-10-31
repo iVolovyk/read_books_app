@@ -4,7 +4,7 @@ import NowReadBooks from './NowReadBooks/NowReadBooks';
 import PlanRadeBooks from './PlanReadBooks/PlanReadBooks';
 import NextStepButton from './NextStepButton/NextStepButton';
 import StartHelper from './StartHelper/StartHelper';
-import SummeryModal from '../SummeryModal/summeryModal';
+import SummaryModal from '../SummaryModal/SummaryModal';
 import Backdrop from '../Backdrop/Backdrop';
 
 import listBooks from './toDeletebookList';
@@ -16,7 +16,7 @@ const BookList = () => (
     <NowReadBooks listBooks={listBooks.nowRead} />
     <PlanRadeBooks listBooks={listBooks.finishRead} />
 
-    <Backdrop isOpen>{({ onClose }) => <SummeryModal />}</Backdrop>
+    <Backdrop isOpen={false}>{({ onClose }) => <SummaryModal />}</Backdrop>
 
     <NextStepButton />
 

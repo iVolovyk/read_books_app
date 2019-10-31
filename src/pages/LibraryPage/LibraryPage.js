@@ -4,7 +4,6 @@ import { registration } from '../../redux/session/sessionOperations';
 import AddBook from '../../components/AddBook/AddBookContainer';
 import BookList from '../../components/BooksList/BoolksListContainer';
 import css from './LibraryPage.module.css';
-import SummeryModal from '../../components/SummeryModal/summeryModal';
 
 class LibraryPage extends Component {
   componentDidMount() {
