@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import style from './style.module.css';
+import style from './SummaryModal.module.css';
 
-class summeryModal extends Component {
+class SummaryModal extends Component {
   state = {
     rating: null,
   };
@@ -19,7 +19,7 @@ class summeryModal extends Component {
       <section className={style.sumModal}>
         <div className={style.stars}>
           <h2 className={style.headline}>
-            Обрати ретинг книги {!!rating && rating}
+            Обрати ретинг книги: {!!rating && rating}
           </h2>
 
           <StarRatingComponent
@@ -46,4 +46,4 @@ class summeryModal extends Component {
   }
 }
 
-export default summeryModal;
+export default SummaryModal;

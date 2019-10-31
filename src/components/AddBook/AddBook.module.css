@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-label {
+.form label {
   display: flex;
   flex-direction: column;
   font-family: Montserrat;
@@ -16,7 +16,7 @@ label {
   line-height: 30px;
 }
 
-input {
+.form input {
   padding: 6px;
   background-color: #ffffff;
   border: 1px solid #cdd1da;
@@ -52,7 +52,7 @@ input {
     margin-top: 20px;
   }
 
-  label:not(:last-child) {
+  .form label:not(:last-child) {
     margin-right: 20px;
   }
 
@@ -110,7 +110,7 @@ input {
     width: 150px;
   }
 
-  input {
+  .form input {
     padding: 10px;
   }
 }
