@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRatingComponent from 'react-star-rating-component';
 import css from './TemplateToBooks.module.css';
 import { ReactComponent as LibLogo } from '../../../assets/icons/library/menu_book-24px.svg';
 import { ReactComponent as PenLogo } from '../../../assets/icons/pen/create-24px.svg';
@@ -30,7 +31,7 @@ const TemplateToBooks = list => {
             {/* {windowWidth >= tabletWidth && ( */}
             <>
               <div className={css.ratingBody}>
-                {/* <RatingStars /> */}
+                {/* <StarRatingComponent editing={false} starCount={5} value={value} /> */}
                 {el.rating <= 5 && `${el.rating}/5`}
                 {el.rating === undefined && `0/5`}
               </div>
