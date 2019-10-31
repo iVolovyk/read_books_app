@@ -4,6 +4,10 @@ export const Type = {
   REGISTRATION_ERROR: 'REGISTRATION_ERROR',
 };
 
+/*
+ * Registration
+ */
+
 export const registrationStart = () => ({
   type: Type.REGISTRATION_START,
 });
@@ -12,5 +16,5 @@ export const registrationSuccess = data => ({
   payload: data,
 });
 export const registrationError = () => ({
-  type: Type.REGISTRATION_START,
+  type: Type.REGISTRATION_ERROR,
 });

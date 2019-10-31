@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { registrationStart, registrationSuccess } from './sessionActions';
+import {
+  registrationStart,
+  registrationSuccess,
+  registrationError,
+} from './sessionActions';
 
 export const registration = data => (dispatch, getStore) => {
   dispatch(registrationStart());

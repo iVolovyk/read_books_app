@@ -15,7 +15,15 @@ const authenticated = (state = false, { type, payload }) => {
   }
 };
 
+const token = (state = '', { type, payload }) => {
+  switch (type) {
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   user,
   authenticated,
+  token,
 });
