@@ -1,20 +1,18 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import css from './LibraryPage.module.css';
-
 import { registration } from '../../redux/session/sessionOperations';
 // import Backdrop from '../../components/Backdrop/Backdrop';
 
 class LibraryPage extends Component {
   state = { title: '', author: '', year: '', pageNumber: '' };
 
-  componentDidMount() {
-    this.props.registration(this.props.location.search);
-    localStorage.setItem('token', this.props.location.search);
-  }
+  // componentDidMount() {
+  //   const { location } = this.props;
+  //   this.registration(location.search);
+  //   localStorage.setItem('token', location.search);
+  // }
 
   resetState = () => {
     this.setState({
@@ -42,7 +40,7 @@ class LibraryPage extends Component {
     return (
       <div className={css.container}>
         <form className={css.form} onSubmit={this.handleSubmit}>
-          <label>
+          <label htmlFor="Назва книги">
             Назва книги
             <input
               placeholder="..."
@@ -55,7 +53,7 @@ class LibraryPage extends Component {
             />
           </label>
           <div className={css.tablet}>
-            <label>
+            <label htmlFor="Автор книги">
               Автор книги
               <input
                 placeholder="..."
@@ -66,7 +64,7 @@ class LibraryPage extends Component {
                 value={author}
               />
             </label>
-            <label>
+            <label htmlFor="Рік випуску">
               Рік випуску
               <input
                 placeholder="..."
@@ -77,7 +75,7 @@ class LibraryPage extends Component {
                 value={year}
               />
             </label>
-            <label>
+            <label htmlFor="Кількість сторінок">
               Кількість сторінок
               <input
                 placeholder="..."
@@ -112,8 +110,6 @@ class LibraryPage extends Component {
 LibraryPage.propTypes = {
   addBooks: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {
   registration,
