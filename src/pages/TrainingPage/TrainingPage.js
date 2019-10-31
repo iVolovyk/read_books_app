@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './TrainingPage.module.css';
 import CreateWorkout from '../../components/CreateWorkout/CreateWorkout';
+import Goal from '../../components/Goal/Goal';
+import Timer from '../../components/DablTimerContainer/DablTimerContainer';
+import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
 
 class TrainingPage extends Component {
   state = {};
@@ -20,13 +23,13 @@ class TrainingPage extends Component {
               {deviseWidth < desctopWidth ? (
                 <>
                   <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#98f' }}>Timer</div>
+                    <Timer />
                   </section>
                   <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#77f' }}>Goal</div>
+                    <Goal />
                   </section>
                   <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#fd7' }}>WorckoutInfo</div>
+                    <WorkoutInfo />
                   </section>
                   <section className={css.treningSection}>
                     <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
@@ -39,12 +42,10 @@ class TrainingPage extends Component {
                 <>
                   <div className={css.leftArea}>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#98f' }}>Timer</div>
+                      <Timer />
                     </section>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#fd7' }}>
-                        CreateWorckout
-                      </div>
+                      <WorkoutInfo />
                     </section>
                     <section className={css.treningSection}>
                       <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
@@ -52,7 +53,7 @@ class TrainingPage extends Component {
                   </div>
                   <div className={css.rightArea}>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#98f' }}>Goal</div>
+                      <Goal />
                     </section>
                     <section className={css.treningSection}>
                       <div style={{ backgroundColor: '#512' }}>Result</div>
