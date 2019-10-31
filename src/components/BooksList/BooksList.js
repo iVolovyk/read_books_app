@@ -6,7 +6,6 @@ import NextStepButton from './NextStepButton/NextStepButton';
 import StartHelper from './StartHelper/StartHelper';
 import SummaryModal from '../SummaryModal/SummaryModal';
 import Backdrop from '../Backdrop/Backdrop';
-
 import listBooks from './toDeletebookList';
 import css from './BooksList.module.css';
 
@@ -16,7 +15,7 @@ const BookList = () => (
     <NowReadBooks listBooks={listBooks.nowRead} />
     <PlanRadeBooks listBooks={listBooks.finishRead} />
 
-    <Backdrop isOpen={false}>{({ onClose }) => <SummaryModal />}</Backdrop>
+    <Backdrop isOpen>{({ onClose }) => <SummaryModal />}</Backdrop>
 
     <NextStepButton />
 
