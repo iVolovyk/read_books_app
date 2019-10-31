@@ -1,8 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import { addBookStart, addBookSuccess, addBookError } from './booksActions';
 import { addBookOnServer } from '../../services/api';
 
-export const addBook = book => dispatch => {
+const addBook = book => dispatch => {
   dispatch(addBookStart());
 
   addBookOnServer(book)
@@ -13,3 +12,5 @@ export const addBook = book => dispatch => {
       dispatch(addBookError(error));
     });
 };
+
+export default addBook;
