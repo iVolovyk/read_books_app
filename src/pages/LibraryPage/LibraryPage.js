@@ -7,6 +7,8 @@ import * as sessionActions from '../../redux/session/sessionActions';
 import logInWithGoogleOperation from '../../redux/session/sessionOperations';
 
 import AddBook from '../../components/AddBook/AddBookContainer';
+import BookList from '../../components/BooksList/BoolksListContainer';
+import css from './LibraryPage.module.css';
 
 class LibraryPage extends Component {
   componentDidMount() {
@@ -19,8 +21,14 @@ class LibraryPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className={css.library}>
+        <h3>Header</h3>
+        <h2>LibraryPage</h2>
+
         <AddBook />
+        <h3>Book List</h3>
+        <BookList />
+        <h3>Summary Modal</h3>
       </div>
     );
   }
@@ -38,8 +46,14 @@ const mapDispatchToProps = dispatch => ({
   logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
 });
 
+LibraryPage.defaultProps = {
+  location: {},
+};
+
 LibraryPage.propTypes = {
-  location: PropTypes.shape({}).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
   logInWithGoogle: PropTypes.func.isRequired,
   logInWithGoogleHandler: PropTypes.func.isRequired,
 };

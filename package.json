@@ -14,6 +14,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "react-select": "^3.0.8",
+    "react-star-rating-component": "^1.4.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^6.0.0",
@@ -55,5 +56,18 @@
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": ".lintstagedrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iVolovyk/read_books_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iVolovyk/read_books_app/issues"
+  },
+  "homepage": "https://github.com/iVolovyk/read_books_app#readme"
 }
