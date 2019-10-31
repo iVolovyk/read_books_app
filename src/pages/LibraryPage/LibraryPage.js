@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { registration } from '../../redux/session/sessionOperations';
+import SummeryModal from '../../components/SummeryModal/summeryModal';
 
 class LibraryPage extends Component {
   state = {};
@@ -11,7 +12,12 @@ class LibraryPage extends Component {
   }
 
   render() {
-    return <h2>LibraryPage</h2>;
+    return (
+      <>
+        <h2>LibraryPage</h2>
+        <SummeryModal />
+      </>
+    );
   }
 }
 
