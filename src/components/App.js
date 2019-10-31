@@ -13,7 +13,7 @@ function App() {
         <Route path="/registration" component={RegistrationPage} />
         <Route path="/library" component={LibraryPage} />
         <Route path="/training" component={TrainingPage} />
-        <Redirect to="/library" />
+        <Redirect to="/training" />
       </Switch>
     </>
   );
