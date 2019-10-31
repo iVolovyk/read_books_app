@@ -7,6 +7,8 @@ class summeryModal extends Component {
     rating: null,
   };
 
+  // onClose
+
   onStarClick = nextValue => {
     this.setState({ rating: nextValue });
   };
