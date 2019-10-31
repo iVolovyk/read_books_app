@@ -4,15 +4,6 @@ import css from './TemplateToBooks.module.css';
 import { ReactComponent as LibLogo } from '../../../assets/icons/library/menu_book-24px.svg';
 import { ReactComponent as PenLogo } from '../../../assets/icons/pen/create-24px.svg';
 
-// const TemplateToBooks = list => {
-
-//   return (
-
-//   );
-// };
-
-// export default TemplateToBooks;
-
 class TemplateToBooks extends Component {
   state = {};
 
