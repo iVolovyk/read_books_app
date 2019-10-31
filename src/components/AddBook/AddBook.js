@@ -39,7 +39,7 @@ class AddBook extends Component {
     return (
       <div className={css.container}>
         <form className={css.form} onSubmit={this.handleSubmit}>
-          <label htmlFor="Назва книги">
+          <label htmlFor="Назва книги" className={css.label}>
             Назва книги
             <input
               placeholder="..."
@@ -52,7 +52,7 @@ class AddBook extends Component {
             />
           </label>
           <div className={css.tablet}>
-            <label htmlFor="Автор книги">
+            <label htmlFor="Автор книги" className={css.label}>
               Автор книги
               <input
                 placeholder="..."
@@ -63,7 +63,7 @@ class AddBook extends Component {
                 value={author}
               />
             </label>
-            <label htmlFor="Рік випуску">
+            <label htmlFor="Рік випуску" className={css.label}>
               Рік випуску
               <input
                 placeholder="..."
@@ -74,7 +74,7 @@ class AddBook extends Component {
                 value={year}
               />
             </label>
-            <label htmlFor="Кількість сторінок">
+            <label htmlFor="Кількість сторінок" className={css.label}>
               Кількість сторінок
               <input
                 placeholder="..."

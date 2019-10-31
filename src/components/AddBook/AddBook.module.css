@@ -3,10 +3,9 @@
   flex-direction: column;
   justify-content: center;
   padding: 40px 40px;
-  margin: 0 auto;
 }
 
-label {
+.form label {
   display: flex;
   flex-direction: column;
   font-family: Montserrat;
@@ -16,7 +15,7 @@ label {
   line-height: 30px;
 }
 
-input {
+.form input {
   padding: 6px;
   background-color: #ffffff;
   border: 1px solid #cdd1da;
@@ -24,7 +23,7 @@ input {
 
 .button {
   width: 180px;
-  margin-top: 28px;
+  margin-top: 30px;
   background-color: #f5f7fa;
   font-family: Montserrat;
   font-weight: 500;
@@ -52,7 +51,7 @@ input {
     margin-top: 20px;
   }
 
-  label:not(:last-child) {
+  .form label:not(:last-child) {
     margin-right: 20px;
   }
 
@@ -74,7 +73,6 @@ input {
 
   .button {
     width: 180px;
-    padding: 8px;
   }
 }
 
@@ -110,7 +108,7 @@ input {
     width: 150px;
   }
 
-  input {
+  .form input {
     padding: 10px;
   }
 }
