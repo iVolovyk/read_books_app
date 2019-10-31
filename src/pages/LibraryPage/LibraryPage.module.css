@@ -13,7 +13,7 @@
   margin: 0 auto;
 }
 
-label {
+.form label {
   display: flex;
   flex-direction: column;
   font-family: Montserrat;
@@ -23,13 +23,13 @@ label {
   line-height: 30px;
 }
 
-input {
+.form input {
   padding: 6px;
   background-color: #ffffff;
   border: 1px solid #cdd1da;
 }
 
-.button {
+.form .button {
   width: 180px;
   margin-top: 28px;
   background-color: #f5f7fa;
@@ -43,7 +43,7 @@ input {
   margin-right: auto;
 }
 
-.button:hover {
+.form .button:hover {
   background-color: #ff9a17;
 }
 
@@ -59,7 +59,7 @@ input {
     margin-top: 20px;
   }
 
-  label:not(:last-child) {
+  .form label:not(:last-child) {
     margin-right: 20px;
   }
 
@@ -109,6 +109,7 @@ input {
   .author {
     width: 210px;
   }
+
   .year {
     width: 110px;
   }
@@ -117,7 +118,7 @@ input {
     width: 150px;
   }
 
-  input {
+  .form input {
     padding: 10px;
   }
 }

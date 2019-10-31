@@ -28,13 +28,20 @@
     "react/state-in-constructor": 0,
     "no-console": 1,
     "linebreak-style": ["error", "unix"],
-    "react/jsx-filename-extension": [1, {
-      "extensions": [".js", ".jsx"]
-    }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
     "jsx-a11y/no-onchange": 0,
-    "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": true
-    }],
+    "jsx-a11y/label-has-associated-control": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
     "react/destructuring-assignment": [
       2,
       "always",

@@ -11,39 +11,24 @@ class TrainingPage extends Component {
   state = {};
 
   render() {
-    const desctopWidth = 1228;
+    const desctopWidth = 1280;
     const deviseWidth = document.documentElement.clientWidth;
 
     const { goal, openmodal } = this.props;
 
     return (
-      <main className="container">
-        <div className={css.trainingPageWrapper}>
-          {goal ? (
-            <>
-              {deviseWidth < desctopWidth ? (
-                <>
-                  <section className={css.treningSection}>
-                    <Timer />
-                  </section>
-                  <section className={css.treningSection}>
-                    <Goal />
-                  </section>
-                  <section className={css.treningSection}>
-                    <WorkoutInfo />
-                  </section>
-                  <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
-                  </section>
-                  <section className={css.treningSection}>
-                    <Result />
-                  </section>
-                </>
-              ) : (
-                <>
-                  <div className={css.leftArea}>
+      <main className={css.mainblok}>
+        <div className="container">
+          <div className={css.trainingPageWrapper}>
+            {goal ? (
+              <>
+                {deviseWidth < desctopWidth ? (
+                  <>
                     <section className={css.treningSection}>
                       <Timer />
+                    </section>
+                    <section className={css.treningSection}>
+                      <Goal />
                     </section>
                     <section className={css.treningSection}>
                       <WorkoutInfo />
@@ -51,53 +36,70 @@ class TrainingPage extends Component {
                     <section className={css.treningSection}>
                       <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
                     </section>
-                  </div>
-                  <div className={css.rightArea}>
-                    <section className={css.treningSection}>
-                      <Goal />
-                    </section>
                     <section className={css.treningSection}>
                       <Result />
                     </section>
-                  </div>
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              {deviseWidth < desctopWidth ? (
-                <>
-                  <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#98f' }}>Goal</div>
-                  </section>
-                  <section className={css.treningSection}>
-                    <CreateWorkout />
-                  </section>
-                  <section className={css.treningSection}>
-                    <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
-                  </section>
-                </>
-              ) : (
-                <>
-                  <div className={css.leftArea}>
+                  </>
+                ) : (
+                  <>
+                    <div className={css.leftArea}>
+                      <section className={css.treningSection}>
+                        <Timer />
+                      </section>
+                      <section className={css.treningSection}>
+                        <WorkoutInfo />
+                      </section>
+                      <section className={css.treningSection}>
+                        <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
+                      </section>
+                    </div>
+                    <div className={css.rightArea}>
+                      <section className={css.treningSection}>
+                        <Goal />
+                      </section>
+                      <section className={css.treningSection}>
+                        <Result />
+                      </section>
+                    </div>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                {deviseWidth < desctopWidth ? (
+                  <>
+                    <section className={css.treningSection}>
+                      <div style={{ backgroundColor: '#98f' }}>Goal</div>
+                    </section>
                     <section className={css.treningSection}>
                       <CreateWorkout />
                     </section>
                     <section className={css.treningSection}>
                       <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
                     </section>
-                  </div>
-                  <div className={css.rightArea}>
-                    <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#98f' }}>Goal</div>
-                    </section>
-                  </div>
-                </>
-              )}
-            </>
-          )}
+                  </>
+                ) : (
+                  <>
+                    <div className={css.leftArea}>
+                      <section className={css.treningSection}>
+                        <CreateWorkout />
+                      </section>
+                      <section className={css.treningSection}>
+                        <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
+                      </section>
+                    </div>
+                    <div className={css.rightArea}>
+                      <section className={css.treningSection}>
+                        <div style={{ backgroundColor: '#98f' }}>Goal</div>
+                      </section>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
+          </div>
+          {openmodal && <p>Модал Конгратс</p>}
         </div>
-        {openmodal && <p>Модал Конгратс</p>}
       </main>
     );
   }

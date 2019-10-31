@@ -6,6 +6,10 @@
   padding-top: 33px;
 }
 
+.mainblok {
+  background-color: #f5f7fa;
+}
+
 @media screen and (min-width: 1280px) {
   .trainingPageWrapper {
     padding-top: 36px;
