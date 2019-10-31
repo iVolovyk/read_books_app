@@ -13,11 +13,6 @@ function App() {
         <Route path="/registration" component={RegistrationPage} />
         <Route path="/library" component={LibraryPage} />
         <Route path="/training" component={TrainingPage} />
-        {/* <ProtectedRoute
-            path="/dashboard"
-            component={TrainingPage}
-            redirectTo="/login"
-          /> */}
         <Redirect to="/training" />
       </Switch>
     </>

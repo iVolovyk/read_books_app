@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { registration } from '../../redux/session/sessionOperations';
+import AddBook from '../../components/AddBook/AddBookContainer';
+import css from './LibraryPage.module.css';
 import SummeryModal from '../../components/SummeryModal/summeryModal';
 
 class LibraryPage extends Component {
-  state = {};
-
   componentDidMount() {
     this.props.registration(this.props.location.search);
     localStorage.setItem('token', this.props.location.search);
@@ -13,15 +13,19 @@ class LibraryPage extends Component {
 
   render() {
     return (
-      <>
+      <div className={css.library}>
+        <h3>Header</h3>
         <h2>LibraryPage</h2>
-        <SummeryModal />
-      </>
+
+        <AddBook />
+        <h3>Book List</h3>
+        <h3>Summary Modal</h3>
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = _state => ({});
 
 const mapDispatchToProps = {
   registration,
