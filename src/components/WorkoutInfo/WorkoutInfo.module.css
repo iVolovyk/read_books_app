@@ -1,16 +1,9 @@
-.checkText {
-  font-size: 15px;
-}
-
-.formWrap {
-}
-
 .checkbox {
   display: none;
 }
 
 .fakeCheckbox {
-  display: inline-block;
+  /* display: inline-block; */
   width: 18px;
   height: 18px;
   border: 0;
@@ -21,99 +14,48 @@
   background-image: url('../../assets/icons/check/check.png');
 }
 
-.ulBooks {
-  list-style: none;
-  padding: 0;
+.headTable {
+  width: 100%;
+  border-top: 1px solid #e0e5eb;
+  border-bottom: 1px solid #e0e5eb;
 }
 
-.ChosenBooks {
-  width: 100%;
-}
-
-.ChosenBooks {
-  width: 100%;
-}
-.bookList {
-  padding: 0px 20px;
-  width: 100%;
-}
-.bookInfo {
-  list-style: none;
-
-  margin-bottom: 16px;
-}
-.bookInfo:last-child {
-}
-.bookInfo {
-  color: #1c2534;
-  font-family: 'open sans';
+.bookName {
+  width: 49%;
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #898f9f;
   font-size: 13px;
-  line-height: 16px;
+  margin: 3px 0;
 }
-.mobileHeadline {
-  color: #8890a1;
-  font-family: 'open sans';
-  font-size: 13px;
-  line-height: 16px;
-}
-.authorsNameSername span {
-}
-.yearOfPublication span {
-  padding-right: 60px;
-}
-.numberOfBookPages span {
-  padding-right: 22px;
-}
-@media (min-width: 768px) {
-  .notMobileHeadline {
-    display: flex;
-    color: #8890a1;
-    font-family: 'Montserrat';
-    font-size: 13px;
-  }
-  .bookName {
-    padding-right: 240px;
-  }
-  .authorName {
-    padding-right: 120px;
-  }
-  .year {
-    padding-right: 60px;
-  }
-  .pageNumber {
-    padding-right: 62px;
-  }
-  .bookList {
-    padding: 0px;
-  }
-  .bookInfo {
-    display: flex;
-    margin: 0;
-  }
-  .bookHeadline {
-    width: 285px;
 
-    margin-right: 22px;
-  }
-  .authorsNameSername {
-    width: 145px;
-    margin-right: 14px;
-  }
-  .yearOfPublication {
-    width: 100px;
-    margin-right: 0px;
-  }
-  .numberOfBookPages {
-    width: 30px;
-    margin-right: 26px;
-  }
-  .delete {
-    width: 80px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  .libraryIcon {
-    width: 40px;
-    margin-top: 10px;
-  }
+.authorName {
+  width: 25%;
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #898f9f;
+  font-size: 13px;
+  margin: 3px 0;
+}
+
+.year {
+  width: 13%;
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #898f9f;
+  font-size: 13px;
+  margin: 3px 0;
+}
+
+.pageNumber {
+  width: 13%;
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #898f9f;
+  font-size: 13px;
+  margin: 3px 0;
 }

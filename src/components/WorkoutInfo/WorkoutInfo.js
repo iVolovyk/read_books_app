@@ -32,56 +32,54 @@ export default class Timer extends Component {
     return (
       <>
         {deviseWidth > mobileMaxWidth && (
-          <div className={styles.notMobileHeadline}>
-            <p className={styles.bookName}>Назва Книги</p>
+          <div className={styles.headTable}>
+            <p className={styles.bookName}>Назва книги</p>
             <p className={styles.authorName}>Автор</p>
             <p className={styles.year}>Рік</p>
-            <p className={styles.pageNumber}>Сторінок</p>
+            <p className={styles.pageNumber}>Стор.</p>
           </div>
         )}
 
-        <div className={styles.formWrap}>
-          <form>
-            <ul className={styles.ulBooks}>
-              {books.map(({ title, author, year, pageNumber, checked, id }) => (
-                <li key={id}>
-                  <label className={styles.bookInfo}>
-                    <input
-                      className={styles.checkbox}
-                      type="checkbox"
-                      name={id}
-                      checked={checked}
-                      onChange={this.handleChange}
-                    />
+        <div>
+          <ul className={styles.listBook}>
+            {books.map(({ title, author, year, pageNumber, checked, id }) => (
+              <li key={id}>
+                <label className={styles.bookInfo}>
+                  <input
+                    className={styles.checkbox}
+                    type="checkbox"
+                    name={id}
+                    checked={checked}
+                    onChange={this.handleChange}
+                  />
 
-                    <span className={styles.fakeCheckbox} />
-                    <span className={styles.bookHeadline}>{title}</span>
+                  <span className={styles.fakeCheckbox} />
+                  <span className={styles.bookHeadline}>{title}</span>
 
-                    <p className={styles.authorsNameSername}>
-                      {deviseWidth < tabletWidth && (
-                        <span className={styles.mobileHeadline}>Автор:</span>
-                      )}
-                      {author}
-                    </p>
+                  <p className={styles.authorsNameSername}>
+                    {deviseWidth < tabletWidth && (
+                      <span className={styles.mobileHeadline}>Автор:</span>
+                    )}
+                    {author}
+                  </p>
 
-                    <p className={styles.yearOfPublication}>
-                      {deviseWidth < tabletWidth && (
-                        <span className={styles.mobileHeadline}>Рік:</span>
-                      )}
-                      {year}
-                    </p>
+                  <p className={styles.yearOfPublication}>
+                    {deviseWidth < tabletWidth && (
+                      <span className={styles.mobileHeadline}>Рік:</span>
+                    )}
+                    {year}
+                  </p>
 
-                    <p className={styles.numberOfBookPages}>
-                      {deviseWidth < tabletWidth && (
-                        <span className={styles.mobileHeadline}>Сторінок:</span>
-                      )}
-                      {pageNumber}
-                    </p>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </form>
+                  <p className={styles.numberOfBookPages}>
+                    {deviseWidth < tabletWidth && (
+                      <span className={styles.mobileHeadline}>Сторінок:</span>
+                    )}
+                    {pageNumber}
+                  </p>
+                </label>
+              </li>
+            ))}
+          </ul>
         </div>
       </>
     );

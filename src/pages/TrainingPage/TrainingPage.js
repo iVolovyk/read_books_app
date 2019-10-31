@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './TrainingPage.module.css';
 import CreateWorkout from '../../components/CreateWorkout/CreateWorkout';
-
-import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
 import Goal from '../../components/Goal/Goal';
-import DabTimerContainer from '../../components/DablTimerContainer/DablTimerContainer';
+import Timer from '../../components/DablTimerContainer/DablTimerContainer';
+import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
 
 class TrainingPage extends Component {
   state = {};
@@ -24,7 +23,7 @@ class TrainingPage extends Component {
               {deviseWidth < desctopWidth ? (
                 <>
                   <section className={css.treningSection}>
-                    <DabTimerContainer />
+                    <Timer />
                   </section>
                   <section className={css.treningSection}>
                     <Goal />
@@ -43,7 +42,7 @@ class TrainingPage extends Component {
                 <>
                   <div className={css.leftArea}>
                     <section className={css.treningSection}>
-                      <DabTimerContainer />
+                      <Timer />
                     </section>
                     <section className={css.treningSection}>
                       <WorkoutInfo />

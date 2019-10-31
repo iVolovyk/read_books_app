@@ -4,7 +4,7 @@ import styles from './Goal.module.css';
 
 const Goal = ({ dateOne, dateToo }) => {
   return (
-    <section className="box1">
+    <section className={styles.box}>
       <div className={styles.boxTitle}>Моя мета прочитати</div>
       <ul className={styles.boxCounter}>
         <li className={styles.boxCounterItem}>
