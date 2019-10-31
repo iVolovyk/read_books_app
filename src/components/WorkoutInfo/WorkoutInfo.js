@@ -43,7 +43,7 @@ export default class Timer extends Component {
         <div>
           <ul className={styles.listBooks}>
             {books.map(({ title, author, year, pageNumber, checked, id }) => (
-              <li key={id}>
+              <li key={id} className={styles.liBookBorder}>
                 <label>
                   <div className={styles.itemBook}>
                     <input
@@ -59,21 +59,21 @@ export default class Timer extends Component {
 
                     <p className={styles.author}>
                       {deviseWidth < tabletWidth && (
-                        <p className={styles.mobileHeadline}>Автор:</p>
+                        <p className={styles.titleAuthor}>Автор:</p>
                       )}
                       {author}
                     </p>
 
                     <p className={styles.year}>
                       {deviseWidth < tabletWidth && (
-                        <p className={styles.mobileHeadline}>Рік:</p>
+                        <p className={styles.titleYear}>Рік:</p>
                       )}
                       {year}
                     </p>
 
                     <p className={styles.pages}>
                       {deviseWidth < tabletWidth && (
-                        <p className={styles.mobileHeadline}>Сторінок:</p>
+                        <p className={styles.titlePages}>Стор.:</p>
                       )}
                       {pageNumber}
                     </p>

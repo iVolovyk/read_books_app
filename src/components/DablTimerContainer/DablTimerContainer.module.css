@@ -1,6 +1,18 @@
-.timersWraper {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-wrap: wrap;
+@media (max-width: 767px) {
+  .timersWraper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .timersWraper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .timer {
+    display: inline-block;
+    margin-right: 500px;
+    margin-left: 500px;
+  }
 }
