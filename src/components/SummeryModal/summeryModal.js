@@ -19,7 +19,7 @@ class summeryModal extends Component {
       <section className={style.sumModal}>
         <div className={style.stars}>
           <h2 className={style.headline}>
-            Обрати ретинг книги {!!rating && rating}
+            Обрати ретинг книги: {!!rating && rating}
           </h2>
 
           <StarRatingComponent
