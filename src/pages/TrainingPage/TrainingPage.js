@@ -6,6 +6,7 @@ import Goal from '../../components/Goal/Goal';
 import Timer from '../../components/DablTimerContainer/DablTimerContainer';
 import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
 import Result from '../../components/Result/ResultConteiner';
+import Schedule from '../../components/Schedule/ScheduleConteiner';
 
 class TrainingPage extends Component {
   state = {};
@@ -34,7 +35,7 @@ class TrainingPage extends Component {
                       <WorkoutInfo />
                     </section>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
+                      <Schedule />
                     </section>
                     <section className={css.treningSection}>
                       <Result />
@@ -50,7 +51,7 @@ class TrainingPage extends Component {
                         <WorkoutInfo />
                       </section>
                       <section className={css.treningSection}>
-                        <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
+                        <Schedule />
                       </section>
                     </div>
                     <div className={css.rightArea}>
@@ -75,17 +76,19 @@ class TrainingPage extends Component {
                       <CreateWorkout />
                     </section>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
+                      <Schedule />
                     </section>
                   </>
                 ) : (
                   <>
                     <div className={css.leftArea}>
                       <section className={css.treningSection}>
-                        <CreateWorkout />
+                        <div style={{ backgroundColor: '#98f' }}>
+                          <CreateWorkout />
+                        </div>
                       </section>
                       <section className={css.treningSection}>
-                        <div style={{ backgroundColor: '#9dd' }}>Schedule</div>
+                        <Schedule />
                       </section>
                     </div>
                     <div className={css.rightArea}>

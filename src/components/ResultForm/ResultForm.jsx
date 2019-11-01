@@ -23,7 +23,7 @@ class ResultForm extends Component {
 
   handleChange = e => {
     this.setState({
-      pagesRead: e.target.value,
+      pagesRead: Number(e.target.value),
     });
   };
 
@@ -93,5 +93,9 @@ class ResultForm extends Component {
     );
   }
 }
+
+ResultForm.propTypes = {
+  onSetResult: PropTypes.func.isRequired,
+};
 
 export default ResultForm;

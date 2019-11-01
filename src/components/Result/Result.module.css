@@ -13,6 +13,31 @@
   text-align: center;
   padding: 0;
   margin: 0 0 15px 0;
+  position: relative;
+}
+
+.result_title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 75px;
+  height: 1px;
+  background-color: rgb(223, 230, 236);
+}
+
+.result_title::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 75px;
+  height: 1px;
+  background-color: rgb(223, 230, 236);
 }
 
 .resTime {
