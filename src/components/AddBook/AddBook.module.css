@@ -1,0 +1,116 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 40px;
+  margin: 0 auto;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #898f9f;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.form input {
+  padding: 6px;
+  background-color: #ffffff;
+  border: 1px solid #cdd1da;
+}
+
+.button {
+  width: 180px;
+  margin-top: 28px;
+  background-color: #f5f7fa;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 13px;
+  border: 1px solid #00183e;
+  outline-color: none;
+  padding: 6px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button:hover {
+  background-color: #ff9a17;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 680px;
+    max-width: 100%;
+  }
+
+  .tablet {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
+
+  .form label:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .title {
+    width: 560px;
+  }
+
+  .author {
+    width: 270px;
+  }
+
+  .year {
+    width: 116px;
+  }
+
+  .pageNumber {
+    width: 134px;
+  }
+
+  .button {
+    width: 180px;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 1264px) {
+  .container {
+    width: 1228px;
+    max-width: 100%;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tablet {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .title {
+    width: 380px;
+  }
+
+  .author {
+    width: 210px;
+  }
+  .year {
+    width: 110px;
+  }
+
+  .pageNumber {
+    width: 150px;
+  }
+
+  .form input {
+    padding: 10px;
+  }
+}

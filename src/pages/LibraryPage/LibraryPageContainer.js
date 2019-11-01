@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import LibraryPage from './LibraryPage';
-import { addBooks } from '../../redux/books/booksActions';
 
-const mapDispatchToProps = {
-  addBooks,
-};
+// const mapStateToProps = state => ({});
 
-export default connect(
+const mapDispatchToProps = {};
+
+const LibraryPageContainer = connect(
   null,
   mapDispatchToProps,
 )(LibraryPage);
+
+export default LibraryPageContainer;

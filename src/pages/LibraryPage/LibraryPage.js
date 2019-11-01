@@ -1,122 +1,61 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// Google Login
+import queryString from 'query-string';
+import * as sessionActions from '../../redux/session/sessionActions';
+import logInWithGoogleOperation from '../../redux/session/sessionOperations';
+
+import AddBook from '../../components/AddBook/AddBookContainer';
+import BookList from '../../components/BooksList/BoolksListContainer';
 import css from './LibraryPage.module.css';
 
-import { registration } from '../../redux/session/sessionOperations';
-// import Backdrop from '../../components/Backdrop/Backdrop';
-
 class LibraryPage extends Component {
-  state = { title: '', author: '', year: '', pageNumber: '' };
-
   componentDidMount() {
-    this.props.registration(this.props.location.search);
-    localStorage.setItem('token', this.props.location.search);
+    const { location, logInWithGoogle, logInWithGoogleHandler } = this.props;
+    const search = queryString.parse(location.search);
+
+    logInWithGoogle(search.token);
+    logInWithGoogleHandler();
   }
 
-  resetState = () => {
-    this.setState({
-      title: '',
-      author: '',
-      year: '',
-
-      pageNumber: '',
-    });
-  };
-
-  handleSubmit = evt => {
-    evt.preventDefault();
-    this.props.addBooks(this.state);
-    this.resetState();
-  };
-
-  handleChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  };
-
   render() {
-    const { title, author, year, pageNumber } = this.state;
     return (
-      <div className={css.container}>
-        <form className={css.form} onSubmit={this.handleSubmit}>
-          <label>
-            Назва книги
-            <input
-              placeholder="..."
-              className={css.title}
-              onChange={this.handleChange}
-              type="text"
-              name="title"
-              value={title}
-              required
-            />
-          </label>
-          <div className={css.tablet}>
-            <label>
-              Автор книги
-              <input
-                placeholder="..."
-                className={css.author}
-                onChange={this.handleChange}
-                type="text"
-                name="author"
-                value={author}
-              />
-            </label>
-            <label>
-              Рік випуску
-              <input
-                placeholder="..."
-                className={css.year}
-                onChange={this.handleChange}
-                type="number"
-                name="year"
-                value={year}
-              />
-            </label>
-            <label>
-              Кількість сторінок
-              <input
-                placeholder="..."
-                className={css.pageNumber}
-                onChange={this.handleChange}
-                type="number"
-                name="pageNumber"
-                value={pageNumber}
-                required
-              />
-            </label>
-          </div>
-          <button type="submit" className={css.button}>
-            Додати
-          </button>
-        </form>
-        {/* <Backdrop isOpen>
-          {({ onClose }) => (
-            <p>
-              Сюда поместить свой компонент!!!
-              <button type="button" onClick={onClose}>
-                ok
-              </button>
-            </p>
-          )}
-        </Backdrop> */}
+      <div className={css.library}>
+        <h3>Header</h3>
+        <h2>LibraryPage</h2>
+
+        <AddBook />
+        <h3>Book List</h3>
+        <BookList />
+        <h3>Summary Modal</h3>
       </div>
     );
   }
 }
 
-LibraryPage.propTypes = {
-  addBooks: PropTypes.func.isRequired,
+// const mapStateToProps = state => ({});
+
+// const mapDispatchToProps = {
+//   logInWithGoogle,
+//   logInWithGoogleOperation,
+// };
+
+const mapDispatchToProps = dispatch => ({
+  logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
+  logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
+});
+
+LibraryPage.defaultProps = {
+  location: {},
 };
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = {
-  registration,
+LibraryPage.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+  logInWithGoogle: PropTypes.func.isRequired,
+  logInWithGoogleHandler: PropTypes.func.isRequired,
 };
 
 export default connect(

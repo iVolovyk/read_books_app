@@ -1,8 +1,19 @@
-import axios from 'axios';
-import { registrationStart, registrationSuccess } from './sessionActions';
+// import * as sessionSelectors from './sessionSelectors';
+import { getUserWithGoogle, getUserError } from './sessionActions';
+import * as api from '../../services/api';
 
-export const registration = data => (dispatch, getStore) => {
-  dispatch(registrationStart());
-  dispatch(registrationSuccess(data));
-  console.log(getStore());
+const logInWithGoogleOperation = () => (dispatch, getStore) => {
+  const { token } = getStore().session;
+  if (!token) {
+    return;
+  }
+  api
+    .getUserByToken(token)
+    .then(response => dispatch(getUserWithGoogle(response.data.user)))
+    .catch(error => {
+      dispatch(getUserError(error));
+    })
+    .finally();
 };
+
+export default logInWithGoogleOperation;
