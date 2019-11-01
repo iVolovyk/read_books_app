@@ -4,7 +4,7 @@ import css from '../BooksList.module.css';
 
 const PlanReadBooks = list => (
   <>
-    <h2 className={css.titleTable}>Маю намір прочитати</h2>
+    <h2 className={css.titleReadBooks}>Маю намір прочитати</h2>
     <TemplateToBooks list={list} />
   </>
 );
