@@ -30,11 +30,9 @@ class LibraryPage extends Component {
     return (
       <div>
         <HeaderContainer name="Martha Stewart" />
-        <main className="container">
+        <main className={css.containerLibraryPage}>
           <div className={css.library}>
-            <h2>LibraryPage</h2>
             <AddBook />
-            <h3>Book List</h3>
             <BookList />
             <h3>Summary Modal</h3>
           </div>

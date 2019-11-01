@@ -58,6 +58,6 @@ export default Header;
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
-  logout: PropTypes.func.isRequired,
+  logout: PropTypes.bool.isRequired,
   setLogout: PropTypes.func.isRequired,
 };

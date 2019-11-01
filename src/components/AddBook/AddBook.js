@@ -25,8 +25,8 @@ class AddBook extends Component {
     const { title, author, year, pagesCount } = this.state;
     return (
       <>
-        <form className={css.form} onSubmit={this.handleSubmit}>
-          <label htmlFor="Назва книги" className={css.label}>
+        <form className={css.formAddBook} onSubmit={this.handleSubmit}>
+          <label htmlFor="Назва книги">
             Назва книги
             <input
               placeholder="..."
@@ -39,7 +39,7 @@ class AddBook extends Component {
             />
           </label>
           <div className={css.tablet}>
-            <label htmlFor="Автор книги" className={css.label}>
+            <label htmlFor="Автор книги">
               Автор книги
               <input
                 placeholder="..."
@@ -50,7 +50,7 @@ class AddBook extends Component {
                 value={author}
               />
             </label>
-            <label htmlFor="Рік випуску" className={css.label}>
+            <label htmlFor="Рік випуску">
               Рік випуску
               <input
                 placeholder="..."
@@ -63,7 +63,7 @@ class AddBook extends Component {
                 value={year}
               />
             </label>
-            <label htmlFor="Кількість сторінок" className={css.label}>
+            <label htmlFor="Кількість сторінок">
               Кількість сторінок
               <input
                 placeholder="..."
@@ -77,7 +77,7 @@ class AddBook extends Component {
               />
             </label>
           </div>
-          <button type="submit" className={css.button}>
+          <button type="submit" className={css.buttonAddBook}>
             Додати
           </button>
         </form>
