@@ -5,28 +5,15 @@ import css from './AddBook.module.css';
 class AddBook extends Component {
   state = { title: '', author: '', year: '', pagesCount: '' };
 
-  resetState = () => {
+  handleSubmit = evt => {
+    evt.preventDefault();
+    this.props.addBook(this.state);
     this.setState({
       title: '',
       author: '',
       year: '',
       pagesCount: '',
     });
-  };
-
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const { title, author, year, pagesCount } = this.state;
-    const newBook = {
-      title,
-      author,
-      year: Number(year),
-      pagesCount: Number(pagesCount),
-      comment: 'enter your comment... ',
-      rating: 1,
-    };
-    this.props.addBook(newBook);
-    this.resetState();
   };
 
   handleChange = ({ target }) => {
@@ -80,7 +67,7 @@ class AddBook extends Component {
               Кількість сторінок
               <input
                 placeholder="..."
-                className={css.pageNumber}
+                className={css.pagesCount}
                 onChange={this.handleChange}
                 type="number"
                 min="1"
