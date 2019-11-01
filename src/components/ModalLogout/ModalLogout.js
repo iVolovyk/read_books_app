@@ -32,7 +32,12 @@ const ModalLogout = ({ setLogout }) => {
     </div>
   );
 
-  return <Backdrop isOpen>{(/* { onClose } */) => modal}</Backdrop>;
+  // eslint-disable-next-line no-unused-vars
+  return <Backdrop isOpen>{({ onClose }) => modal}</Backdrop>;
+};
+
+ModalLogout.propTypes = {
+  setLogout: PropTypes.func.isRequired,
 };
 
 export default ModalLogout;

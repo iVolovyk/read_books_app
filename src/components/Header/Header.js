@@ -54,6 +54,12 @@ const Header = ({ name, logout, setLogout }) => {
   );
 };
 
+Header.propTypes = {
+  name: PropTypes.string.isRequired,
+  logout: PropTypes.bool.isRequired,
+  setLogout: PropTypes.func.isRequired,
+};
+
 export default Header;
 
 Header.propTypes = {
