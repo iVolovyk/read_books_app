@@ -10,7 +10,7 @@ const user = (state = null, { type, payload }) => {
   }
 };
 
-const authenticated = (state = false, { type, payload }) => {
+const authenticated = (state = false, { type }) => {
   switch (type) {
     case Type.LOGIN_WITH_GOOGLE:
       return true;
