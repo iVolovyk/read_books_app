@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
 import { Type } from './controlsActions';
 
-const modalLogoutOpenReducer = (state = false, { type, payload }) => {
-  switch (type) {
+const modalLogoutOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case Type.SET_LOGOUT:
+      return action.logoutIndicator;
+
     default:
       return state;
   }
