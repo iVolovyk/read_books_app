@@ -28,6 +28,8 @@
   width: 2rem;
   height: 2rem;
   border: 2px solid #898f9f;
+  background-color: white;
+  outline: none;
   border-radius: 50%;
   top: 50%;
   right: 4%;
