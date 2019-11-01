@@ -4,10 +4,12 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import LibraryPage from '../pages/LibraryPage/LibraryPage';
 import TrainingPage from '../pages/TrainingPage/TrainingPageConteiner';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
+import HeaderContainer from './Header/HeaderContainer';
 
 function App() {
   return (
     <>
+      <HeaderContainer name="Martha Stewart" />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/registration" component={RegistrationPage} />
