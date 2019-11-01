@@ -13,15 +13,21 @@ import css from './LibraryPage.module.css';
 class LibraryPage extends Component {
   componentDidMount() {
     const { location, logInWithGoogle, logInWithGoogleHandler } = this.props;
-    const search = queryString.parse(location.search);
+    if (location.search) {
+      const search = queryString.parse(location.search);
 
-    logInWithGoogle(search.token);
-    logInWithGoogleHandler();
+      logInWithGoogle(search.token);
+      logInWithGoogleHandler();
+    }
   }
 
   render() {
+    const { onLogOut } = this.props;
     return (
       <div className={css.library}>
+        <button type="button" onClick={onLogOut}>
+          Log Out
+        </button>
         <h3>Header</h3>
         <h2>LibraryPage</h2>
 
@@ -44,6 +50,7 @@ class LibraryPage extends Component {
 const mapDispatchToProps = dispatch => ({
   logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
   logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
+  onLogOut: () => dispatch(sessionActions.logOut()),
 });
 
 LibraryPage.defaultProps = {
@@ -54,6 +61,7 @@ LibraryPage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string,
   }),
+  onLogOut: PropTypes.func.isRequired,
   logInWithGoogle: PropTypes.func.isRequired,
   logInWithGoogleHandler: PropTypes.func.isRequired,
 };

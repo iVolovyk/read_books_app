@@ -5,6 +5,7 @@ export const Type = {
   REGISTRATION_START: 'REGISTRATION_START',
   REGISTRATION_SUCCESS: 'REGISTRATION_SUCCESS',
   REGISTRATION_ERROR: 'REGISTRATION_ERROR',
+  LOG_OUT: 'LOG_OUT',
 };
 
 /*
@@ -39,4 +40,12 @@ export const registrationSuccess = data => ({
 });
 export const registrationError = () => ({
   type: Type.REGISTRATION_ERROR,
+});
+
+/*
+ * LogOut
+ */
+
+export const logOut = () => ({
+  type: Type.LOG_OUT,
 });
