@@ -3,7 +3,6 @@ import { addBookOnServer } from '../../services/api';
 
 const addBook = book => (dispatch, getStore) => {
   const { token } = getStore().session;
-  console.log(getStore().session);
   dispatch(addBookStart());
   addBookOnServer(book, token)
     .then(response => {
