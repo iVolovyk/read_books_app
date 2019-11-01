@@ -11,6 +11,9 @@
   padding: 1rem 3rem;
   margin-bottom: 1rem;
 }
+.wrapHead {
+  display: none;
+}
 .nameBody {
   position: relative;
   padding: 10px 0;
@@ -69,6 +72,11 @@
   color: #898f9f;
 }
 .starRatingComponent {
+}
+.title {
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #898f9f;
 }
 
 @media (min-width: 768px) {
