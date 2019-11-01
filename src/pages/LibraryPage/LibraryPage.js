@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { registration } from '../../redux/session/sessionOperations';
+import queryString from 'query-string';
 import { addBooks } from '../../redux/books/booksActions';
 import HeaderContainer from '../../components/Header/HeaderContainer';
+// Google Login
+import * as sessionActions from '../../redux/session/sessionActions';
+import logInWithGoogleOperation from '../../redux/session/sessionOperations';
+
 import AddBook from '../../components/AddBook/AddBookContainer';
 import BookList from '../../components/BooksList/BoolksListContainer';
 import css from './LibraryPage.module.css';
@@ -10,9 +15,15 @@ import books from './books';
 
 class LibraryPage extends Component {
   componentDidMount() {
-    this.props.registration(this.props.location.search);
-    localStorage.setItem('token', this.props.location.search);
-    books.forEach(book => this.props.addBooks(book));
+    const { location, logInWithGoogleHandler, addBooks } = this.props;
+    logInWithGoogleHandler(location.search);
+    localStorage.setItem('token', location.search);
+    books.forEach(book => addBooks(book));
+    const { logInWithGoogle } = this.props;
+    const search = queryString.parse(location.search);
+
+    logInWithGoogle(search.token);
+    logInWithGoogleHandler();
   }
 
   render() {
@@ -33,11 +44,30 @@ class LibraryPage extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+// const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {
-  registration,
-  addBooks,
+// const mapDispatchToProps = {
+//   logInWithGoogle,
+//   logInWithGoogleOperation,
+// };
+
+const mapDispatchToProps = dispatch => ({
+  logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
+  logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
+  addBooks: () => dispatch(addBooks()),
+});
+
+LibraryPage.defaultProps = {
+  location: {},
+};
+
+LibraryPage.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+  logInWithGoogle: PropTypes.func.isRequired,
+  addBooks: PropTypes.func.isRequired,
+  logInWithGoogleHandler: PropTypes.func.isRequired,
 };
 
 export default connect(

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import css from './TemplateToBooks.module.css';
@@ -8,7 +10,7 @@ class TemplateToBooks extends Component {
   state = {};
 
   render() {
-    const { list } = this.props;
+    const { list, setSummaryModalOn } = this.props;
     // console.log(list.listBooks);
     const tabletWidth = 768;
     const windowWidth = document.documentElement.clientWidth;
@@ -45,9 +47,13 @@ class TemplateToBooks extends Component {
                   {/* {el.rating <= 5 && `${el.rating}/5`}
                 {el.rating === undefined && `0/5`} */}
                 </div>
-                <div className={css.wrapPenLogo}>
+                <button
+                  type="button"
+                  onClick={() => setSummaryModalOn(true)}
+                  className={css.wrapPenLogo}
+                >
                   <PenLogo className={css.penLogo} />
-                </div>
+                </button>
               </>
               {/* )} */}
             </li>

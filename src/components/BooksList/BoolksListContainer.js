@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import BooksList from './BooksList';
-// import { getPlaneReadBooks } from '../../redux/books/booksSelectors';git
+// import { getPlaneReadBooks } from '../../redux/books/booksSelectors';
 
 const mapStateToProps = state => ({
-  ing: state,
+  summaryModalOpen: state.componentController.summaryModalOpen,
   // readBooks: getReadBooks(state),
   // nowReadBooks: getNowReadBooks(state),
   // planeReadBooks: getPlaneReadBooks(state),
