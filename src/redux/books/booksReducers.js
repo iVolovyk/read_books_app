@@ -1,22 +1,13 @@
 import { Type } from './booksActions';
 
+/* для сервера */
 const booksReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case Type.ADD_BOOKS:
-      return [payload, ...state];
+    case Type.ADD_BOOK_SUCCESS:
+      return [payload.book, ...state];
     default:
       return state;
   }
 };
 
 export default booksReducer;
-
-/* для сервера */
-// const booksReducer = (state = [], { type, payload }) => {
-//   switch (type) {
-//     case Type.ADD_BOOK_SUCCESS:
-//       return [payload, ...state];
-//     default:
-//       return state;
-//   }
-// };

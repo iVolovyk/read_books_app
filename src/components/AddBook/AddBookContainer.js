@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import AddBook from './AddBook';
-import { addBooks } from '../../redux/books/booksActions';
+import addBook from '../../redux/books/booksOperations';
 
 const mapDispatchToProps = {
-  addBooks,
+  addBook,
 };
 
 export default connect(

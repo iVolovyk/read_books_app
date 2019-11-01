@@ -1,5 +1,4 @@
 export const Type = {
-  ADD_BOOKS: 'ADD_BOOKS',
   ADD_BOOK_START: 'ADD_BOOK_START',
   ADD_BOOK_SUCCESS: 'ADD_BOOK_SUCCESS',
   ADD_BOOK_ERROR: 'ADD_BOOK_ERROR',
@@ -8,11 +7,6 @@ export const Type = {
   GET_NOW_READ_BOOKS: 'GET_NOW_READ_BOOKS',
   GET_READ_BOOKS: 'GET_READ_BOOKS',
 };
-
-export const addBooks = book => ({
-  type: Type.ADD_BOOKS,
-  payload: book,
-});
 
 /*
  * Add Book

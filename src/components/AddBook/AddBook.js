@@ -3,29 +3,29 @@ import PropTypes from 'prop-types';
 import css from './AddBook.module.css';
 
 class AddBook extends Component {
-  state = { title: '', author: '', year: '', pageNumber: '' };
+  state = { title: '', author: '', year: '', pagesCount: '' };
 
   resetState = () => {
     this.setState({
       title: '',
       author: '',
       year: '',
-      pageNumber: '',
+      pagesCount: '',
     });
   };
 
   handleSubmit = evt => {
     evt.preventDefault();
-    const { title, author, year, pageNumber } = this.state;
+    const { title, author, year, pagesCount } = this.state;
     const newBook = {
       title,
       author,
       year: Number(year),
-      pageNumber: Number(pageNumber),
-      status: 'planned',
-      checked: false,
+      pagesCount: Number(pagesCount),
+      comment: 'enter your comment... ',
+      rating: 1,
     };
-    this.props.addBooks(newBook);
+    this.props.addBook(newBook);
     this.resetState();
   };
 
@@ -35,7 +35,7 @@ class AddBook extends Component {
   };
 
   render() {
-    const { title, author, year, pageNumber } = this.state;
+    const { title, author, year, pagesCount } = this.state;
     return (
       <>
         <form className={css.form} onSubmit={this.handleSubmit}>
@@ -84,8 +84,8 @@ class AddBook extends Component {
                 onChange={this.handleChange}
                 type="number"
                 min="1"
-                name="pageNumber"
-                value={pageNumber}
+                name="pagesCount"
+                value={pagesCount}
                 required
               />
             </label>
@@ -102,5 +102,5 @@ class AddBook extends Component {
 export default AddBook;
 
 AddBook.propTypes = {
-  addBooks: PropTypes.func.isRequired,
+  addBook: PropTypes.func.isRequired,
 };
