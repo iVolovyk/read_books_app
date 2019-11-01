@@ -14,7 +14,8 @@
       "author": "Tom",
       "year": "3025",
       "page": "25",
-      "rating": 5
+      "rating": 5,
+      "comment": "тут щось є"
     }
   ],
   "nowRead": [
@@ -39,7 +40,8 @@
       "name": "All ok book",
       "author": "Cate",
       "year": "1988",
-      "page": "900"
+      "page": "900",
+      "comment": "тут щось є"
     },
     {
       "id": "10",

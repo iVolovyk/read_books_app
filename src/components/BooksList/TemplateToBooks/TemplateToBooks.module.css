@@ -51,6 +51,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.wrapPenLogoActive {
+  background-color: red;
+}
 .authorBody:before {
   width: 100px;
   content: 'Автор:';

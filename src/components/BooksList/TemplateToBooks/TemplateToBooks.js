@@ -45,7 +45,11 @@ class TemplateToBooks extends Component {
               <button
                 type="button"
                 onClick={() => setSummaryModalOn(true)}
-                className={css.wrapPenLogo}
+                className={
+                  el.comment === undefined
+                    ? `${css.wrapPenLogo}`
+                    : `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
+                }
               >
                 <PenLogo className={css.penLogo} />
               </button>
