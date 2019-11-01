@@ -1,15 +1,6 @@
 .wrapNextStepBtn {
   text-align: center;
 }
-/* .nextStepButton {
-  font-size: 13px;
-  border: 0.0625rem solid rgb(230, 124, 38);
-  background-color: rgb(255, 115, 0);
-  color: white;
-  padding: 15px 70px;
-  margin-bottom: 0.9375rem;
-} */
-
 .nextStepButton {
   width: 180px;
   background-color: #ff9a17;
