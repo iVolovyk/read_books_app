@@ -28,6 +28,191 @@
   width: 2rem;
   height: 2rem;
   border: 2px solid #898f9f;
+  border-radius: 50%;
+  top: 50%;
+  right: 4%;
+  transform: translate(-50%, -50%);
+}
+.wrapPenLogo:hover,
+.wrapPenLogo:active {
+  background-color: rgb(208, 214, 214);
+}
+.penLogo {
+  position: absolute;
+  fill: #898f9f;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.authorBody:before {
+  width: 100px;
+  content: 'Автор:';
+  display: inline-block;
+}
+.yearBody:before {
+  width: 100px;
+  content: 'Рік:';
+  display: inline-block;
+}
+.pageBody:before {
+  width: 100px;
+  content: 'Сторінка:';
+  display: inline-block;
+}
+.authorBody:before,
+.yearBody:before,
+.pageBody:before {
+  color: #898f9f;
+}
+.starRatingComponent {
+}
+
+@media (min-width: 768px) {
+  .wrapHead {
+    display: flex;
+    flex-direction: row;
+  }
+  .libLogo {
+    top: 30%;
+    left: 2%;
+  }
+  .liBooks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Name */
+  .nameHead {
+    width: 260px;
+  }
+  .nameBody {
+    width: 200px;
+    padding: 0 10px;
+  }
+  /* Author */
+  .authorHead {
+    width: 120px;
+  }
+  .authorBody {
+    width: 120px;
+    padding: 0 10px;
+  }
+  /* Year */
+  .yearHead {
+    width: 110px;
+  }
+  .yearBody {
+    width: 110px;
+    padding: 0 10px;
+  }
+  /* Page */
+  .pageHead {
+    width: 110px;
+  }
+  .pageBody {
+    width: 110px;
+    padding: 0 10px;
+  }
+
+  /* Rating */
+  .ratingHead {
+    width: 90px;
+  }
+  .ratingBody {
+    width: 90px;
+    padding: 0 10px;
+  }
+  .wrapPenLogo {
+    right: 0;
+  }
+  .penLogo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .authorBody:before,
+  .yearBody:before,
+  .pageBody:before {
+    content: '';
+    display: none;
+  }
+  @media (min-width: 1280px) {
+    /* Name */
+    .nameHead {
+      width: 480px;
+    }
+    .nameBody {
+      width: 450px;
+      padding: 0 10px;
+    }
+    /* Author */
+    .authorHead {
+      width: 190px;
+    }
+    .authorBody {
+      width: 200px;
+      padding: 0 10px;
+    }
+    /* Year */
+    .yearHead {
+      width: 170px;
+    }
+    .yearBody {
+      width: 180px;
+      padding: 0 10px;
+    }
+    /* Page */
+    .pageHead {
+      width: 170px;
+    }
+    .pageBody {
+      width: 180px;
+      padding: 0 10px;
+    }
+
+    /* Rating */
+    .ratingHead {
+      width: 140px;
+    }
+    .ratingBody {
+      width: 140px;
+      padding: 0 10px;
+    }
+  }
+}
+.ulBooks {
+  font-weight: 600;
+  padding: 0;
+}
+.liBooks {
+  position: relative;
+  list-style: none;
+  padding: 0 4rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  padding: 1rem 3rem;
+  margin-bottom: 1rem;
+}
+.nameBody {
+  position: relative;
+  padding: 10px 0;
+}
+
+.libLogo {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 20%;
+  left: 4%;
+}
+.wrapPenLogo {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #898f9f;
   background-color: white;
   outline: none;
   border-radius: 50%;

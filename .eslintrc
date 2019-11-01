@@ -26,6 +26,7 @@
   },
   "rules": {
     "react/state-in-constructor": 0,
+    "jsx-a11y/label-has-associated-control": 0,
     "no-console": 1,
     "linebreak-style": ["error", "unix"],
     "react/jsx-filename-extension": [
@@ -35,7 +36,6 @@
       }
     ],
     "jsx-a11y/no-onchange": 0,
-    "jsx-a11y/label-has-associated-control": 0,
     "import/no-extraneous-dependencies": [
       "error",
       {
