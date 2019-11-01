@@ -1,10 +1,11 @@
 import { Type } from './booksActions';
+import * as training from '../training/trainingActions';
 
 const booksReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case Type.GET_BOOK_SUCCESS:
+    case training.Type.GET_BOOK_SUCCESS:
       return payload;
-    case Type.GET_BOOK_FAILURE:
+    case training.Type.GET_BOOK_FAILURE:
       return [];
     case Type.ADD_BOOKS:
       return [payload, ...state];
