@@ -3,6 +3,8 @@ import { Type } from './controlsActions';
 
 const modalLogoutOpenReducer = (state = false, { type, payload }) => {
   switch (type) {
+    case Type.RESET_COMPONENT:
+      return false;
     default:
       return state;
   }
@@ -10,12 +12,16 @@ const modalLogoutOpenReducer = (state = false, { type, payload }) => {
 
 const summaryModalOpenReducer = (state = false, { type, payload }) => {
   switch (type) {
+    case Type.RESET_COMPONENT:
+      return false;
     default:
       return state;
   }
 };
 const modalCongratsOpenReducer = (state = false, { type, payload }) => {
   switch (type) {
+    case Type.RESET_COMPONENT:
+      return false;
     default:
       return state;
   }

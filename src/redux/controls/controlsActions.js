@@ -1,5 +1,9 @@
 export const Type = {
-  // EXAMPLE: 'EXAMPLE',
+  RESET_COMPONENT: 'RESET_COMPONENT',
 };
 
 export const exampleAction = () => {};
+
+export const resetComponentControls = () => ({
+  type: Type.RESET_COMPONENT,
+});
