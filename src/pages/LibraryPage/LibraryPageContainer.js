@@ -1,12 +1,12 @@
-import LibraryPage from './LibraryPage';
 import { connect } from 'react-redux';
+import LibraryPage from './LibraryPage';
 
-const mapStateToProps = state => ({});
+// const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {};
 
 const LibraryPageContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(LibraryPage);
 
