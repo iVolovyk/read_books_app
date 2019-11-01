@@ -70,6 +70,8 @@ class AddBook extends Component {
                 className={css.year}
                 onChange={this.handleChange}
                 type="number"
+                min="1"
+                max="2019"
                 name="year"
                 value={year}
               />
@@ -81,6 +83,7 @@ class AddBook extends Component {
                 className={css.pageNumber}
                 onChange={this.handleChange}
                 type="number"
+                min="1"
                 name="pageNumber"
                 value={pageNumber}
                 required
