@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import PropTypes from 'prop-types';
 import css from './ModalLogout.module.css';
 import Backdrop from '../Backdrop/Backdrop';
 
@@ -31,7 +32,12 @@ const ModalLogout = ({ setLogout }) => {
     </div>
   );
 
+  // eslint-disable-next-line no-unused-vars
   return <Backdrop isOpen>{({ onClose }) => modal}</Backdrop>;
+};
+
+ModalLogout.propTypes = {
+  setLogout: PropTypes.func.isRequired,
 };
 
 export default ModalLogout;
