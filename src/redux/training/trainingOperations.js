@@ -21,13 +21,7 @@ import {
 
 //Экспортируем Оперецию в HOC getUserInfo
 export const asyncGetBook = () => (dispatch, getStore) => {
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  // const { token } = getStore().session;
-  console.log('asyncGetBook - START');
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYjgyY2ZiYmRhMWNjNTIxMzA3YjRhMSIsImlhdCI6MTU3MjUyNTI2MH0.UJGpkUQ5CjsCLO70fukNKcc_9_z5mp30kWqgsS3Fg30';
-  console.log('token - ', token);
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const { token } = getStore().session;
 
   // проверяем наличие токина если  он не пришел выходим
   if (!token) {
@@ -53,6 +47,9 @@ export const asyncGetBook = () => (dispatch, getStore) => {
     });
 
   if (haveTraining(getStore())) {
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     api
       .getTraining(token)
       .then(data => console.log(data.data)) //data => dispatch(fetchSuccessTrening(data.data.books)))

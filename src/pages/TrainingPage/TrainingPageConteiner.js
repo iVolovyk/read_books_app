@@ -6,7 +6,7 @@ import { haveTraining } from '../../redux/session/sessionSelectors';
 
 // state, props
 const mapStateToProps = state => ({
-  goal: true, // haveTraining(state),
+  goal: haveTraining(state),
   openmodal: false,
 });
 

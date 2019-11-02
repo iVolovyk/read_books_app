@@ -5,7 +5,8 @@ const modalLogoutOpenReducer = (state = false, action) => {
   switch (action.type) {
     case Type.SET_LOGOUT:
       return action.logoutIndicator;
-
+    case Type.RESET_COMPONENT:
+      return false;
     default:
       return state;
   }
