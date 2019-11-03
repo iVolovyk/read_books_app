@@ -22,6 +22,23 @@
   background-color: #fff;
   box-shadow: 6.5px 11.258px 35px 0px rgba(0, 0, 0, 0.23);
   padding: 2.5rem 1.375rem;
+  text-align: center;
+}
+
+.congratsbtnClose {
+  width: 130px;
+  padding: 10px;
+  background-color: orange;
+  color: #ffffff;
+  border: none;
+}
+
+.congratsbtnClose:hover {
+  background-color: red;
+}
+
+.image {
+  width: 44px;
 }
 
 @media screen and (min-width: 768px) {

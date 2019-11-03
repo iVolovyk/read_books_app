@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 // import { addBooks } from '../../redux/books/booksActions';
-import HeaderContainer from '../../components/Header/HeaderContainer';
 // Google Login
 import * as sessionActions from '../../redux/session/sessionActions';
 import logInWithGoogleOperation from '../../redux/session/sessionOperations';
 
 import AddBook from '../../components/AddBook/AddBookContainer';
+import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
 import BookList from '../../components/BooksList/BoolksListContainer';
 import css from './LibraryPage.module.css';
 // import books from './books';
@@ -29,10 +29,10 @@ class LibraryPage extends Component {
   render() {
     return (
       <div>
-        <HeaderContainer name="Martha Stewart" />
         <main className={css.containerLibraryPage}>
           <div className={css.library}>
             <AddBook />
+            <ModalCongrats isOpen />
             <BookList />
             <h3>Summary Modal</h3>
           </div>
