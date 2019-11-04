@@ -4,7 +4,9 @@ import { Type } from './sessionActions';
 const user = (state = null, { type, payload }) => {
   switch (type) {
     case Type.GET_USER:
-      return payload;
+    case Type.REGISTRATION_SUCCESS:
+    case Type.LOG_IN_SUCCESS:
+      return payload.userData;
     case Type.LOG_OUT:
       return null;
     default:
@@ -15,6 +17,8 @@ const user = (state = null, { type, payload }) => {
 const authenticated = (state = false, { type }) => {
   switch (type) {
     case Type.LOGIN_WITH_GOOGLE:
+    case Type.REGISTRATION_SUCCESS:
+    case Type.LOG_IN_SUCCESS:
       return true;
     case Type.LOG_OUT:
       return false;
@@ -27,6 +31,9 @@ const token = (state = null, { type, payload }) => {
   switch (type) {
     case Type.LOGIN_WITH_GOOGLE:
       return payload;
+    case Type.REGISTRATION_SUCCESS:
+    case Type.LOG_IN_SUCCESS:
+      return payload.token;
     case Type.LOG_OUT:
       return null;
     default:

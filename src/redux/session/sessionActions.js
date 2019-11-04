@@ -1,11 +1,15 @@
 export const Type = {
-  LOGIN_WITH_GOOGLE: 'LOGIN_WITH_GOOGLE',
-  GET_USER: 'GET_USER',
-  GET_USER_ERROR: 'GET_USER_ERROR',
-  REGISTRATION_START: 'REGISTRATION_START',
-  REGISTRATION_SUCCESS: 'REGISTRATION_SUCCESS',
-  REGISTRATION_ERROR: 'REGISTRATION_ERROR',
-  LOG_OUT: 'LOG_OUT',
+  LOGIN_WITH_GOOGLE: 'session/LOGIN_WITH_GOOGLE',
+  GET_USER: 'session/GET_USER',
+  GET_USER_ERROR: 'session/GET_USER_ERROR',
+  REGISTRATION_START: 'session/REGISTRATION_START',
+  REGISTRATION_SUCCESS: 'session/REGISTRATION_SUCCESS',
+  REGISTRATION_ERROR: 'session/REGISTRATION_ERROR',
+  LOG_IN_START: 'session/LOG_IN_START',
+  LOG_IN_SUCCESS: 'session/LOG_IN_SUCCESS',
+  LOG_IN_ERROR: 'session/LOG_IN_ERROR',
+  GET_TOKEN: 'session/GET_TOKEN',
+  LOG_OUT: 'session/LOG_OUT',
 };
 
 /*
@@ -17,14 +21,23 @@ export const logInWithGoogle = token => ({
   payload: token,
 });
 
-export const getUserWithGoogle = data => ({
+/*
+ * Get Current User
+ */
+
+export const getUserWithGoogle = response => ({
   type: Type.GET_USER,
-  payload: data,
+  payload: response,
 });
 
 export const getUserError = error => ({
   type: Type.GET_USER_ERROR,
   payload: error,
+});
+
+export const getToken = token => ({
+  type: Type.GET_TOKEN,
+  payload: token,
 });
 
 /*
@@ -34,12 +47,27 @@ export const getUserError = error => ({
 export const registrationStart = () => ({
   type: Type.REGISTRATION_START,
 });
-export const registrationSuccess = data => ({
+export const registrationSuccess = response => ({
   type: Type.REGISTRATION_SUCCESS,
-  payload: data,
+  payload: response,
 });
 export const registrationError = () => ({
   type: Type.REGISTRATION_ERROR,
+});
+
+/*
+ * LogIn
+ */
+
+export const loginStart = () => ({
+  type: Type.LOG_IN_START,
+});
+export const loginSuccess = response => ({
+  type: Type.LOG_IN_SUCCESS,
+  payload: response,
+});
+export const loginError = () => ({
+  type: Type.LOG_IN_ERROR,
 });
 
 /*

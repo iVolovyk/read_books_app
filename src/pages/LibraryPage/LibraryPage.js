@@ -5,7 +5,8 @@ import queryString from 'query-string';
 import * as booksActions from '../../redux/books/booksActions';
 // Google Login
 import * as sessionActions from '../../redux/session/sessionActions';
-import logInWithGoogleOperation from '../../redux/session/sessionOperations';
+import * as sessionOperations from '../../redux/session/sessionOperations';
+import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
 
 import AddBook from '../../components/AddBook/AddBookContainer';
 import BookList from '../../components/BooksList/BoolksListContainer';
@@ -15,22 +16,39 @@ import books from './books';
 class LibraryPage extends Component {
   componentDidMount() {
     const {
-      location,
       logInWithGoogle,
-      logInWithGoogleHandler,
+      logInWithGoogleOperation,
       addBooks,
+      history,
+      location,
     } = this.props;
     // Google login
     if (location.search) {
       const search = queryString.parse(location.search);
       logInWithGoogle(search.token);
-      logInWithGoogleHandler();
+      logInWithGoogleOperation();
+      history.replace({
+        pathname: location.pathname,
+        search: '',
+      });
+    }
+    // isAuthenticated redirect
+    const { isAuthenticated } = this.props;
+    if (!isAuthenticated) {
+      history.replace('/login');
     }
     books.forEach(book => addBooks(book));
   }
 
+  componentDidUpdate() {
+    // Logout redirect
+    const { isAuthenticated, history } = this.props;
+    if (!isAuthenticated) {
+      history.replace('/login');
+    }
+  }
+
   render() {
-    // const { onLogOut } = this.props;
     return (
       <div>
         <main>
@@ -47,35 +65,32 @@ class LibraryPage extends Component {
   }
 }
 
-// const mapStateToProps = state => ({});
-
-// const mapDispatchToProps = {
-//   logInWithGoogle,
-//   logInWithGoogleOperation,
-// };
+const mapStateToProps = state => ({
+  isAuthenticated: getIsAuthenticated(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
-  logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
-  // onLogOut: () => dispatch(sessionActions.logOut()),
+  logInWithGoogleOperation: () =>
+    dispatch(sessionOperations.logInWithGoogleOperation()),
   addBooks: () => dispatch(booksActions.addBooks()),
 });
-
-LibraryPage.defaultProps = {
-  location: {},
-};
 
 LibraryPage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string,
-  }),
-  // onLogOut: PropTypes.func.isRequired,
+    pathname: PropTypes.string,
+  }).isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func,
+  }).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   logInWithGoogle: PropTypes.func.isRequired,
   addBooks: PropTypes.func.isRequired,
-  logInWithGoogleHandler: PropTypes.func.isRequired,
+  logInWithGoogleOperation: PropTypes.func.isRequired,
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(LibraryPage);

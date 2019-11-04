@@ -15,3 +15,10 @@ export const setToken = token => ({
 export const addBookOnServer = book => axios.post('/books/create', book);
 
 export const getUserByToken = token => axios.get('/user/me', setToken(token));
+
+export const logOut = token => axios.post('/auth/logout', setToken(token));
+
+export const register = credentials =>
+  axios.post('/auth/register', credentials);
+
+export const login = credentials => axios.post('/auth/login', credentials);

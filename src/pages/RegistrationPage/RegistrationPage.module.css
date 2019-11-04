@@ -314,14 +314,21 @@
 @media (min-width: 1280px) {
   .reg_section {
     display: flex;
+    min-height: calc(100vh - 41px);
   }
   .reg_form {
     width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .reg_text {
     width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .reg_text_content {
-    padding-top: 4rem;
+    padding-top: 0;
   }
 }
