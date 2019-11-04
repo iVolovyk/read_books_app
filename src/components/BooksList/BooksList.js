@@ -5,7 +5,7 @@ import NowReadBooks from './NowReadBooks/NowReadBooks';
 import PlanRadeBooks from './PlanReadBooks/PlanReadBooks';
 import NextStepButton from './NextStepButton/NextStepButton';
 import StartHelper from './StartHelper/StartHelper';
-import SummaryModal from '../SummaryModal/SummaryModal';
+import SummaryModal from '../SummaryModal/SummaryModalContainer';
 import Backdrop from '../Backdrop/Backdrop';
 import listBooks from './toDeletebookList';
 import css from './BooksList.module.css';

@@ -3,6 +3,8 @@ import StarRatingComponent from 'react-star-rating-component';
 import PropTypes from 'prop-types';
 import style from './SummaryModal.module.css';
 
+import delBooks from '../BooksList/toDeletebookList.json';
+
 class SummaryModal extends Component {
   state = {
     rating: null,
@@ -21,7 +23,9 @@ class SummaryModal extends Component {
 
   render() {
     const { rating } = this.state;
-    const { onClose } = this.props;
+    const { onClose, bookFromClickBtnEdit } = this.props;
+    console.log(bookFromClickBtnEdit);
+    delBooks.toRead.map(el => console.log(el));
     return (
       <section className={style.sumModal}>
         <div className={style.stars}>
@@ -59,6 +63,7 @@ class SummaryModal extends Component {
 
 SummaryModal.propTypes = {
   onClose: PropTypes.func.isRequired,
+  bookFromClickBtnEdit: PropTypes.string.isRequired,
 };
 
 export default SummaryModal;
