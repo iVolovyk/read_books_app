@@ -20,3 +20,9 @@ export const getUserByToken = token => axios.get('/user/me', setToken(token));
 export const getBooks = token => axios.get('/books', setToken(token));
 
 export const getTraining = token => axios.get('/training', setToken(token));
+export const logOut = token => axios.post('/auth/logout', setToken(token));
+
+export const register = credentials =>
+  axios.post('/auth/register', credentials);
+
+export const login = credentials => axios.post('/auth/login', credentials);
