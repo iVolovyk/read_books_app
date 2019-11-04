@@ -20,3 +20,10 @@ export const getUserByToken = token => axios.get('/user/me', setToken(token));
 export const getBooks = token => axios.get('/books', setToken(token));
 
 export const getTraining = token => axios.get('/training', setToken(token));
+
+export const chekBookOnServer = (chekBookInfo, token) =>
+  axios.patch(
+    `/training/${chekBookInfo.TrainingId}/book/${chekBookInfo.bookId}`,
+    { isRead: chekBookInfo.checked },
+    setToken(token),
+  );

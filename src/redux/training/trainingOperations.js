@@ -4,6 +4,14 @@ import * as api from '../../services/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { haveTraining } from '../session/sessionSelectors';
+import { chekBookOnServer } from '../../services/api';
+import { loaderOn, loaderOff } from '../../redux/loader/loaderActions';
+
+import {
+  chekBookStart,
+  chekBookSuccess,
+  chekBookError,
+} from './trainingActions';
 
 toast.configure({
   autoClose: 5000,
@@ -58,4 +66,18 @@ export const asyncGetBook = () => (dispatch, getStore) => {
         return dispatch(fetchFailureTrening(err));
       });
   }
+};
+
+export const addChekedBook = chekBookInfo => (dispatch, getStore) => {
+  const { token } = getStore().session;
+  dispatch(loaderOn());
+  dispatch(chekBookStart());
+  chekBookOnServer(chekBookInfo, token)
+    .then(response => {
+      dispatch(chekBookSuccess(chekBookInfo));
+    })
+    .catch(error => {
+      dispatch(chekBookError(error));
+    })
+    .finally(() => dispatch(loaderOff()));
 };

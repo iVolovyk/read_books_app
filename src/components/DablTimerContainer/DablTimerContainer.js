@@ -1,10 +1,10 @@
 import React from 'react';
-
+// import PropTypes from 'prop-types';
 import styles from './DablTimerContainer.module.css';
 import Timer from '../Timer/Timer';
 
-// eslint-disable-next-line
-const DablTimerContainer = ({ dateOne, dateToo }) => {
+// const DablTimerContainer = ({ dateOne, dateToo }) => {
+const DablTimerContainer = () => {
   return (
     <div className={styles.timersWraper}>
       <Timer
@@ -20,5 +20,10 @@ const DablTimerContainer = ({ dateOne, dateToo }) => {
     </div>
   );
 };
+
+// DablTimerContainer.propTypes = {
+//   dateOne: PropTypes.string.isRequired,
+//   dateToo: PropTypes.string.isRequired,
+// };
 
 export default DablTimerContainer;

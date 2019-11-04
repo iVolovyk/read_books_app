@@ -17,7 +17,8 @@ export default class Timer extends Component {
       deadline: new Date(date),
     });
 
-    this.reversClock();
+    const runTimer = this.reversClock;
+    runTimer();
   }
 
   reversClock = () => {
