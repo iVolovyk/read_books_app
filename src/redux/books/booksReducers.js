@@ -11,6 +11,8 @@ export const booksReducer = (state = [], { type, payload }) => {
       return [];
     case Type.ADD_BOOKS:
       return [payload, ...state];
+    case Type.ADD_BOOK_SUCCESS:
+      return [payload.book, ...state];
     default:
       return state;
   }

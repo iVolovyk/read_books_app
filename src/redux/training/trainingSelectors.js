@@ -1,8 +1,7 @@
-export const getResult = state => state.results;
+export const giveTrainingId = state => state.training.trainingId;
 
-export const dataSchedule = state =>
-  state.results.map(i => {
-    return { date: i.data, pages: i.peges };
-  });
+export const getResult = state => state.training.pagesReadResult;
 
-export const DEFULT = state => state.booksReducer.books;
+export const pagesPerDay = state => state.training.avgReadPages;
+
+export const dataSchedule = state => getResult(state);
