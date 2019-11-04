@@ -9,6 +9,14 @@ class SummaryModal extends Component {
 
   // onClose
 
+  addFunc = e => {
+    console.log(e);
+  };
+
+  goBack = e => {
+    console.log(e);
+  };
+
   onStarClick = nextValue => {
     this.setState({ rating: nextValue });
   };
@@ -34,10 +42,14 @@ class SummaryModal extends Component {
           <textarea className={style.textArea} name="comment" rows="5" />
         </h2>
         <div className={style.buttDiv}>
-          <button className={style.exitBut} type="button">
+          <button onClick={this.goBack} className={style.exitBut} type="button">
             Назад
           </button>
-          <button className={style.saveBut} type="button">
+          <button
+            onClick={this.addFunc}
+            className={style.saveBut}
+            type="button"
+          >
             Зберігти
           </button>
         </div>

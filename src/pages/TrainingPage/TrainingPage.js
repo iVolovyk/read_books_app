@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './TrainingPage.module.css';
-import CreateWorkout from '../../components/CreateWorkout/CreateWorkout';
+import CreateWorkout from '../../components/CreateWorkout/CreateWorkContainer';
 import Goal from '../../components/Goal/Goal';
 import Timer from '../../components/DablTimerContainer/DablTimerContainer';
 import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';

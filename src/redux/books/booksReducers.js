@@ -1,6 +1,7 @@
 import { Type } from './booksActions';
+import books from '../../books.json';
 
-const booksReducer = (state = [], { type, payload }) => {
+const booksReducer = (state = books, { type, payload }) => {
   switch (type) {
     case Type.ADD_BOOKS:
       return [payload, ...state];
