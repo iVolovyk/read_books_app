@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import ResultForm from '../ResultForm/ResultFormConteiner';
 import css from './Result.module.css';
 
 const Result = ({ result }) => {
+  const sortResult = [...result].sort();
+
   return (
     <div className={css.result}>
       <ResultForm />
@@ -12,12 +15,16 @@ const Result = ({ result }) => {
         <div className={css.tableWriper}>
           <table className={css.tableresult}>
             <tbody>
-              {result.map(row => (
-                <tr key={row.id}>
-                  <td className={css.resData}>{row.data}</td>
-                  <td className={css.resTime}>{row.time}</td>
+              {sortResult.map(row => (
+                <tr key={row._id}>
+                  <td className={css.resData}>
+                    {moment(row.date).format('DD.MM.YYYY')}
+                  </td>
+                  <td className={css.resTime}>
+                    {moment(row.date).format('HH:mm:ss')}
+                  </td>
                   <td className={css.colstor}>
-                    {row.peges}
+                    {row.count}
                     <span className={css.sporin}>стор.</span>
                   </td>
                 </tr>

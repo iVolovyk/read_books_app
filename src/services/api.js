@@ -27,3 +27,12 @@ export const chekBookOnServer = (chekBookInfo, token) =>
     { isRead: chekBookInfo.checked },
     setToken(token),
   );
+export const addResult = (result, token, trainingId) =>
+  axios.post(`/training/time/${trainingId}`, result, setToken(token));
+
+export const logOut = token => axios.post('/auth/logout', setToken(token));
+
+export const register = credentials =>
+  axios.post('/auth/register', credentials);
+
+export const login = credentials => axios.post('/auth/login', credentials);

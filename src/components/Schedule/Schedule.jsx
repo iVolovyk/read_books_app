@@ -17,8 +17,7 @@ class Schedule extends Component {
   state = {};
 
   render() {
-    const pagesPerDay = 52;
-    const { data } = this.props;
+    const { data, pagesPerDay } = this.props;
     return (
       <div className={css.grafic}>
         <ResponsiveContainer width="100%" height={380}>
@@ -55,5 +54,6 @@ Schedule.defaultProps = {
 
 Schedule.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({}).isRequired),
+  pagesPerDay: PropTypes.number.isRequired,
 };
 export default Schedule;

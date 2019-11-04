@@ -48,9 +48,8 @@ class ResultForm extends Component {
     }
 
     const resObject = {
-      data: datetime.format('DD.MM.YYYY'),
-      time: datetime.format('HH:MM:SS'),
-      peges: pagesRead,
+      date: datetime.format(),
+      count: pagesRead,
     };
 
     this.props.onSetResult(resObject);

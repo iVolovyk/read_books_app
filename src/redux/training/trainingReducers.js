@@ -94,6 +94,9 @@ const pagesReadResult = (state = [], { type, payload }) => {
   switch (type) {
     case Type.GET_TRENING_SUCCESS:
       return payload.pagesReadResult;
+    case Type.ADD_RESULT_SUCCESS:
+      return payload;
+
     default:
       return state;
   }

@@ -12,14 +12,15 @@ import goalReducer from './goal/goalReducers';
 import controlsReducer from './controls/controlsReducers';
 import trainingReducer from './training/trainingReducers';
 
-const persistConfig = {
+// Persist only token
+const sessionPersistConfig = {
   key: 'session',
   storage,
-  whitelist: ['session'],
+  whitelist: ['token'],
 };
 
 const rootReducer = combineReducers({
-  session: sessionReducer,
+  session: persistReducer(sessionPersistConfig, sessionReducer),
   books: booksReducer,
   training: trainingReducer,
   results: resultsReducer,
@@ -29,14 +30,8 @@ const rootReducer = combineReducers({
   componentController: controlsReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const enhancer = applyMiddleware(ReduxThunk);
 
-export const store = createStore(
-  persistedReducer,
-  {},
-  composeWithDevTools(enhancer),
-);
+export const store = createStore(rootReducer, composeWithDevTools(enhancer));
 
 export const persistor = persistStore(store);

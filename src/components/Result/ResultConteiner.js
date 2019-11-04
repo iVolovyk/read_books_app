@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Result from './Result';
-import { getResult } from '../../redux/results/resultsSelectors';
+import { getResult } from '../../redux/training/trainingSelectors';
 
 const mapStateToProps = state => ({
   result: getResult(state),

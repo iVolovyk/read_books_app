@@ -12,6 +12,7 @@ import {
   chekBookSuccess,
   chekBookError,
 } from './trainingActions';
+import { giveTrainingId } from './trainingSelectors';
 
 toast.configure({
   autoClose: 5000,
@@ -25,10 +26,12 @@ import {
   fetchFailure,
   fetchSuccessTrening,
   fetchFailureTrening,
+  fetchStartAddRes,
+  fetchSuccessAddRes,
 } from './trainingActions';
 
 //Экспортируем Оперецию в HOC getUserInfo
-export const asyncGetBook = () => (dispatch, getStore) => {
+export const asyncGetBook = dataResult => (dispatch, getStore) => {
   const { token } = getStore().session;
 
   // проверяем наличие токина если  он не пришел выходим
@@ -59,6 +62,38 @@ export const asyncGetBook = () => (dispatch, getStore) => {
       .getTraining(token)
       .then(data => dispatch(fetchSuccessTrening(data.data.training))) //data => dispatch(fetchSuccessTrening(data.data.books)))
       .catch(err => {
+        toast.error('Помилка завантаження Тренінгу... Спробуйте пізніше...', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          className: 'foo-bar',
+        });
+        return dispatch(fetchFailureTrening(err));
+      });
+  }
+};
+
+export const onSetResult = dataResult => (dispatch, getStore) => {
+  const { token } = getStore().session;
+
+  // проверяем наличие токина если  он не пришел выходим
+  if (!token) {
+    return;
+  }
+  // если токен пришел
+  //Запускаем Акшен сиглализирующий о начале асинхронной операции..
+  dispatch(fetchStartAddRes());
+
+  console.log('====================================');
+  console.log(dataResult, token, giveTrainingId(getStore()));
+  console.log('====================================');
+
+  if (haveTraining(getStore())) {
+    api
+      .addResult(dataResult, token, giveTrainingId(getStore()))
+      .then(data => dispatch(fetchSuccessAddRes(data.data.pagesReadResult))) //data => dispatch(fetchSuccessTrening(data.data.books)))
+      .catch(err => {
+        console.log('====================================');
+        console.log(err);
+        console.log('====================================');
         toast.error('Помилка завантаження Тренінгу... Спробуйте пізніше...', {
           position: toast.POSITION.BOTTOM_RIGHT,
           className: 'foo-bar',
