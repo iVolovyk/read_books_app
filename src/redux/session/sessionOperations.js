@@ -11,10 +11,24 @@ const logInWithGoogleOperation = () => (dispatch, getStore) => {
     .getUserByToken(token)
     .then(response => dispatch(getUserWithGoogle(response.data.user)))
     .catch(error => {
-      console.log(error);
       dispatch(getUserError(error));
-    })
-    .finally(console.log('finally'));
+    });
+  // .finally(console.log('finally'));
 };
+
+// const logOutOperation = () => (dispatch, getStore) => {
+//   const { token } = getStore().session;
+//   if (!token) {
+//     return;
+//   }
+//   api
+//     .getUserByToken(token)
+//     .then(response => dispatch(getUserWithGoogle(response.data.user)))
+//     .catch(error => {
+//       console.log(error);
+//       dispatch(getUserError(error));
+//     })
+//     .finally(console.log('finally'));
+// };
 
 export default logInWithGoogleOperation;

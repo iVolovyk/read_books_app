@@ -1,0 +1,62 @@
+.modalBase {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 15%;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  background-color: #fff;
+  border: 1px solid black;
+  cursor: pointer;
+  min-width: 100px;
+  margin: 10px;
+}
+
+.button:active {
+}
+
+.button:hover,
+.button:focus {
+  background-color: orange;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 30%;
+    height: 10%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modal {
+    width: 30%;
+    height: 10%;
+  }
+}

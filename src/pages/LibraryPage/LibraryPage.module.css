@@ -4,18 +4,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  /* width: 300px; */
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  .library {
+  /* .library {
     width: 746px;
-  }
+  } */
 }
 
 @media (min-width: 1280px) {
-  .library {
+  /* .library {
     width: 1228px;
-  }
+  } */
 }

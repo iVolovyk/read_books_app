@@ -12,7 +12,7 @@ const options = [
   { value: 'Говядина', label: 'Говядина' },
   { value: 'рис', label: 'рис' },
 ];
-
+// eslint-disable-next-line
 const WorkSelect = ({ handleChange, value }) => (
   <Select
     className={style.select}

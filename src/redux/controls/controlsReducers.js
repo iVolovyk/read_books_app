@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 import { Type } from './controlsActions';
 
-const modalLogoutOpenReducer = (state = false, { type }) => {
-  switch (type) {
+const modalLogoutOpenReducer = (state = false, action) => {
+  switch (action.type) {
+    case Type.SET_LOGOUT:
+      return action.logoutIndicator;
+    case Type.RESET_COMPONENT:
+      return false;
     default:
       return state;
   }
@@ -10,6 +14,8 @@ const modalLogoutOpenReducer = (state = false, { type }) => {
 
 const summaryModalOpenReducer = (state = false, { type, payload }) => {
   switch (type) {
+    case Type.RESET_COMPONENT:
+      return false;
     case Type.SET_SUMMARY_MODAL_ON:
       return payload;
     default:
@@ -19,6 +25,8 @@ const summaryModalOpenReducer = (state = false, { type, payload }) => {
 
 const modalCongratsOpenReducer = (state = false, { type }) => {
   switch (type) {
+    case Type.RESET_COMPONENT:
+      return false;
     default:
       return state;
   }
