@@ -25,6 +25,7 @@ const ModalLogout = ({ setLogout, onLogOut }) => {
               type="button"
               className={css.button}
               onClick={() => {
+                setLogout(false);
                 onLogOut();
               }}
             >

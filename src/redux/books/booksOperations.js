@@ -1,10 +1,11 @@
 import { addBookStart, addBookSuccess, addBookError } from './booksActions';
 import { addBookOnServer } from '../../services/api';
 
-const addBook = book => dispatch => {
+// eslint-disable-next-line import/prefer-default-export
+export const addBook = book => (dispatch, getStore) => {
+  const { token } = getStore().session;
   dispatch(addBookStart());
-
-  addBookOnServer(book)
+  addBookOnServer(book, token)
     .then(response => {
       dispatch(addBookSuccess(response.data));
     })
@@ -12,5 +13,3 @@ const addBook = book => dispatch => {
       dispatch(addBookError(error));
     });
 };
-
-export default addBook;
