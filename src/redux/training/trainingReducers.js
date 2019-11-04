@@ -1,54 +1,105 @@
 import { combineReducers } from 'redux';
-// eslint-disable-next-line
+
 import { Type } from './trainingActions';
 
-// eslint-disable-next-line
+const trainingId = (state = null, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.trainingId;
+    default:
+      return state;
+  }
+};
+
+const isDone = (state = false, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.isDone;
+    default:
+      return state;
+  }
+};
+
+const timeStart = (state = null, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.timeStart;
+    default:
+      return state;
+  }
+};
+
+const timeEnd = (state = null, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.timeEnd;
+    default:
+      return state;
+  }
+};
+
+const avgReadPages = (state = null, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.avgReadPages;
+    default:
+      return state;
+  }
+};
+
+const booksCount = (state = null, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.booksCount;
+    default:
+      return state;
+  }
+};
+
+const unreadCount = (state = null, { type, payload }) => {
+  switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.unreadCount;
+    default:
+      return state;
+  }
+};
+
 const books = (state = [], { type, payload }) => {
   switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.books;
     default:
       return state;
   }
 };
-// eslint-disable-next-line
-const booksCount = (state = 0, { type, payload }) => {
+
+const allPagesCount = (state = 0, { type, payload }) => {
   switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.allPagesCount;
     default:
       return state;
   }
 };
-// eslint-disable-next-line
-const unreadCount = (state = 0, { type, payload }) => {
-  switch (type) {
-    default:
-      return state;
-  }
-};
-// eslint-disable-next-line
-const readPagesCount = (state = 0, { type, payload }) => {
-  switch (type) {
-    default:
-      return state;
-  }
-};
-// eslint-disable-next-line
-const avgReadPages = (state = 0, { type, payload }) => {
-  switch (type) {
-    default:
-      return state;
-  }
-};
-// eslint-disable-next-line
+
 const pagesReadResult = (state = [], { type, payload }) => {
   switch (type) {
+    case Type.GET_TRENING_SUCCESS:
+      return payload.pagesReadResult;
     default:
       return state;
   }
 };
 export default combineReducers({
-  books,
+  trainingId,
+  isDone,
+  timeStart,
+  timeEnd,
+  avgReadPages,
   booksCount,
   unreadCount,
-  readPagesCount,
-  avgReadPages,
+  books,
+  allPagesCount,
   pagesReadResult,
 });

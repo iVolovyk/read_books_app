@@ -47,12 +47,9 @@ export const asyncGetBook = () => (dispatch, getStore) => {
     });
 
   if (haveTraining(getStore())) {
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     api
       .getTraining(token)
-      .then(data => console.log(data.data)) //data => dispatch(fetchSuccessTrening(data.data.books)))
+      .then(data => dispatch(fetchSuccessTrening(data.data.training))) //data => dispatch(fetchSuccessTrening(data.data.books)))
       .catch(err => {
         toast.error('Помилка завантаження Тренінгу... Спробуйте пізніше...', {
           position: toast.POSITION.BOTTOM_RIGHT,
