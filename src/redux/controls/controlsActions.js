@@ -1,5 +1,5 @@
 export const Type = {
-  // EXAMPLE: 'EXAMPLE',
+  RESET_COMPONENT: 'RESET_COMPONENT',
   SET_LOGOUT: 'SET_LOGOUT',
   SET_SUMMARY_MODAL_ON: 'SET_SUMMARY_MODAL_ON',
   SET_SUMMARY_MODAL_OFF: 'SET_SUMMARY_MODAL_OFF',
@@ -23,7 +23,6 @@ export const setSummaryModalOFF = () => ({
   payload: false,
 });
 
-export const setModalCongratsOpen = () => ({
-  type: Type.SET_MODAL_CONGRATS_OPEN,
-  payload: true,
+export const resetComponentControls = () => ({
+  type: Type.RESET_COMPONENT,
 });

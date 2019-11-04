@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { compose } from 'redux';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import getAllUserInfo from '../../hoc/getAllUserInfo';
 // import * as booksActions from '../../redux/books/booksActions';
 
 import AddBook from '../../components/AddBook/AddBookContainer';
@@ -45,7 +47,10 @@ LibraryPage.propTypes = {
   // addBooks: PropTypes.func.isRequired,
 };
 
-export default connect(
-  null,
-  mapDispatchToProps,
+export default compose(
+  connect(
+    null,
+    mapDispatchToProps,
+  ),
+  getAllUserInfo,
 )(LibraryPage);
