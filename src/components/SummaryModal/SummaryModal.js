@@ -6,12 +6,19 @@ import style from './SummaryModal.module.css';
 class SummaryModal extends Component {
   state = {
     rating: null,
+    textArea: '',
+  };
+
+  getTextareaValue = e => {
+    this.setState({
+      textArea: e.target.value,
+    });
   };
 
   // onClose
   handleSubmit = e => {
     e.preventDefault();
-    // TODO  Деня вста свій код логіки сюда
+    console.log(this.state.textArea);
     this.props.onClose();
   };
 
@@ -40,10 +47,12 @@ class SummaryModal extends Component {
           <span className={style.textareaName}>Резюме</span>
           <textarea
             className={style.textArea}
+            onChange={this.getTextareaValue}
             name="comment"
             rows="5"
-            value={bookFromClickBtnEdit.comment}
-          />
+          >
+            {bookFromClickBtnEdit.comment}
+          </textarea>
         </h2>
         <div className={style.buttDiv}>
           <button onClick={onClose} className={style.exitBut} type="button">
