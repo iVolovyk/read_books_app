@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import queryString from 'query-string';
-// import { addBooks } from '../../redux/books/booksActions';
-// Google Login
-import * as sessionActions from '../../redux/session/sessionActions';
-import logInWithGoogleOperation from '../../redux/session/sessionOperations';
+// import * as booksActions from '../../redux/books/booksActions';
 
 import AddBook from '../../components/AddBook/AddBookContainer';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongrats';
@@ -15,15 +11,8 @@ import css from './LibraryPage.module.css';
 
 class LibraryPage extends Component {
   componentDidMount() {
-    const { location, logInWithGoogleHandler } = this.props;
-    logInWithGoogleHandler(location.search);
-    localStorage.setItem('token', location.search);
+    // const { addBooks } = this.props;
     // books.forEach(book => addBooks(book));
-    const { logInWithGoogle } = this.props;
-    const search = queryString.parse(location.search);
-
-    logInWithGoogle(search.token);
-    logInWithGoogleHandler();
   }
 
   render() {
@@ -42,29 +31,18 @@ class LibraryPage extends Component {
   }
 }
 
-// const mapStateToProps = state => ({});
+// const mapStateToProps = state => ({
+//   isAuthenticated: getIsAuthenticated(state),
+// });
 
-// const mapDispatchToProps = {
-//   logInWithGoogle,
-//   logInWithGoogleOperation,
-// };
-
+// eslint-disable-next-line no-unused-vars
 const mapDispatchToProps = dispatch => ({
-  logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
-  logInWithGoogleHandler: () => dispatch(logInWithGoogleOperation()),
-  // addBooks: () => dispatch(addBooks()),
+  // addBooks: () => dispatch(booksActions.addBooks()),
 });
 
-LibraryPage.defaultProps = {
-  location: {},
-};
-
 LibraryPage.propTypes = {
-  location: PropTypes.shape({
-    search: PropTypes.string,
-  }),
-  logInWithGoogle: PropTypes.func.isRequired,
-  logInWithGoogleHandler: PropTypes.func.isRequired,
+  // isAuthenticated: PropTypes.bool.isRequired,
+  // addBooks: PropTypes.func.isRequired,
 };
 
 export default connect(

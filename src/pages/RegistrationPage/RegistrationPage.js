@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 import css from './RegistrationPage.module.css';
+import * as sessionOperations from '../../redux/session/sessionOperations';
+import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
 
 class RegistrationPage extends Component {
   state = {
@@ -10,13 +16,31 @@ class RegistrationPage extends Component {
     confirmPassword: '',
   };
 
+  componentDidMount() {
+    const { isAuthenticated, history } = this.props;
+    if (isAuthenticated) {
+      history.replace('/library');
+    }
+  }
+
+  componentDidUpdate() {
+    const { isAuthenticated, history } = this.props;
+    if (isAuthenticated) {
+      history.replace('/library');
+    }
+  }
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
+    const { name, email, password, confirmPassword } = this.state;
+    const { onRegistrate } = this.props;
     e.preventDefault();
+    if (password !== confirmPassword) return;
+    onRegistrate({ email, password, name: { fullName: name } });
     this.setState({ name: '', email: '', password: '', confirmPassword: '' });
   };
 
@@ -36,7 +60,7 @@ class RegistrationPage extends Component {
                 </a>
               </div>
               <label htmlFor="name">
-                <span>Ім'я</span>
+                <span>Ім&apos;я</span>
                 <input
                   onChange={this.handleChange}
                   type="text"
@@ -70,6 +94,7 @@ class RegistrationPage extends Component {
                   value={password}
                   placeholder="Пароль"
                   required="required"
+                  minLength="6"
                 />
               </label>
               <label label htmlFor="confirmPassword">
@@ -82,6 +107,7 @@ class RegistrationPage extends Component {
                   value={confirmPassword}
                   placeholder="Підтвердити пароль"
                   required="required"
+                  minLength="6"
                 />
               </label>
               <button type="submit">Зареєструватися</button>
@@ -116,5 +142,35 @@ class RegistrationPage extends Component {
     );
   }
 }
+RegistrationPage.propTypes = {
+  onRegistrate: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func,
+  }).isRequired,
+};
 
-export default RegistrationPage;
+const mapStateToProps = state => ({
+  isAuthenticated: getIsAuthenticated(state),
+});
+
+const mapDispatchToProps = {
+  onRegistrate: sessionOperations.registrateOperation,
+};
+
+// Без компоус
+// export default withAuthRedirect(
+//   connect(
+//     mapStateToProps,
+//     mapDispatchToProps,
+//   )(LoginPage),
+// );
+
+// С компоус
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  withAuthRedirect,
+)(RegistrationPage);
