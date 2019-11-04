@@ -11,6 +11,9 @@ export const addBooks = book => ({
   type: Type.ADD_BOOKS,
   payload: book,
 });
+/*
+ * Add Book
+ */
 
 export const addBookStart = () => ({
   type: Type.ADD_BOOK_START,
