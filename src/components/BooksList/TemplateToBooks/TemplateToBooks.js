@@ -10,7 +10,7 @@ class TemplateToBooks extends Component {
   state = {};
 
   render() {
-    const { list, setSummaryModalOn, isEdit } = this.props;
+    const { list, setSummaryModalOn, setIdInSummaryModal, isEdit } = this.props;
     // console.log(list.listBooks);
     return (
       <>
@@ -47,7 +47,11 @@ class TemplateToBooks extends Component {
 
                   <button
                     type="button"
-                    onClick={() => setSummaryModalOn(true)}
+                    onClick={() => {
+                      setSummaryModalOn(true);
+                      setIdInSummaryModal(el.id);
+                    }}
+                    value={el.id}
                     className={
                       el.comment === undefined
                         ? `${css.wrapPenLogo}`
