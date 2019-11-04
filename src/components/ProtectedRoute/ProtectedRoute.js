@@ -2,11 +2,11 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as sessionSelectors from '../redux/session/sessionSelectors';
+import * as sessionSelectors from '../../redux/session/sessionSelectors';
 
 const ProtectedRoute = ({
   authenticated,
-  redirectTo = '/',
+  redirectTo = '/login',
   component: Component,
   ...rest
 }) => (
