@@ -6,5 +6,5 @@ import delBooks from '../../components/BooksList/toDeletebookList.json';
 //   getBooks(state).find(el => el.id === state.bookIdInSummaryModal);
 
 export const getFromClickBtnEdit = state => {
-  delBooks.toRead.find(el => +el.id === state.bookIdInSummaryModal);
+  return delBooks.toRead.find(el => el.id === state.bookIdInSummaryModal);
 };

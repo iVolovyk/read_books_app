@@ -3,8 +3,6 @@ import StarRatingComponent from 'react-star-rating-component';
 import PropTypes from 'prop-types';
 import style from './SummaryModal.module.css';
 
-import delBooks from '../BooksList/toDeletebookList.json';
-
 class SummaryModal extends Component {
   state = {
     rating: null,
@@ -24,8 +22,6 @@ class SummaryModal extends Component {
   render() {
     const { rating } = this.state;
     const { onClose, bookFromClickBtnEdit } = this.props;
-    console.log(bookFromClickBtnEdit);
-    delBooks.toRead.map(el => console.log(el));
     return (
       <section className={style.sumModal}>
         <div className={style.stars}>
@@ -36,13 +32,18 @@ class SummaryModal extends Component {
           <StarRatingComponent
             name="rate1"
             starCount={5}
-            value={rating}
+            value={bookFromClickBtnEdit.rating}
             onStarClick={this.onStarClick}
           />
         </div>
         <h2 className={style.textHeadline}>
-          <span className={style.textareaName}>Резюме</span>{' '}
-          <textarea className={style.textArea} name="comment" rows="5" />
+          <span className={style.textareaName}>Резюме</span>
+          <textarea
+            className={style.textArea}
+            name="comment"
+            rows="5"
+            value={bookFromClickBtnEdit.comment}
+          />
         </h2>
         <div className={style.buttDiv}>
           <button onClick={onClose} className={style.exitBut} type="button">
