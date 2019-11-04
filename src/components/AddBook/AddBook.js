@@ -3,30 +3,17 @@ import PropTypes from 'prop-types';
 import css from './AddBook.module.css';
 
 class AddBook extends Component {
-  state = { title: '', author: '', year: '', pageNumber: '' };
+  state = { title: '', author: '', year: '', pagesCount: '' };
 
-  resetState = () => {
+  handleSubmit = evt => {
+    evt.preventDefault();
+    this.props.addBook(this.state);
     this.setState({
       title: '',
       author: '',
       year: '',
-      pageNumber: '',
+      pagesCount: '',
     });
-  };
-
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const { title, author, year, pageNumber } = this.state;
-    const newBook = {
-      title,
-      author,
-      year: Number(year),
-      pageNumber: Number(pageNumber),
-      status: 'planned',
-      checked: false,
-    };
-    this.props.addBooks(newBook);
-    this.resetState();
   };
 
   handleChange = ({ target }) => {
@@ -35,10 +22,10 @@ class AddBook extends Component {
   };
 
   render() {
-    const { title, author, year, pageNumber } = this.state;
+    const { title, author, year, pagesCount } = this.state;
     return (
-      <div className={css.container}>
-        <form className={css.form} onSubmit={this.handleSubmit}>
+      <>
+        <form className={css.formAddBook} onSubmit={this.handleSubmit}>
           <label htmlFor="Назва книги">
             Назва книги
             <input
@@ -70,6 +57,8 @@ class AddBook extends Component {
                 className={css.year}
                 onChange={this.handleChange}
                 type="number"
+                min="1"
+                max="2019"
                 name="year"
                 value={year}
               />
@@ -78,20 +67,21 @@ class AddBook extends Component {
               Кількість сторінок
               <input
                 placeholder="..."
-                className={css.pageNumber}
+                className={css.pagesCount}
                 onChange={this.handleChange}
                 type="number"
-                name="pageNumber"
-                value={pageNumber}
+                min="1"
+                name="pagesCount"
+                value={pagesCount}
                 required
               />
             </label>
           </div>
-          <button type="submit" className={css.button}>
+          <button type="submit" className={css.buttonAddBook}>
             Додати
           </button>
         </form>
-      </div>
+      </>
     );
   }
 }
@@ -99,5 +89,5 @@ class AddBook extends Component {
 export default AddBook;
 
 AddBook.propTypes = {
-  addBooks: PropTypes.func.isRequired,
+  addBook: PropTypes.func.isRequired,
 };

@@ -12,3 +12,4 @@ export const haveTraining = state => {
 };
 
 export const isAutorise = state => state.session.authenticated;
+export const getUserName = state => state.session.user.name.fullName;

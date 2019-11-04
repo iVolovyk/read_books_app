@@ -1,6 +1,6 @@
 export const Type = {
-  LOADER_ON: 'LOADER_ON',
-  LOADER_OFF: 'LOADER_OFF',
+  LOADER_ON: 'isLoading/LOADER_ON',
+  LOADER_OFF: 'isLoading/LOADER_OFF',
 };
 
 export const loaderOn = () => ({
