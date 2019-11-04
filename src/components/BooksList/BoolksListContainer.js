@@ -9,6 +9,5 @@ const mapStateToProps = state => ({
   // planeReadBooks: getPlaneReadBooks(state),
 });
 // TODO  get method for store state in Section
-// TODO  get method for store state in Section
 
 export default connect(mapStateToProps)(BooksList);
