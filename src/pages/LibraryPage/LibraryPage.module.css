@@ -1,21 +1,21 @@
+.containerLibraryPage {
+  background-color: #f5f7fa;
+}
+
 .library {
-  font-size: 10px;
-  background-color: rgb(227, 233, 240);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* width: 300px; */
+  width: 300px;
   margin: 0 auto;
+  padding: 30px 10px;
 }
 
 @media (min-width: 768px) {
-  /* .library {
-    width: 746px;
-  } */
+  .library {
+    width: 680px;
+  }
 }
 
-@media (min-width: 1280px) {
-  /* .library {
+@media (min-width: 1264px) {
+  .library {
     width: 1228px;
-  } */
+  }
 }
