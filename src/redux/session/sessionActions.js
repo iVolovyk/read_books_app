@@ -25,7 +25,7 @@ export const logInWithGoogle = token => ({
  * Get Current User
  */
 
-export const getUserWithGoogle = response => ({
+export const getUser = response => ({
   type: Type.GET_USER,
   payload: response,
 });

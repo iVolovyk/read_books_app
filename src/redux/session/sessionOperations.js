@@ -2,20 +2,17 @@
 import * as sessionActions from './sessionActions';
 import * as api from '../../services/api';
 
-export const logInWithGoogleOperation = () => (dispatch, getStore) => {
+export const getUserOperation = () => (dispatch, getStore) => {
   const { token } = getStore().session;
   if (!token) {
     return;
   }
   api
     .getUserByToken(token)
-    .then(response =>
-      dispatch(sessionActions.getUserWithGoogle(response.data.user)),
-    )
+    .then(response => dispatch(sessionActions.getUser(response.data.user)))
     .catch(error => {
       dispatch(sessionActions.getUserError(error));
     });
-  // .finally(console.log('finally'));
 };
 
 export const logOutOperation = () => (dispatch, getStore) => {

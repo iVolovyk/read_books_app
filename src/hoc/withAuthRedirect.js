@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import * as sessionSelectors from '../../redux/session/sessionSelectors';
+import * as sessionSelectors from '../redux/session/sessionSelectors';
 
 const withAuthRedirect = BaseComponent => {
   class WithAuthRedirect extends Component {
@@ -10,7 +10,7 @@ const withAuthRedirect = BaseComponent => {
         return;
       }
 
-      this.props.history.replace('/');
+      this.props.history.replace('/library');
     }
 
     componentDidUpdate() {
@@ -24,7 +24,7 @@ const withAuthRedirect = BaseComponent => {
         return this.props.history.replace(this.props.location.state.from);
       }
 
-      this.props.history.replace('/');
+      this.props.history.replace('/library');
     }
 
     render() {

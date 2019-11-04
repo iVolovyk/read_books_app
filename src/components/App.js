@@ -3,17 +3,27 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
-import { getIsLoading } from '../redux/loader/loaderSelectors';
+import * as loaderSelectors from '../redux/loader/loaderSelectors';
+import * as sessionSelectors from '../redux/session/sessionSelectors';
+import * as sessionOperations from '../redux/session/sessionOperations';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import LibraryPage from '../pages/LibraryPage/LibraryPage';
 import TrainingPage from '../pages/TrainingPage/TrainingPageConteiner';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 import HeaderContainer from './Header/HeaderContainer';
-// import { getUser } from '../redux/session/sessionSelectors';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 
 class App extends Component {
   state = {};
+
+  componentDidMount() {
+    const { token, getUserOperation } = this.props;
+    if (!token) {
+      return;
+    }
+    getUserOperation();
+  }
 
   render() {
     const { isLoading } = this.props;
@@ -43,8 +53,16 @@ class App extends Component {
         <Switch>
           <Route path="/login" component={LoginPage} />
           <Route path="/registration" component={RegistrationPage} />
-          <Route path="/library" component={LibraryPage} />
-          <Route path="/training" component={TrainingPage} />
+          <ProtectedRoute
+            path="/library"
+            component={LibraryPage}
+            redirectTo="/login"
+          />
+          <ProtectedRoute
+            path="/training"
+            component={TrainingPage}
+            redirectTo="/login"
+          />
           <Redirect to="/training" />
         </Switch>
       </>
@@ -53,11 +71,25 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoading: getIsLoading(state),
+  isLoading: loaderSelectors.getIsLoading(state),
+  token: sessionSelectors.getToken(state),
 });
+
+const mapDispatchToProps = dispatch => ({
+  getUserOperation: () => dispatch(sessionOperations.getUserOperation()),
+});
+
+App.defaultProps = {
+  token: '',
+};
 
 App.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  getUserOperation: PropTypes.func.isRequired,
+  token: PropTypes.string,
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

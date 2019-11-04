@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import queryString from 'query-string';
 import css from './LoginPage.module.css';
 import cites from './cites';
 import * as sessionOperations from '../../redux/session/sessionOperations';
+import * as sessionActions from '../../redux/session/sessionActions';
 import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 
 class LoginPage extends Component {
   state = {
@@ -15,19 +19,36 @@ class LoginPage extends Component {
   };
 
   componentDidMount() {
-    const { isAuthenticated, history } = this.props;
+    const {
+      isAuthenticated,
+      history,
+      logInWithGoogle,
+      getUserOperation,
+      location,
+    } = this.props;
     if (isAuthenticated) {
       history.replace('/library');
     }
     const citeNumber = this.randomNumber(cites);
     this.setState({ citeNumber });
+
+    // Google login
+    if (!isAuthenticated && location.search) {
+      const search = queryString.parse(location.search);
+      logInWithGoogle(search.token);
+      getUserOperation();
+      history.replace({
+        pathname: location.pathname,
+        search: '',
+      });
+    }
   }
 
   componentDidUpdate() {
-    const { isAuthenticated, history } = this.props;
-    if (isAuthenticated) {
-      history.replace('/library');
-    }
+    // const { isAuthenticated, history } = this.props;
+    // if (isAuthenticated) {
+    //   history.replace('/library');
+    // }
   }
 
   handleChange = e => {
@@ -112,17 +133,38 @@ LoginPage.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func,
   }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string,
+    pathname: PropTypes.string,
+  }).isRequired,
+  logInWithGoogle: PropTypes.func.isRequired,
+  getUserOperation: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   isAuthenticated: getIsAuthenticated(state),
 });
 
-const mapDispatchToProps = {
-  onLogin: sessionOperations.loginOperation,
-};
+const mapDispatchToProps = dispatch => ({
+  onLogin: credentials =>
+    dispatch(sessionOperations.loginOperation(credentials)),
+  logInWithGoogle: token => dispatch(sessionActions.logInWithGoogle(token)),
+  getUserOperation: () => dispatch(sessionOperations.getUserOperation()),
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+// Без компоус
+// export default withAuthRedirect(
+//   connect(
+//     mapStateToProps,
+//     mapDispatchToProps,
+//   )(LoginPage),
+// );
+
+// С компоус
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  withAuthRedirect,
 )(LoginPage);

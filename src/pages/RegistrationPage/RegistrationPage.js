@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 import css from './RegistrationPage.module.css';
 import * as sessionOperations from '../../redux/session/sessionOperations';
 import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
@@ -156,7 +158,19 @@ const mapDispatchToProps = {
   onRegistrate: sessionOperations.registrateOperation,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+// Без компоус
+// export default withAuthRedirect(
+//   connect(
+//     mapStateToProps,
+//     mapDispatchToProps,
+//   )(LoginPage),
+// );
+
+// С компоус
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+  withAuthRedirect,
 )(RegistrationPage);

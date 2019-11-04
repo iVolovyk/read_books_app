@@ -16,7 +16,7 @@ const user = (state = null, { type, payload }) => {
 
 const authenticated = (state = false, { type }) => {
   switch (type) {
-    case Type.LOGIN_WITH_GOOGLE:
+    case Type.GET_USER:
     case Type.REGISTRATION_SUCCESS:
     case Type.LOG_IN_SUCCESS:
       return true;
