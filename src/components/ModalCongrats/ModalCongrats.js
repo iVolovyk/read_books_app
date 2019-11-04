@@ -32,7 +32,7 @@ class ModalCongrats extends Component {
               <h2>Ти молодчина!!!</h2>
               <p>
                 можеш залишити відгук на прочитані книги та почати нове
-                тренуванні
+                тренування
               </p>
               <button
                 type="button"

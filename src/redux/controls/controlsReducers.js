@@ -20,8 +20,10 @@ const summaryModalOpenReducer = (state = false, { type, payload }) => {
   }
 };
 
-const modalCongratsOpenReducer = (state = false, { type }) => {
+const modalCongratsOpenReducer = (state = false, { type, payload }) => {
   switch (type) {
+    case Type.SET_MODAL_CONGRATS_OPEN:
+      return payload;
     default:
       return state;
   }
