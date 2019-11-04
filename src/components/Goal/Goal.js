@@ -1,15 +1,24 @@
 import React from 'react';
+// import moment from 'moment';
+// import { connect } from 'react-redux';
+
 // import PropTypes from 'prop-types';
 import styles from './Goal.module.css';
+// import {
+//   getBooksForCheckList,
+//   getTimeStart,
+//   getTimeEnd,
+// } from '../../redux/training/trainingSelectors';
 
 // const Goal = ({ dateOne, dateToo }) => {
+// const Goal = ({ books, timeStart, timeEnd }) => {
 const Goal = () => {
   return (
     <section className={styles.box}>
       <div className={styles.boxTitle}>Моя мета прочитати</div>
       <ul className={styles.boxCounter}>
         <li className={styles.boxCounterItem}>
-          <div className={styles.boxCounterNumber}>3</div>
+          <div className={styles.boxCounterNumber}>rttr</div>
           <p className={styles.boxCounterText}>Кількість книжок</p>
         </li>
         <li className={styles.boxCounterItem}>
@@ -33,4 +42,11 @@ const Goal = () => {
 
 // };
 
+// const mapStateToProps = store => ({
+//   books: getBooksForCheckList(store),
+//   timeStart: getTimeStart(store),
+//   timeEnd: getTimeEnd(store),
+// });
+
 export default Goal;
+// export default connect(mapStateToProps)(Goal);
