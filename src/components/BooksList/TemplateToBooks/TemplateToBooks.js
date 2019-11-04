@@ -10,7 +10,7 @@ class TemplateToBooks extends Component {
   state = {};
 
   render() {
-    const { list, setSummaryModalOn } = this.props;
+    const { list, setSummaryModalOn, isEdit } = this.props;
     // console.log(list.listBooks);
     return (
       <>
@@ -19,7 +19,9 @@ class TemplateToBooks extends Component {
           <div className={`${css.authorHead} ${css.title}`}>Автор</div>
           <div className={`${css.yearHead} ${css.title}`}>Рік</div>
           <div className={`${css.pageHead} ${css.title}`}>Сторінок</div>
-          <div className={`${css.ratingHead} ${css.title}`}>Рейтинг</div>
+          {isEdit && (
+            <div className={`${css.ratingHead} ${css.title}`}>Рейтинг</div>
+          )}
         </div>
 
         <ul className={css.ulBooks}>
@@ -31,28 +33,31 @@ class TemplateToBooks extends Component {
               <div className={css.yearBody}>{el.year}</div>
               <div className={css.pageBody}>{el.page}</div>
 
-              <div className={css.ratingBody}>
-                <StarRatingComponent
-                  name={el.id}
-                  className={css.starRatingComponent}
-                  editing={false}
-                  starCount={5}
-                  value={el.rating}
-                />
-                {/* {el.rating <= 5 && `${el.rating}/5`}
-                {el.rating === undefined && `0/5`} */}
-              </div>
-              <button
-                type="button"
-                onClick={() => setSummaryModalOn(true)}
-                className={
-                  el.comment === undefined
-                    ? `${css.wrapPenLogo}`
-                    : `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
-                }
-              >
-                <PenLogo className={css.penLogo} />
-              </button>
+              {isEdit && (
+                <div>
+                  <div className={css.ratingBody}>
+                    <StarRatingComponent
+                      name={el.id}
+                      className={css.starRatingComponent}
+                      editing={false}
+                      starCount={5}
+                      value={el.rating}
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setSummaryModalOn(true)}
+                    className={
+                      el.comment === undefined
+                        ? `${css.wrapPenLogo}`
+                        : `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
+                    }
+                  >
+                    <PenLogo className={css.penLogo} />
+                  </button>
+                </div>
+              )}
             </li>
           ))}
         </ul>

@@ -5,7 +5,7 @@ import css from '../BooksList.module.css';
 const ReadBooks = list => (
   <>
     <h2 className={css.titleReadBooks}>Прочитано</h2>
-    <TemplateToBooks list={list} />
+    <TemplateToBooks list={list} isEdit />
   </>
 );
 

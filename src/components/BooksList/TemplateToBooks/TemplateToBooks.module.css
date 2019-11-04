@@ -30,7 +30,7 @@
   position: absolute;
   width: 2rem;
   height: 2rem;
-  border: 2px solid #898f9f;
+  border: 1px solid #898f9f;
   background-color: white;
   outline: none;
   border-radius: 50%;
@@ -155,15 +155,15 @@
   @media (min-width: 1280px) {
     /* Name */
     .nameHead {
-      width: 480px;
+      width: 440px;
     }
     .nameBody {
-      width: 450px;
+      width: 380px;
       padding: 0 10px;
     }
     /* Author */
     .authorHead {
-      width: 190px;
+      width: 200px;
     }
     .authorBody {
       width: 200px;
@@ -171,7 +171,7 @@
     }
     /* Year */
     .yearHead {
-      width: 170px;
+      width: 180px;
     }
     .yearBody {
       width: 180px;
@@ -179,7 +179,7 @@
     }
     /* Page */
     .pageHead {
-      width: 170px;
+      width: 180px;
     }
     .pageBody {
       width: 180px;
