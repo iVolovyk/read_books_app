@@ -6,7 +6,7 @@ export const getUser = state => state.session.user;
 
 export const haveTraining = state => {
   if (state.session.user) {
-    return state.session.user.userData.haveTraining;
+    return state.session.user.haveTraining;
   }
   return false;
 };
