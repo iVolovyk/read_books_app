@@ -41,3 +41,7 @@ ModalLogout.propTypes = {
 };
 
 export default ModalLogout;
+
+ModalLogout.propTypes = {
+  setLogout: PropTypes.func.isRequired,
+};
