@@ -10,6 +10,7 @@ import loaderReducer from './loader/loaderReducers';
 import bookIdReducer from './bookId/bookIdReducer';
 import goalReducer from './goal/goalReducers';
 import controlsReducer from './controls/controlsReducers';
+import trainingReducer from './training/trainingReducers';
 
 const persistConfig = {
   key: 'session',
@@ -20,6 +21,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   session: sessionReducer,
   books: booksReducer,
+  training: trainingReducer,
   results: resultsReducer,
   isLoading: loaderReducer,
   bookIdInSummaryModal: bookIdReducer,

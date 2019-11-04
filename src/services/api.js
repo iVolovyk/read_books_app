@@ -16,3 +16,7 @@ export const addBookOnServer = (book, token) =>
   axios.post('/books/create', book, setToken(token));
 
 export const getUserByToken = token => axios.get('/user/me', setToken(token));
+
+export const getBooks = token => axios.get('/books', setToken(token));
+
+export const getTraining = token => axios.get('/training', setToken(token));

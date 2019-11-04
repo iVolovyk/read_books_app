@@ -29,7 +29,9 @@ class Backdrop extends Component {
   handleKeyPress = e => {
     const keyCode = e.keyCode || e.which;
     if (keyCode === 27) {
+      const { resetComponentControls } = this.props;
       this.setState({ on: false });
+      resetComponentControls();
       e.preventDefault();
     }
   };
@@ -43,8 +45,9 @@ class Backdrop extends Component {
   };
 
   open = () => {
-    const { on } = this.state;
-    this.setState({ on: !on });
+    const { resetComponentControls } = this.props;
+    this.setState({ on: false });
+    resetComponentControls();
   };
 
   render() {
@@ -78,6 +81,7 @@ class Backdrop extends Component {
 Backdrop.propTypes = {
   children: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  resetComponentControls: PropTypes.func.isRequired,
 };
 
 export default Backdrop;

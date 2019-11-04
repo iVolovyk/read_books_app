@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './DablTimerContainer.module.css';
 import Timer from '../Timer/Timer';
 
+// eslint-disable-next-line
 const DablTimerContainer = ({ dateOne, dateToo }) => {
   return (
     <div className={styles.timersWraper}>
