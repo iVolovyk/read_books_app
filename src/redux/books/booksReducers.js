@@ -1,22 +1,12 @@
 import { Type } from './booksActions';
 
-const booksReducer = (state = [], { type, payload }) => {
+/* для сервера */
+// eslint-disable-next-line import/prefer-default-export
+export const booksReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case Type.ADD_BOOKS:
-      return [payload, ...state];
+    case Type.ADD_BOOK_SUCCESS:
+      return [payload.book, ...state];
     default:
       return state;
   }
 };
-
-export default booksReducer;
-
-/* для сервера */
-// const booksReducer = (state = [], { type, payload }) => {
-//   switch (type) {
-//     case Type.ADD_BOOK_SUCCESS:
-//       return [payload, ...state];
-//     default:
-//       return state;
-//   }
-// };

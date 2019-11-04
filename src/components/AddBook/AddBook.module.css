@@ -1,12 +1,4 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px 40px;
-  margin: 0 auto;
-}
-
-.form label {
+.formAddBook label {
   display: flex;
   flex-direction: column;
   font-family: Montserrat;
@@ -14,46 +6,48 @@
   color: #898f9f;
   font-size: 13px;
   line-height: 30px;
+  margin-bottom: 16px;
 }
 
-.form input {
-  padding: 6px;
+.formAddBook input {
+  padding: 8px;
   background-color: #ffffff;
   border: 1px solid #cdd1da;
 }
 
-.button {
+.pagesCount {
+  margin-bottom: 20px;
+}
+
+.buttonAddBook {
+  display: block;
   width: 180px;
-  margin-top: 28px;
+  margin: 0 auto;
   background-color: #f5f7fa;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 13px;
   border: 1px solid #00183e;
-  outline-color: none;
-  padding: 6px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 8px;
 }
 
-.button:hover {
+.buttonAddBook:hover {
   background-color: #ff9a17;
+  color: #ffffff;
 }
 
 @media (min-width: 768px) {
-  .container {
-    width: 680px;
-    max-width: 100%;
+  .formAddBook {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .tablet {
+    width: 560px;
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
-  }
-
-  .form label:not(:last-child) {
-    margin-right: 20px;
+    justify-content: space-between;
   }
 
   .title {
@@ -68,34 +62,28 @@
     width: 116px;
   }
 
-  .pageNumber {
+  .pagesCount {
     width: 134px;
   }
 
-  .button {
+  .buttonAddBook {
     width: 180px;
     padding: 8px;
   }
 }
 
 @media (min-width: 1264px) {
-  .container {
-    width: 1228px;
-    max-width: 100%;
-  }
-
-  .form {
-    display: flex;
-    flex-direction: row;
+  .formAddBook {
+    padding: 0px 10px;
   }
 
   .tablet {
-    display: flex;
-    flex-direction: row;
-    margin-top: 0;
+    justify-content: space-around;
+    padding: 0;
   }
 
   .title {
+    margin-right: 20px;
     width: 380px;
   }
 
@@ -106,11 +94,16 @@
     width: 110px;
   }
 
-  .pageNumber {
+  .pagesCount {
     width: 150px;
   }
 
-  .form input {
+  .formAddBook input {
     padding: 10px;
+  }
+
+  .buttonAddBook {
+    margin-top: 30px;
+    height: 36px;
   }
 }

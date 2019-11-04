@@ -4,7 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import sessionReducer from './session/sessionReducers';
-import booksReducer from './books/booksReducers';
+import { booksReducer } from './books/booksReducers';
 import resultsReducer from './results/resultsReducers';
 import loaderReducer from './loader/loaderReducers';
 import bookIdReducer from './bookId/bookIdReducer';
