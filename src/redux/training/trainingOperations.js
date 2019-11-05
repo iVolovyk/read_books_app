@@ -82,23 +82,16 @@ export const onSetResult = dataResult => (dispatch, getStore) => {
   //Запускаем Акшен сиглализирующий о начале асинхронной операции..
   dispatch(fetchStartAddRes());
 
-  console.log('====================================');
-  console.log(dataResult, token, giveTrainingId(getStore()));
-  console.log('====================================');
-
   if (haveTraining(getStore())) {
     api
       .addResult(dataResult, token, giveTrainingId(getStore()))
       .then(data => dispatch(fetchSuccessAddRes(data.data.pagesReadResult))) //data => dispatch(fetchSuccessTrening(data.data.books)))
       .catch(err => {
-        console.log('====================================');
-        console.log(err);
-        console.log('====================================');
-        toast.error('Помилка завантаження Тренінгу... Спробуйте пізніше...', {
+        toast.error('Помилка додавання результаты... Спробуйте пізніше...', {
           position: toast.POSITION.BOTTOM_RIGHT,
           className: 'foo-bar',
         });
-        return dispatch(fetchFailureTrening(err));
+        return dispatch(fetchFailureAddRes(err));
       });
   }
 };

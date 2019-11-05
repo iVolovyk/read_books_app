@@ -8,6 +8,8 @@ const loaderReducer = (state = false, { type }) => {
     case SessionType.Type.REGISTRATION_START:
     case SessionType.Type.LOG_IN_START:
     case TrainingType.Type.POST_CHEKED_START:
+    case TrainingType.Type.ADD_RESULT_START:
+    case TrainingType.Type.GET_BOOK_START:
       return true;
     case Type.LOADER_OFF: // Выключить спиннер
     case SessionType.Type.REGISTRATION_SUCCESS:
@@ -16,6 +18,10 @@ const loaderReducer = (state = false, { type }) => {
     case SessionType.Type.LOG_IN_ERROR:
     case TrainingType.Type.POST_CHEKED_SUCCESS:
     case TrainingType.Type.POST_CHEKED_ERROR:
+    case TrainingType.Type.GET_BOOK_SUCCESS:
+    case TrainingType.Type.GET_BOOK_FAILURE:
+    case TrainingType.Type.ADD_RESULT_SUCCESS:
+    case TrainingType.Type.ADD_RESULT_FAILURE:
       return false;
     default:
       return state;
