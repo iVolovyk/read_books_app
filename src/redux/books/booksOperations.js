@@ -8,7 +8,6 @@ import {
 } from './booksActions';
 import { addBookOnServer, editBookStats } from '../../services/api';
 
-// eslint-disable-next-line import/prefer-default-export
 export const addBook = book => (dispatch, getStore) => {
   const { token } = getStore().session;
   dispatch(addBookStart());
