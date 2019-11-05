@@ -1,0 +1,182 @@
+@font-face {
+  font-family: 'open sans';
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+
+.ChosenBooks {
+  width: 100%;
+}
+
+.bookList {
+  padding: 0px 20px;
+  width: 100%;
+}
+
+.bookInfo {
+  position: relative;
+  list-style: none;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  border-top: 1px solid #dfe6ec;
+  border-bottom: 1px solid #dfe6ec;
+  margin-bottom: 16px;
+}
+
+.bookInfo:last-child {
+  margin-bottom: 35px;
+}
+
+.bookInfo {
+  color: #1c2534;
+  font-family: 'open sans';
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.mobileHeadline {
+  color: #8890a1;
+  font-family: 'open sans';
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.authorsNameSername span {
+  padding-right: 40px;
+}
+
+.yearOfPublication span {
+  padding-right: 60px;
+}
+
+.numberOfBookPages span {
+  padding-right: 22px;
+}
+
+.delete {
+  position: absolute;
+  right: 0px;
+  top: 18px;
+}
+
+@media (min-width: 768px) {
+  .notMobileHeadline {
+    display: flex;
+    color: #8890a1;
+    font-family: Montserrat;
+    font-size: 13px;
+  }
+
+  .bookName {
+    padding-right: 240px;
+  }
+
+  .authorName {
+    padding-right: 120px;
+  }
+
+  .year {
+    padding-right: 60px;
+  }
+
+  .pageNumber {
+    padding-right: 62px;
+  }
+
+  .bookList {
+    padding: 0px;
+  }
+
+  .bookInfo {
+    display: flex;
+  }
+
+  .bookHeadline {
+    width: 285px;
+    margin-right: 14px;
+  }
+
+  .authorsNameSername {
+    width: 145px;
+    margin-right: 10px;
+  }
+
+  .yearOfPublication {
+    width: 100px;
+    margin-right: 0px;
+  }
+
+  .numberOfBookPages {
+    width: 30px;
+    margin-right: 26px;
+  }
+
+  .delete {
+    width: 80px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: static;
+  }
+
+  .libraryIcon {
+    width: 40px;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bookName {
+    padding-right: 440px;
+  }
+
+  .authorName {
+    padding-right: 220px;
+  }
+
+  .year {
+    padding-right: 160px;
+  }
+
+  .pageNumber {
+    padding-right: 112px;
+  }
+
+  .bookList {
+    padding: 0px;
+  }
+
+  .bookHeadline {
+    width: 285px;
+    margin-right: 204px;
+  }
+
+  .authorsNameSername {
+    width: 145px;
+    margin-right: 110px;
+  }
+
+  .yearOfPublication {
+    width: 100px;
+    margin-right: 100px;
+  }
+
+  .numberOfBookPages {
+    width: 30px;
+    margin-right: 76px;
+  }
+
+  .delete {
+    width: 80px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .libraryIcon {
+    width: 40px;
+    margin-top: 10px;
+  }
+}

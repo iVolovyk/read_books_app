@@ -1,0 +1,11 @@
+.bookList {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+.titleTable {
+  font-family: 'Semi Bold', sans-serif;
+  font-size: 1.125rem;
+  margin: 0;
+}

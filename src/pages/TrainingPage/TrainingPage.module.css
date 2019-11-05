@@ -1,0 +1,29 @@
+.treningSection {
+  padding-bottom: 33px;
+}
+
+.trainingPageWrapper {
+  padding-top: 33px;
+}
+
+.mainblok {
+  background-color: #f5f7fa;
+}
+
+@media screen and (min-width: 1280px) {
+  .trainingPageWrapper {
+    padding-top: 36px;
+    padding-right: 16px;
+    padding-left: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .leftArea {
+    flex: 0 0 864px;
+  }
+
+  .rightArea {
+    flex: 0 0 300px;
+  }
+}

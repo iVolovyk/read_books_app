@@ -1,0 +1,21 @@
+.containerLibraryPage {
+  background-color: #f5f7fa;
+}
+
+.library {
+  width: 300px;
+  margin: 0 auto;
+  padding: 30px 10px;
+}
+
+@media (min-width: 768px) {
+  .library {
+    width: 680px;
+  }
+}
+
+@media (min-width: 1264px) {
+  .library {
+    width: 1228px;
+  }
+}
