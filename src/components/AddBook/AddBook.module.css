@@ -1,0 +1,109 @@
+.formAddBook label {
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #898f9f;
+  font-size: 13px;
+  line-height: 30px;
+  margin-bottom: 16px;
+}
+
+.formAddBook input {
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid #cdd1da;
+}
+
+.pagesCount {
+  margin-bottom: 20px;
+}
+
+.buttonAddBook {
+  display: block;
+  width: 180px;
+  margin: 0 auto;
+  background-color: #f5f7fa;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 13px;
+  border: 1px solid #00183e;
+  padding: 8px;
+}
+
+.buttonAddBook:hover {
+  background-color: #ff9a17;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .formAddBook {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tablet {
+    width: 560px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .title {
+    width: 560px;
+  }
+
+  .author {
+    width: 270px;
+  }
+
+  .year {
+    width: 116px;
+  }
+
+  .pagesCount {
+    width: 134px;
+  }
+
+  .buttonAddBook {
+    width: 180px;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 1264px) {
+  .formAddBook {
+    padding: 0px 10px;
+  }
+
+  .tablet {
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .title {
+    margin-right: 20px;
+    width: 380px;
+  }
+
+  .author {
+    width: 210px;
+  }
+  .year {
+    width: 110px;
+  }
+
+  .pagesCount {
+    width: 150px;
+  }
+
+  .formAddBook input {
+    padding: 10px;
+  }
+
+  .buttonAddBook {
+    margin-top: 30px;
+    height: 36px;
+  }
+}

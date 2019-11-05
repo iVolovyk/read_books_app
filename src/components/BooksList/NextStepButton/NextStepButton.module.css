@@ -1,0 +1,45 @@
+.wrapNextStepBtn {
+  text-align: center;
+}
+.nextStepButton {
+  border: 1px solid rgb(230, 124, 38);
+  background-color: rgb(255, 115, 0);
+  color: white;
+  padding: 5px 20px;
+}
+.wrapNextStepBtn {
+  text-align: center;
+}
+/* .nextStepButton {
+  font-size: 13px;
+  border: 0.0625rem solid rgb(230, 124, 38);
+  background-color: rgb(255, 115, 0);
+  color: white;
+  padding: 15px 70px;
+  margin-bottom: 0.9375rem;
+} */
+
+.nextStepButton {
+  width: 180px;
+  background-color: #ff9a17;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 13px;
+  border: 1px solid #00183e;
+  outline-color: none;
+  padding: 6px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.nextStepButton:hover,
+.nextStepButton:focus {
+  background-color: #f58e07;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .nextStepButton {
+    padding: 8px;
+  }
+}
