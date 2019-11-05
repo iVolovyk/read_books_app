@@ -18,6 +18,9 @@
   position: relative;
   padding: 10px 0;
 }
+.authorBody {
+  display: flex;
+}
 
 .libLogo {
   position: absolute;
@@ -35,7 +38,7 @@
   outline: none;
   border-radius: 50%;
   top: 50%;
-  right: 4%;
+  right: -1%;
   transform: translate(-50%, -50%);
 }
 .wrapPenLogo:hover,
@@ -58,6 +61,7 @@
   width: 100px;
   content: 'Автор:';
   display: inline-block;
+  padding-right: 60px;
 }
 .yearBody:before {
   width: 100px;
@@ -73,8 +77,6 @@
 .yearBody:before,
 .pageBody:before {
   color: #898f9f;
-}
-.starRatingComponent {
 }
 .title {
   font-family: Montserrat;
