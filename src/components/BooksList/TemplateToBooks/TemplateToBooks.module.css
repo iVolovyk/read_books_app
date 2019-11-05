@@ -34,7 +34,7 @@
   width: 2rem;
   height: 2rem;
   border: none;
-  background-color: #ff9a17;
+  background-color: #6d7a8d;
   outline: none;
   border-radius: 50%;
   top: 50%;
@@ -55,7 +55,7 @@
   transform: translate(-50%, -50%);
 }
 .wrapPenLogoActive {
-  background-color: rgb(238, 231, 231);
+  background-color: #ff9a17;
 }
 .authorBody:before {
   width: 100px;
