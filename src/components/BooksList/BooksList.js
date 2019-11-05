@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReadBooks from './ReadBooks/ReadBooks';
@@ -40,6 +39,9 @@ const BookList = ({
 };
 BookList.propTypes = {
   summaryModalOpen: PropTypes.bool.isRequired,
+  readBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  nowReadBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  planeReadBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
 };
 
 export default BookList;

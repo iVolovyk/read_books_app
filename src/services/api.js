@@ -30,3 +30,6 @@ export const register = credentials =>
   axios.post('/auth/register', credentials);
 
 export const login = credentials => axios.post('/auth/login', credentials);
+
+export const editBookStats = (booksStats, token, bookId) =>
+  axios.patch(`/books/${bookId}`, booksStats, setToken(token));

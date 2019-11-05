@@ -30,8 +30,8 @@
   position: absolute;
   width: 2rem;
   height: 2rem;
-  border: 1px solid #898f9f;
-  background-color: white;
+  border: 2px solid #ff9a17;
+  background-color: rgb(238, 231, 231);
   outline: none;
   border-radius: 50%;
   top: 50%;
@@ -44,7 +44,7 @@
 }
 .penLogo {
   position: absolute;
-  fill: #898f9f;
+  fill: #fff;
   width: 1.5rem;
   height: 1.5rem;
   top: 50%;

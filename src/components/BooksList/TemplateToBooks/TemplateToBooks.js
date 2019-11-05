@@ -52,7 +52,7 @@ class TemplateToBooks extends Component {
                     }}
                     value={el._id}
                     className={
-                      el.comment === undefined
+                      el.comment.length === 0
                         ? `${css.wrapPenLogo}`
                         : `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
                     }

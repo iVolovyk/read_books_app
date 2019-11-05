@@ -6,7 +6,7 @@ import style from './SummaryModal.module.css';
 class SummaryModal extends Component {
   state = {
     rating: null,
-    textArea: '',
+    comment: '',
   };
 
   componentDidMount() {
@@ -17,19 +17,29 @@ class SummaryModal extends Component {
 
     this.setState({
       rating: bookFromClickBtnEditRating,
-      textArea: bookFromClickBtnEditComment,
+      comment: bookFromClickBtnEditComment,
     });
   }
 
   getTextareaValue = e => {
     this.setState({
-      textArea: e.target.value,
+      comment: e.target.value,
     });
   };
 
   // onClose
   handleSubmit = e => {
     e.preventDefault();
+
+    const { rating, comment } = this.state;
+    const { bookId, changeBookStats } = this.props;
+
+    const booksStats = { rating, comment, bookId };
+
+    console.log(booksStats);
+
+    changeBookStats(booksStats);
+
     this.props.onClose();
   };
 
@@ -38,44 +48,47 @@ class SummaryModal extends Component {
   };
 
   render() {
-    const { rating, textArea } = this.state;
+    const { rating, comment } = this.state;
     const { onClose } = this.props;
     return (
       <section className={style.sumModal}>
-        <div className={style.stars}>
-          <h2 className={style.headline}>
-            Обрати ретинг книги: {!!rating && rating}
-          </h2>
+        <form onSubmit={this.handleSubmit}>
+          <div className={style.stars}>
+            <h2 className={style.headline}>
+              Обрати ретинг книги: {!!rating && rating}
+            </h2>
 
-          <StarRatingComponent
-            name="rate1"
-            starCount={5}
-            value={rating}
-            onStarClick={this.onStarClick}
-          />
-        </div>
-        <h2 className={style.textHeadline}>
-          <span className={style.textareaName}>Резюме</span>
-          <textarea
-            className={style.textArea}
-            onChange={this.getTextareaValue}
-            name="comment"
-            defaultValue={textArea}
-            rows="5"
-          />
-        </h2>
-        <div className={style.buttDiv}>
-          <button onClick={onClose} className={style.exitBut} type="button">
-            Назад
-          </button>
-          <button
-            onClick={this.handleSubmit}
-            className={style.saveBut}
-            type="button"
-          >
-            Зберігти
-          </button>
-        </div>
+            <StarRatingComponent
+              name="rate1"
+              starCount={5}
+              value={rating}
+              onStarClick={this.onStarClick}
+            />
+          </div>
+          <h2 className={style.textHeadline}>
+            <span className={style.textareaName}>Резюме</span>
+            <textarea
+              className={style.textArea}
+              onChange={this.getTextareaValue}
+              name="comment"
+              // defaultValue={comment}
+              value={comment}
+              rows="5"
+            />
+          </h2>
+          <div className={style.buttDiv}>
+            <button onClick={onClose} className={style.exitBut} type="button">
+              Назад
+            </button>
+            <button
+              // onClick={this.handleSubmit}
+              className={style.saveBut}
+              type="submit"
+            >
+              Зберігти
+            </button>
+          </div>
+        </form>
       </section>
     );
   }
@@ -83,8 +96,10 @@ class SummaryModal extends Component {
 
 SummaryModal.propTypes = {
   onClose: PropTypes.func.isRequired,
+  changeBookStats: PropTypes.func.isRequired,
   bookFromClickBtnEditRating: PropTypes.number.isRequired,
   bookFromClickBtnEditComment: PropTypes.string.isRequired,
+  bookId: PropTypes.string.isRequired,
 };
 
 export default SummaryModal;

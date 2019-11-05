@@ -9,3 +9,4 @@ export const getFromClickBtnEditComment = state => {
   return getBooks(state).find(el => el._id === state.bookIdInSummaryModal)
     .comment;
 };
+export const getBookId = state => state.bookIdInSummaryModal;
