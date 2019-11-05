@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { Type } from './sessionActions';
+import * as trainingType from '../training/trainingActions';
 
 const user = (state = null, { type, payload }) => {
   switch (type) {
@@ -7,6 +8,8 @@ const user = (state = null, { type, payload }) => {
     case Type.REGISTRATION_SUCCESS:
     case Type.LOG_IN_SUCCESS:
       return payload.userData;
+    case trainingType.Type.SEND_TRAINING_SUCCESS:
+      return { ...state, haveTraining: true };
     case Type.LOG_OUT:
       return null;
     default:

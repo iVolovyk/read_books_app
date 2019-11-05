@@ -1,26 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Select from 'react-select';
-import style from './style.module.css';
+import PropTypes from 'prop-types';
 
-const options = [
-  { value: 'Картофель', label: 'Картофель' },
-  { value: 'Помидоры', label: 'Помидоры' },
-  { value: 'Тыква', label: 'Тыква' },
-  { value: 'Фасоль', label: 'Фасоль' },
-  { value: 'Маслины', label: 'Маслины' },
-  { value: 'Голубика', label: 'Голубика' },
-  { value: 'Говядина', label: 'Говядина' },
-  { value: 'рис', label: 'рис' },
-];
-// eslint-disable-next-line
-const WorkSelect = ({ handleChange, value }) => (
-  <Select
-    className={style.select}
-    value={value}
-    onChange={handleChange}
-    options={options}
-    placeholder="Обрати книги з бібліотеки"
-  />
-);
+class WorkSelect extends Component {
+  state = {};
+
+  render() {
+    const customStyles = {
+      container: provided => ({
+        ...provided,
+        width: '100%',
+        height: 24,
+        border: 'none',
+        fontFamily: 'Montserrat',
+        fontWeight: 400,
+        color: '#8890a1',
+        fontSize: 13,
+      }),
+      control: provided => ({
+        ...provided,
+        borderStyle: 'none',
+        boxShadow: '0px -2px 1px 0px rgba(193, 197, 208, 0.4)',
+      }),
+
+      option: (provided, state) => ({
+        ...provided,
+        borderBottom: '1px dotted pink',
+        color: state.isSelected ? 'orange' : 'gray',
+        padding: 20,
+      }),
+
+      singleValue: (provided, state) => {
+        const opacity = state.isDisabled ? 0.5 : 1;
+        const transition = 'opacity 300ms';
+
+        return { ...provided, opacity, transition };
+      },
+    };
+
+    const { onChange } = this.props;
+    const { options } = this.props;
+    return (
+      <Select
+        styles={customStyles}
+        // value={value}
+        onChange={onChange}
+        options={options}
+        placeholder="Обрати книги з бібліотеки"
+      />
+    );
+  }
+}
+
+WorkSelect.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default WorkSelect;
