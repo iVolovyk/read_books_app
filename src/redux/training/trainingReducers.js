@@ -85,6 +85,13 @@ const books = (state = [], { type, payload }) => {
       return payload.books;
     case Type.CLOSE_TRANING_SUCCESS:
       return [];
+    case Type.POST_CHEKED_SUCCESS: {
+      return state.map(book =>
+        book.trainingBookId === payload.bookId
+          ? { ...book, isRead: payload.checked }
+          : book,
+      );
+    }
     default:
       return state;
   }
