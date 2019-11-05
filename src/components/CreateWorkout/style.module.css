@@ -39,13 +39,6 @@
 .dataPeacker {
   padding-bottom: 15px;
   text-align: center;
-  border: none;
-}
-
-.dataPeacker input {
-  line-height: 30px;
-  border: 1px grey solid;
-  padding-left: 5px;
 }
 
 .select {
@@ -62,6 +55,9 @@
   background: none;
   outline: none;
   cursor: pointer;
+}
+
+.addButt {
   margin-bottom: 20px;
 }
 
@@ -99,11 +95,9 @@
   .bookChooser {
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 14px;
   }
   .addButt {
     margin-left: 20px;
-    margin-top: 0px;
-    margin-bottom: -14px;
+    margin-top: 40px;
   }
 }

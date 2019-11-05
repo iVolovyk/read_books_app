@@ -4,5 +4,3 @@ export const getBooks = state => state.booksReducer.books;
 // export const getNowReadBooks = state => getBooks(state).filter(el => el.status === 'now';
 export const getPlaneReadBooks = state =>
   getBooks(state).filter(el => el.status === 'planned');
-
-export const getBooksForList = state => state.books;
