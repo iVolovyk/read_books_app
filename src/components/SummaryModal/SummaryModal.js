@@ -15,14 +15,6 @@ class SummaryModal extends Component {
     this.props.onClose();
   };
 
-  addFunc = e => {
-    console.log(e);
-  };
-
-  goBack = e => {
-    console.log(e);
-  };
-
   onStarClick = nextValue => {
     this.setState({ rating: nextValue });
   };
