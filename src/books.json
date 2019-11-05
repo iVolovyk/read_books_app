@@ -1,5 +1,12 @@
 [
   {
+    "id": "1",
+    "title": "Реакт Барбара",
+    "author": "Репета",
+    "year": 2018,
+    "pageNumber": 99900,
+    "comment": "",
+    "raiting": 0,
     "status": "planned",
     "_id": "5dbc08525d12e15c9f8aa43e",
     "title": "Лесеві історії. Експериментуй і дізнавайся",

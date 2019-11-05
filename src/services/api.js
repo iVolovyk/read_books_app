@@ -12,4 +12,24 @@ export const setToken = token => ({
   },
 });
 
-export const addBookOnServer = book => axios.post('/books/create', book);
+export const addBookOnServer = (book, token) =>
+  axios.post('/books/create', book, setToken(token));
+
+export const getUserByToken = token => axios.get('/user/me', setToken(token));
+
+export const getBooks = token => axios.get('/books', setToken(token));
+
+export const getTraining = token => axios.get('/training', setToken(token));
+
+export const addResult = (result, token, trainingId) =>
+  axios.post(`/training/time/${trainingId}`, result, setToken(token));
+
+export const logOut = token => axios.post('/auth/logout', setToken(token));
+
+export const register = credentials =>
+  axios.post('/auth/register', credentials);
+
+export const login = credentials => axios.post('/auth/login', credentials);
+
+export const addTraining = (trainingData, token) =>
+  axios.post('/training', trainingData, setToken(token));

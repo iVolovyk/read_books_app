@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import PropTypes from 'prop-types';
 import style from './SummaryModal.module.css';
 
 class SummaryModal extends Component {
@@ -8,6 +9,11 @@ class SummaryModal extends Component {
   };
 
   // onClose
+  handleSubmit = e => {
+    e.preventDefault();
+    // TODO  Деня вста свій код логіки сюда
+    this.props.onClose();
+  };
 
   addFunc = e => {
     console.log(e);
@@ -23,6 +29,7 @@ class SummaryModal extends Component {
 
   render() {
     const { rating } = this.state;
+    const { onClose } = this.props;
     return (
       <section className={style.sumModal}>
         <div className={style.stars}>
@@ -42,11 +49,11 @@ class SummaryModal extends Component {
           <textarea className={style.textArea} name="comment" rows="5" />
         </h2>
         <div className={style.buttDiv}>
-          <button onClick={this.goBack} className={style.exitBut} type="button">
+          <button onClick={onClose} className={style.exitBut} type="button">
             Назад
           </button>
           <button
-            onClick={this.addFunc}
+            onClick={this.handleSubmit}
             className={style.saveBut}
             type="button"
           >
@@ -57,5 +64,9 @@ class SummaryModal extends Component {
     );
   }
 }
+
+SummaryModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default SummaryModal;

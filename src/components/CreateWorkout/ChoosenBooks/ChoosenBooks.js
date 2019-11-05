@@ -61,11 +61,13 @@ ChosenBooks.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
-      type: PropTypes.string,
-      amount: PropTypes.string,
-      currency: PropTypes.string,
+      author: PropTypes.string,
+      year: PropTypes.number,
+      pagesCount: PropTypes.number,
+      title: PropTypes.string,
     }),
   ).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ChosenBooks;

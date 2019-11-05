@@ -1,0 +1,32 @@
+.modal_overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.102);
+  top: 0;
+  left: 0;
+  z-index: 9997;
+  outline: none;
+}
+
+.modal_overlay:focus {
+  outline: none;
+}
+
+.modal {
+  position: relative;
+  max-width: 18.75rem;
+  background-color: #fff;
+  box-shadow: 6.5px 11.258px 35px 0px rgba(0, 0, 0, 0.23);
+  padding: 2.5rem 1.375rem;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    max-width: 36.25rem;
+    padding: 2.5rem 5rem;
+  }
+}

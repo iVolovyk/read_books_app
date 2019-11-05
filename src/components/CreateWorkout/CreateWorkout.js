@@ -1,46 +1,41 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
 import style from './style.module.css';
 import WorkSelect from './CreateSelect/Select';
 import ChosenBooks from './ChoosenBooks/ChoosenBooks';
 import 'react-datetime/css/react-datetime.css';
-import bOOks from '../../books.json';
 
 class CreateWorkout extends Component {
   state = {
-    books: [],
-    todayDate: null,
-    ChosenDate: null,
-    totalPages: null,
-    totalBooks: null,
+    localBooks: [],
+    todayDate: '',
+    chosenDate: '',
     selectedOption: null,
     selectedBook: [],
     options: [],
   };
 
-  componentDidMount() {
-    const { selectedBook, books } = this.state;
-    // console.log(this.state.selectedBook.length);
-    // console.log(this.state.selectedOption);
-    // console.log(this.state.todayDate);
-    // console.log(this.state.ChosenDate);
-    // selectedBook.splice(ChosenBook, 1);
+  componentDidUpdate(prevProps) {
+    const { books } = this.props;
+    if (prevProps.books !== books) {
+      const options = books.map(book => ({
+        value: book._id,
+        label: book.title,
+      }));
 
-    const options = bOOks.map(book => ({
-      value: book._id,
-      label: book.title,
-    }));
-
-    this.setState({
-      books: bOOks,
-      options,
-    });
+      this.addToState(books, options);
+    }
   }
+
+  addToState = (booksArr, optArr) =>
+    this.setState({ localBooks: booksArr, options: optArr });
 
   dateOnchangeMethod = date => {
     this.setState({
-      todayDate: Datetime.moment().format('MMM Do YY'),
-      ChosenDate: date.format('MMM Do YY'),
+      todayDate: Datetime.moment().format('YYYY-MM-DD'),
+      chosenDate: date.format('YYYY-MM-DD'),
     });
   };
 
@@ -49,12 +44,14 @@ class CreateWorkout extends Component {
   };
 
   addButt = () => {
-    const { selectedOption, books, options } = this.state;
+    const { selectedOption, localBooks, options } = this.state;
     const newOptions = options.filter(
       book => book.value !== selectedOption.value,
     );
 
-    const ChosenOne = books.find(book => book._id === selectedOption.value);
+    const ChosenOne = localBooks.find(
+      book => book._id === selectedOption.value,
+    );
 
     this.setState(state => {
       return {
@@ -64,36 +61,56 @@ class CreateWorkout extends Component {
     });
   };
 
-  hendleClick = () => {
-    const { selectedBook } = this.state;
-    this.setState({
-      totalPages: selectedBook.reduce((acc, book) => acc + book.pagesCount, 0),
-      totalBooks: selectedBook.length,
-    });
+  hendleStartTraining = () => {
+    const { selectedBook, todayDate, chosenDate } = this.state;
+    const { sendTraining } = this.props;
+
+    const totalPages = selectedBook.reduce(
+      (acc, book) => acc + book.pagesCount,
+      0,
+    );
+
+    const chosenBooksForTraning = selectedBook.map(book => ({
+      book: book._id,
+    }));
+
+    const timeStartFormat = moment(todayDate).format('x');
+    const timeEndFormat = moment(chosenDate).format('x');
+    const timeForTrening = timeEndFormat - timeStartFormat;
+    const DayNeeds = Number(moment(timeForTrening).format('DD'));
+    const avgPages = Math.ceil(totalPages / DayNeeds);
+
+    const training = {
+      books: chosenBooksForTraning,
+      timeStart: todayDate,
+      timeEnd: chosenDate,
+      avgReadPages: avgPages,
+      readPagesCount: totalPages,
+    };
+
+    sendTraining(training);
   };
 
   handleDelete = e => {
     const { selectedBook } = this.state;
     const elementId = e.currentTarget.value;
     const ChosenOne = selectedBook.find(book => book._id === elementId);
-    console.log(ChosenOne);
-
+    const ChosenOneOption = {
+      value: ChosenOne._id,
+      label: ChosenOne.title,
+    };
     this.setState(prevState => {
       return {
         selectedBook: prevState.selectedBook.filter(
           book => book._id !== elementId,
         ),
-        // options: [prevState.options, ...ChosenOne],
+        options: [...prevState.options, ChosenOneOption],
       };
     });
   };
 
-  // componentDidUpdate() {
-  //   // console.log(this.state.options);
-  // }
-
   render() {
-    const { selectedBook, ChosenDate, selectedOption, options } = this.state;
+    const { selectedBook, chosenDate, selectedOption, options } = this.state;
     const yesterday = Datetime.moment().subtract(1, 'day');
     const valid = current => {
       return current.isAfter(yesterday);
@@ -107,7 +124,7 @@ class CreateWorkout extends Component {
           onChange={this.dateOnchangeMethod}
           defaultValue="Я справлюсь за"
           locale="uk"
-          dateFormat="DD.MM.YYYY"
+          dateFormat="YYYY-MM-DD"
         />
         <div className={style.bookChooser}>
           <WorkSelect
@@ -128,8 +145,8 @@ class CreateWorkout extends Component {
         <button
           className={style.startButt}
           type="button"
-          onClick={this.hendleClick}
-          disabled={!(selectedBook.length > 0 && ChosenDate)}
+          onClick={this.hendleStartTraining}
+          disabled={!(selectedBook.length > 0 && chosenDate)}
         >
           Почати тренування
         </button>
@@ -137,5 +154,18 @@ class CreateWorkout extends Component {
     );
   }
 }
+
+CreateWorkout.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      author: PropTypes.string,
+      year: PropTypes.number,
+      pagesCount: PropTypes.number,
+      title: PropTypes.string,
+    }),
+  ).isRequired,
+  sendTraining: PropTypes.func.isRequired,
+};
 
 export default CreateWorkout;

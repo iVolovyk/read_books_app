@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
-import books from '../../../books.json';
 
 class WorkSelect extends Component {
   state = {};
@@ -52,5 +51,13 @@ class WorkSelect extends Component {
     );
   }
 }
+
+WorkSelect.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default WorkSelect;

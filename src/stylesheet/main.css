@@ -6,6 +6,10 @@ html {
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: rgba(231, 224, 26, 0.6);
+}
+
 *,
 *:before,
 *::after {
@@ -51,7 +55,6 @@ input[type='radio'].visually-hidden {
   margin: 0 auto;
   width: 100%;
   max-width: 300px;
-  background-color: #fff;
 }
 
 @media screen and (min-width: 768px) {

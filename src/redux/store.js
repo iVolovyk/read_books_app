@@ -1,17 +1,28 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import sessionReducer from './session/sessionReducers';
-import booksReducer from './books/booksReducers';
+import { booksReducer } from './books/booksReducers';
 import resultsReducer from './results/resultsReducers';
 import loaderReducer from './loader/loaderReducers';
 import bookIdReducer from './bookId/bookIdReducer';
 import goalReducer from './goal/goalReducers';
 import controlsReducer from './controls/controlsReducers';
+import trainingReducer from './training/trainingReducers';
+
+// Persist only token
+const sessionPersistConfig = {
+  key: 'session',
+  storage,
+  whitelist: ['token'],
+};
 
 const rootReducer = combineReducers({
-  session: sessionReducer,
+  session: persistReducer(sessionPersistConfig, sessionReducer),
   books: booksReducer,
+  training: trainingReducer,
   results: resultsReducer,
   isLoading: loaderReducer,
   bookIdInSummaryModal: bookIdReducer,
@@ -21,6 +32,6 @@ const rootReducer = combineReducers({
 
 const enhancer = applyMiddleware(ReduxThunk);
 
-const store = createStore(rootReducer, {}, composeWithDevTools(enhancer));
+export const store = createStore(rootReducer, composeWithDevTools(enhancer));
 
-export default store;
+export const persistor = persistStore(store);
