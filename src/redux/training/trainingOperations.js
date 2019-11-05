@@ -4,6 +4,14 @@ import * as api from '../../services/api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { haveTraining } from '../session/sessionSelectors';
+import { chekBookOnServer } from '../../services/api';
+import { loaderOn, loaderOff } from '../../redux/loader/loaderActions';
+
+import {
+  chekBookStart,
+  chekBookSuccess,
+  chekBookError,
+} from './trainingActions';
 import { giveTrainingId } from './trainingSelectors';
 
 toast.configure({
@@ -86,4 +94,24 @@ export const onSetResult = dataResult => (dispatch, getStore) => {
         return dispatch(fetchFailureAddRes(err));
       });
   }
+};
+
+export const addChekedBook = chekBookInfo => (dispatch, getStore) => {
+  const { token } = getStore().session;
+
+  dispatch(chekBookStart());
+  chekBookOnServer(chekBookInfo, token)
+    .then(response => {
+      dispatch(chekBookSuccess(chekBookInfo));
+    })
+    .catch(error => {
+      toast.error(
+        'Помилка завантаження інформації з серверу... Спробуйте перезавантажити сторінку...',
+        {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          className: 'foo-bar',
+        },
+      );
+      dispatch(chekBookError(error));
+    });
 };
