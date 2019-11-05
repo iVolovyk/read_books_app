@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
-
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import PropTypes from 'prop-types';
 import css from './TemplateToBooks.module.css';
 import { ReactComponent as LibLogo } from '../../../assets/icons/library/menu_book-24px.svg';
 import { ReactComponent as PenLogo } from '../../../assets/icons/pen/create-24px.svg';
@@ -68,5 +67,15 @@ class TemplateToBooks extends Component {
     );
   }
 }
+TemplateToBooks.defaultProps = {
+  isEdit: false,
+};
+
+TemplateToBooks.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  setSummaryModalOn: PropTypes.func.isRequired,
+  setIdInSummaryModal: PropTypes.func.isRequired,
+  isEdit: PropTypes.bool,
+};
 
 export default TemplateToBooks;

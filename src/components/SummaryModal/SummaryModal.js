@@ -69,7 +69,6 @@ class SummaryModal extends Component {
               className={style.textArea}
               onChange={this.getTextareaValue}
               name="comment"
-              // defaultValue={comment}
               value={comment}
               rows="5"
             />
@@ -78,11 +77,7 @@ class SummaryModal extends Component {
             <button onClick={onClose} className={style.exitBut} type="button">
               Назад
             </button>
-            <button
-              // onClick={this.handleSubmit}
-              className={style.saveBut}
-              type="submit"
-            >
+            <button className={style.saveBut} type="submit">
               Зберігти
             </button>
           </div>
