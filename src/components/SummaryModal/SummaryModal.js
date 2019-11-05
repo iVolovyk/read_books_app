@@ -29,6 +29,7 @@ class SummaryModal extends Component {
   render() {
     const { rating } = this.state;
     const { onClose, bookFromClickBtnEdit } = this.props;
+    // console.log(bookFromClickBtnEdit);
     return (
       <section className={style.sumModal}>
         <div className={style.stars}>
@@ -49,9 +50,10 @@ class SummaryModal extends Component {
             className={style.textArea}
             onChange={this.getTextareaValue}
             name="comment"
+            defaultValue={bookFromClickBtnEdit.comment}
             rows="5"
           >
-            {bookFromClickBtnEdit.comment}
+            {/* {bookFromClickBtnEdit.comment} */}
           </textarea>
         </h2>
         <div className={style.buttDiv}>
@@ -70,10 +72,17 @@ class SummaryModal extends Component {
     );
   }
 }
+// SummaryModal.defaultProps = {
+//   comment: '',
+
+// };
 
 SummaryModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  bookFromClickBtnEdit: PropTypes.string.isRequired,
+  bookFromClickBtnEdit: PropTypes.shape({
+    comment: PropTypes.string,
+    rating: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default SummaryModal;

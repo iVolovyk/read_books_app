@@ -11,7 +11,6 @@ class TemplateToBooks extends Component {
 
   render() {
     const { list, setSummaryModalOn, setIdInSummaryModal, isEdit } = this.props;
-    // console.log(list.listBooks);
     return (
       <>
         <div className={css.wrapHead}>
@@ -25,19 +24,19 @@ class TemplateToBooks extends Component {
         </div>
 
         <ul className={css.ulBooks}>
-          {list.listBooks.map(el => (
-            <li className={css.liBooks} key={el.id}>
+          {list.map(el => (
+            <li className={css.liBooks} key={el._id}>
               <LibLogo className={css.libLogo} />
-              <div className={css.nameBody}>{el.name}</div>
+              <div className={css.nameBody}>{el.title}</div>
               <div className={css.authorBody}>{el.author}</div>
               <div className={css.yearBody}>{el.year}</div>
-              <div className={css.pageBody}>{el.page}</div>
+              <div className={css.pageBody}>{el.pagesCount}</div>
 
               {isEdit && (
                 <div>
                   <div className={css.ratingBody}>
                     <StarRatingComponent
-                      name={el.id}
+                      name={el._id}
                       className={css.starRatingComponent}
                       editing={false}
                       starCount={5}
@@ -49,9 +48,9 @@ class TemplateToBooks extends Component {
                     type="button"
                     onClick={() => {
                       setSummaryModalOn(true);
-                      setIdInSummaryModal(el.id);
+                      setIdInSummaryModal(el._id);
                     }}
-                    value={el.id}
+                    value={el._id}
                     className={
                       el.comment === undefined
                         ? `${css.wrapPenLogo}`
