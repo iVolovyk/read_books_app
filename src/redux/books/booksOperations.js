@@ -27,7 +27,6 @@ export const changeBookStats = stats => (dispatch, getStore) => {
   dispatch(changeBookStatsStart());
   editBookStats(stats, token, bookId)
     .then(response => {
-      console.log(response.data.books);
       dispatch(changeBookStatsSuccess(response.data.books));
     })
     .catch(error => {

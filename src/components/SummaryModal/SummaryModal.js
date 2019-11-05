@@ -36,8 +36,6 @@ class SummaryModal extends Component {
 
     const booksStats = { rating, comment, bookId };
 
-    console.log(booksStats);
-
     changeBookStats(booksStats);
 
     this.props.onClose();
