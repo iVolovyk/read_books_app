@@ -7,7 +7,6 @@ import { haveTraining } from '../../redux/session/sessionSelectors';
 // state, props
 const mapStateToProps = state => ({
   goal: haveTraining(state),
-  openmodal: false,
 });
 
 export default compose(

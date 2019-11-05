@@ -4,17 +4,32 @@ import css from './ModalCongrats.module.css';
 import thumup from '../../assets/icons/thumup/thumb up.png';
 
 class ModalCongrats extends Component {
-  openModal = () => this.props.setModalCongratsOpen();
+  componentDidUpdate(prevProps) {
+    const { totalPage, totalReadPage, setModalCongratsOpen } = this.props;
+    if (prevProps.totalReadPage !== totalReadPage) {
+      if (totalReadPage >= totalPage) {
+        setModalCongratsOpen();
+      }
+    }
+  }
 
-  onClose = () => this.props.setModalCongratsClose();
+  onClose = () => {
+    const { closeTraning } = this.props;
+    const objCloseTraning = {
+      isDone: true,
+      booksCount: 0,
+      unreadCount: 0,
+      readPagesCount: 0,
+      avgReadPages: 0,
+    };
+    closeTraning(objCloseTraning);
+    this.props.setModalCongratsClose();
+  };
 
   render() {
     const { modalCongratsOpen } = this.props;
     return (
       <div>
-        <button type="button" onClick={this.openModal}>
-          button
-        </button>
         {modalCongratsOpen && (
           <div
             role="toolbar"
@@ -45,9 +60,12 @@ class ModalCongrats extends Component {
 }
 
 ModalCongrats.propTypes = {
+  totalPage: PropTypes.number.isRequired,
+  totalReadPage: PropTypes.number.isRequired,
   setModalCongratsOpen: PropTypes.func.isRequired,
   setModalCongratsClose: PropTypes.func.isRequired,
   modalCongratsOpen: PropTypes.bool.isRequired,
+  closeTraning: PropTypes.func.isRequired,
 };
 
 export default ModalCongrats;

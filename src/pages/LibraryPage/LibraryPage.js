@@ -6,7 +6,6 @@ import getAllUserInfo from '../../hoc/getAllUserInfo';
 // import * as booksActions from '../../redux/books/booksActions';
 
 import AddBook from '../../components/AddBook/AddBookContainer';
-import ModalCongrats from '../../components/ModalCongrats/ModalCongratsContainer';
 import BookList from '../../components/BooksList/BoolksListContainer';
 import css from './LibraryPage.module.css';
 // import books from './books';
@@ -23,7 +22,6 @@ class LibraryPage extends Component {
         <main className={css.containerLibraryPage}>
           <div className={css.library}>
             <AddBook />
-            <ModalCongrats />
             <BookList />
             <h3>Summary Modal</h3>
           </div>

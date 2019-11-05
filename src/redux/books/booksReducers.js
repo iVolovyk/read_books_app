@@ -1,8 +1,9 @@
 import { Type } from './booksActions';
 import * as training from '../training/trainingActions';
 
+export const example = () => {};
+
 /* для сервера */
-// eslint-disable-next-line import/prefer-default-export
 export const booksReducer = (state = [], { type, payload }) => {
   switch (type) {
     case training.Type.GET_BOOK_SUCCESS:

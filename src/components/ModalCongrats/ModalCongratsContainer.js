@@ -4,14 +4,23 @@ import {
   setModalCongratsOpen,
   setModalCongratsClose,
 } from '../../redux/controls/controlsActions';
+import { closeTraning } from '../../redux/training/trainingOperations';
+import {
+  totalPage,
+  totalReadPage,
+} from '../../redux/training/trainingSelectors';
+import { modalCongratsOpen } from '../../redux/controls/controlsSelectors';
 
 const mapStateToProps = state => ({
-  modalCongratsOpen: state.componentController.modalCongratsOpen,
+  modalCongratsOpen: modalCongratsOpen(state),
+  totalPage: totalPage(state),
+  totalReadPage: totalReadPage(state),
 });
 
 const mapDispatchToProps = {
   setModalCongratsOpen,
   setModalCongratsClose,
+  closeTraning,
 };
 
 const ModalLogoutContainer = connect(
