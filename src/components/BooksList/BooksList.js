@@ -8,7 +8,6 @@ import NextStepButton from './NextStepButton/NextStepButton';
 import StartHelper from './StartHelper/StartHelper';
 import SummaryModal from '../SummaryModal/SummaryModalContainer';
 import Backdrop from '../Backdrop/BackdropConteiner';
-// import listBooks from './toDeletebookList';
 import css from './BooksList.module.css';
 
 const BookList = ({
@@ -19,19 +18,23 @@ const BookList = ({
 }) => {
   return (
     <div className={css.bookList}>
-      <ReadBooks listBooks={readBooks} />
-      <NowReadBooks listBooks={nowReadBooks} />
-      <PlanRadeBooks listBooks={planeReadBooks} />
+      {readBooks.length > 0 && <ReadBooks listBooks={readBooks} />}
+
+      {nowReadBooks.length > 0 && <NowReadBooks listBooks={nowReadBooks} />}
+
+      {planeReadBooks.length > 0 && (
+        <PlanRadeBooks listBooks={planeReadBooks} />
+      )}
 
       <Backdrop isOpen={summaryModalOpen}>
         {({ onClose }) => <SummaryModal onClose={onClose} />}
       </Backdrop>
 
-      <NextStepButton />
+      {nowReadBooks.length === 0 && <NextStepButton />}
 
-      <StartHelper />
-      {/* TODO */}
-      {/* {listBooks.length === 0 && <StartHelper />} */}
+      {readBooks.length === 0 &&
+        nowReadBooks.length === 0 &&
+        planeReadBooks.length && <StartHelper />}
     </div>
   );
 };

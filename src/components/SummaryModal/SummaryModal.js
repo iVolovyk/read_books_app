@@ -30,7 +30,6 @@ class SummaryModal extends Component {
   // onClose
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.textArea);
     this.props.onClose();
   };
 
@@ -41,7 +40,6 @@ class SummaryModal extends Component {
   render() {
     const { rating, textArea } = this.state;
     const { onClose } = this.props;
-    // console.log(bookFromClickBtnEditComment);
     return (
       <section className={style.sumModal}>
         <div className={style.stars}>
