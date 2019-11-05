@@ -1,10 +1,11 @@
-/* eslint-disable import/prefer-default-export */
-// import { getBooks } from '../books/booksSelectors';
-import delBooks from '../../components/BooksList/toDeletebookList.json';
+import { getBooks } from '../books/booksSelectors';
 
-// export const getFromClickBtnEdit = state =>
-//   getBooks(state).find(el => el.id === state.bookIdInSummaryModal);
+export const getFromClickBtnEditRating = state => {
+  return getBooks(state).find(el => el._id === state.bookIdInSummaryModal)
+    .rating;
+};
 
-export const getFromClickBtnEdit = state => {
-  return delBooks.toRead.find(el => el.id === state.bookIdInSummaryModal);
+export const getFromClickBtnEditComment = state => {
+  return getBooks(state).find(el => el._id === state.bookIdInSummaryModal)
+    .comment;
 };

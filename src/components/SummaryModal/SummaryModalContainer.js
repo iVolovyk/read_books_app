@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
 import SummaryModal from './SummaryModal';
-import { getFromClickBtnEdit } from '../../redux/bookId/bookIdSelector';
+import {
+  getFromClickBtnEditRating,
+  getFromClickBtnEditComment,
+} from '../../redux/bookId/bookIdSelector';
 
 const mapStateToProps = state => ({
-  bookFromClickBtnEdit: getFromClickBtnEdit(state),
+  bookFromClickBtnEditRating: getFromClickBtnEditRating(state),
+  bookFromClickBtnEditComment: getFromClickBtnEditComment(state),
 });
 
 export default connect(mapStateToProps)(SummaryModal);

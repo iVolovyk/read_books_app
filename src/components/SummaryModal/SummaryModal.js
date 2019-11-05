@@ -9,6 +9,18 @@ class SummaryModal extends Component {
     textArea: '',
   };
 
+  componentDidMount() {
+    const {
+      bookFromClickBtnEditRating,
+      bookFromClickBtnEditComment,
+    } = this.props;
+
+    this.setState({
+      rating: bookFromClickBtnEditRating,
+      textArea: bookFromClickBtnEditComment,
+    });
+  }
+
   getTextareaValue = e => {
     this.setState({
       textArea: e.target.value,
@@ -27,9 +39,9 @@ class SummaryModal extends Component {
   };
 
   render() {
-    const { rating } = this.state;
-    const { onClose, bookFromClickBtnEdit } = this.props;
-    // console.log(bookFromClickBtnEdit);
+    const { rating, textArea } = this.state;
+    const { onClose } = this.props;
+    // console.log(bookFromClickBtnEditComment);
     return (
       <section className={style.sumModal}>
         <div className={style.stars}>
@@ -40,7 +52,7 @@ class SummaryModal extends Component {
           <StarRatingComponent
             name="rate1"
             starCount={5}
-            value={bookFromClickBtnEdit.rating}
+            value={rating}
             onStarClick={this.onStarClick}
           />
         </div>
@@ -50,11 +62,9 @@ class SummaryModal extends Component {
             className={style.textArea}
             onChange={this.getTextareaValue}
             name="comment"
-            defaultValue={bookFromClickBtnEdit.comment}
+            defaultValue={textArea}
             rows="5"
-          >
-            {/* {bookFromClickBtnEdit.comment} */}
-          </textarea>
+          />
         </h2>
         <div className={style.buttDiv}>
           <button onClick={onClose} className={style.exitBut} type="button">
@@ -72,17 +82,11 @@ class SummaryModal extends Component {
     );
   }
 }
-// SummaryModal.defaultProps = {
-//   comment: '',
-
-// };
 
 SummaryModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  bookFromClickBtnEdit: PropTypes.shape({
-    comment: PropTypes.string,
-    rating: PropTypes.number.isRequired,
-  }).isRequired,
+  bookFromClickBtnEditRating: PropTypes.number.isRequired,
+  bookFromClickBtnEditComment: PropTypes.string.isRequired,
 };
 
 export default SummaryModal;
