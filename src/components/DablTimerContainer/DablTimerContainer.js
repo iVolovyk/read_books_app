@@ -1,19 +1,23 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import moment from 'moment';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './DablTimerContainer.module.css';
 import Timer from '../Timer/Timer';
+import { getTimeEnd } from '../../redux/training/trainingSelectors';
 
-// const DablTimerContainer = ({ dateOne, dateToo }) => {
-const DablTimerContainer = () => {
+const DablTimerContainer = ({ timeEnd }) => {
+  const endDataTime = moment(timeEnd).format('ll');
+
   return (
     <div className={styles.timersWraper}>
       <Timer
-        date="Jan 1, 2020"
+        dateFin="Jan 1, 2020"
         nameTimer="До закінчення року залишилось"
         className={styles.timer}
       />
       <Timer
-        date="Nov 30, 2019"
+        dateFin={endDataTime}
         nameTimer="До досягнення мети залишилось"
         className={styles.timer}
       />
@@ -21,9 +25,12 @@ const DablTimerContainer = () => {
   );
 };
 
-// DablTimerContainer.propTypes = {
-//   dateOne: PropTypes.string.isRequired,
-//   dateToo: PropTypes.string.isRequired,
-// };
+DablTimerContainer.propTypes = {
+  timeEnd: PropTypes.string.isRequired,
+};
 
-export default DablTimerContainer;
+const mapStateToProps = store => ({
+  timeEnd: getTimeEnd(store),
+});
+
+export default connect(mapStateToProps)(DablTimerContainer);

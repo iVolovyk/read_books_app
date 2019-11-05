@@ -12,9 +12,10 @@ export default class Timer extends Component {
   };
 
   componentDidMount() {
-    const { date } = this.props;
+    const { dateFin } = this.props;
+    console.log(this.props);
     this.setState({
-      deadline: new Date(date),
+      deadline: new Date(dateFin),
     });
 
     const runTimer = this.reversClock;
@@ -93,6 +94,6 @@ export default class Timer extends Component {
 }
 
 Timer.propTypes = {
-  date: PropTypes.string.isRequired,
+  dateFin: PropTypes.string.isRequired,
   nameTimer: PropTypes.string.isRequired,
 };
