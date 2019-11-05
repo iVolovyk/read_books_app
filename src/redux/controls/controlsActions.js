@@ -4,6 +4,7 @@ export const Type = {
   SET_SUMMARY_MODAL_ON: 'SET_SUMMARY_MODAL_ON',
   SET_SUMMARY_MODAL_OFF: 'SET_SUMMARY_MODAL_OFF',
   SET_MODAL_CONGRATS_OPEN: 'SET_MODAL_CONGRATS_OPEN',
+  SET_MODAL_CONGRATS_CLOSE: 'SET_MODAL_CONGRATS_CLOSE',
 };
 
 export const exampleAction = () => {};
@@ -25,4 +26,14 @@ export const setSummaryModalOFF = () => ({
 
 export const resetComponentControls = () => ({
   type: Type.RESET_COMPONENT,
+});
+
+export const setModalCongratsOpen = () => ({
+  type: Type.SET_MODAL_CONGRATS_OPEN,
+  payload: true,
+});
+
+export const setModalCongratsClose = () => ({
+  type: Type.SET_MODAL_CONGRATS_CLOSE,
+  payload: false,
 });

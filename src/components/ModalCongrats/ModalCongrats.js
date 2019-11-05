@@ -4,23 +4,18 @@ import css from './ModalCongrats.module.css';
 import thumup from '../../assets/icons/thumup/thumb up.png';
 
 class ModalCongrats extends Component {
-  state = { on: false };
+  openModal = () => this.props.setModalCongratsOpen();
 
-  componentDidMount() {
-    const { isOpen } = this.props;
-    this.setState({ on: isOpen });
-  }
-
-  onClose = () => {
-    const { on } = this.state;
-    this.setState({ on: !on });
-  };
+  onClose = () => this.props.setModalCongratsClose();
 
   render() {
-    const { on } = this.state;
+    const { modalCongratsOpen } = this.props;
     return (
-      <>
-        {on && (
+      <div>
+        <button type="button" onClick={this.openModal}>
+          button
+        </button>
+        {modalCongratsOpen && (
           <div
             role="toolbar"
             aria-label="Закрыть"
@@ -44,13 +39,15 @@ class ModalCongrats extends Component {
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
 
 ModalCongrats.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  setModalCongratsOpen: PropTypes.func.isRequired,
+  setModalCongratsClose: PropTypes.func.isRequired,
+  modalCongratsOpen: PropTypes.bool.isRequired,
 };
 
 export default ModalCongrats;
