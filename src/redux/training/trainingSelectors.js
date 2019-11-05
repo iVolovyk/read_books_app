@@ -21,3 +21,22 @@ export const getNeedToRead = state => {
   });
   return total;
 };
+
+export const getReadPages = state => {
+  let total = 0;
+  state.training.pagesReadResult.forEach(book => {
+    total += book.count;
+  });
+
+  return total;
+};
+
+export const getReadPagesCheked = state => {
+  let total = 0;
+  state.training.books.forEach(book => {
+    if (book.isRead) {
+      total += book.book.pagesCount;
+    }
+  });
+  return total;
+};

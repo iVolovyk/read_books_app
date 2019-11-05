@@ -1,14 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import { connect } from 'react-redux';
+
 import PropTypes from 'prop-types';
 import styles from './Goal.module.css';
-import {
-  getBooksForCheckList,
-  getTimeStart,
-  getTimeEnd,
-  getNeedToRead,
-} from '../../redux/training/trainingSelectors';
 
 const Goal = ({ books, timeStart, timeEnd, NeedToRead }) => {
   const timeStartFormat = moment(timeStart).format('x');
@@ -45,20 +39,18 @@ const Goal = ({ books, timeStart, timeEnd, NeedToRead }) => {
   );
 };
 
+Goal.defaultProps = {
+  timeStart: 0,
+  timeEnd: '',
+};
+
 Goal.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({ isRead: PropTypes.bool.isRequired }),
   ).isRequired,
-  timeStart: PropTypes.number.isRequired,
-  timeEnd: PropTypes.string.isRequired,
+  timeStart: PropTypes.number,
+  timeEnd: PropTypes.string,
   NeedToRead: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = store => ({
-  books: getBooksForCheckList(store),
-  timeStart: getTimeStart(store),
-  timeEnd: getTimeEnd(store),
-  NeedToRead: getNeedToRead(store),
-});
-
-export default connect(mapStateToProps)(Goal);
+export default Goal;

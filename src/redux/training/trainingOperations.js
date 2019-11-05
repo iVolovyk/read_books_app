@@ -105,14 +105,20 @@ export const onSetResult = dataResult => (dispatch, getStore) => {
 
 export const addChekedBook = chekBookInfo => (dispatch, getStore) => {
   const { token } = getStore().session;
-  dispatch(loaderOn());
+
   dispatch(chekBookStart());
   chekBookOnServer(chekBookInfo, token)
     .then(response => {
       dispatch(chekBookSuccess(chekBookInfo));
     })
     .catch(error => {
+      toast.error(
+        'Помилка завантаження інформації з серверу... Спробуйте перезавантажити сторінку...',
+        {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          className: 'foo-bar',
+        },
+      );
       dispatch(chekBookError(error));
-    })
-    .finally(() => dispatch(loaderOff()));
+    });
 };

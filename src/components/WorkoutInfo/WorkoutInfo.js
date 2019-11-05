@@ -1,27 +1,43 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   getBooksForCheckList,
   getTrainingId,
+  getReadPages,
+  getReadPagesCheked,
 } from '../../redux/training/trainingSelectors';
 import styles from './WorkoutInfo.module.css';
 import { addChekedBook } from '../../redux/training/trainingOperations';
+
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
 
 class WorkoutInfo extends Component {
   state = {};
 
   handleChange = e => {
-    const { name, checked } = e.target;
+    const { name, checked, value } = e.target;
+    const { ReadPages, ReadPagesCheked } = this.props;
+    if (value <= ReadPages - ReadPagesCheked) {
+      const chekBookInfo = {
+        bookId: name,
+        TrainingId: this.props.TrainingId,
+        checked,
+      };
 
-    const chekBookInfo = {
-      bookId: name,
-      TrainingId: this.props.TrainingId,
-      checked,
-    };
-
-    this.props.addChekedBook(chekBookInfo);
+      this.props.addChekedBook(chekBookInfo);
+    } else {
+      toast.error('Недостатня кількість прочитаних сторінок.', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        className: 'foo-bar',
+      });
+    }
   };
 
   render() {
@@ -52,6 +68,7 @@ class WorkoutInfo extends Component {
                       type="checkbox"
                       name={trainingBookId}
                       checked={isRead}
+                      value={book.pagesCount}
                       onChange={this.handleChange}
                     />
 
@@ -92,10 +109,18 @@ class WorkoutInfo extends Component {
 const mapStateToProps = store => ({
   books: getBooksForCheckList(store),
   TrainingId: getTrainingId(store),
+  ReadPages: getReadPages(store),
+  ReadPagesCheked: getReadPagesCheked(store),
 });
 
 const mapDispatchToProps = {
   addChekedBook,
+};
+
+WorkoutInfo.defaultProps = {
+  TrainingId: '',
+  ReadPages: 0,
+  ReadPagesCheked: 0,
 };
 
 WorkoutInfo.propTypes = {
@@ -103,7 +128,9 @@ WorkoutInfo.propTypes = {
     PropTypes.shape({ isRead: PropTypes.bool.isRequired }),
   ).isRequired,
   addChekedBook: PropTypes.func.isRequired,
-  TrainingId: PropTypes.string.isRequired,
+  TrainingId: PropTypes.string,
+  ReadPages: PropTypes.number,
+  ReadPagesCheked: PropTypes.number,
 };
 
 export default connect(
