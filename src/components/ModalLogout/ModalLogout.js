@@ -9,11 +9,11 @@ const ModalLogout = ({ setLogout, onLogOut }) => {
   const modal = (
     <div className={css.modalBase}>
       <div className={css.modal}>
-        <div className={css.inner}>
-          <span>
-            Якщо Ви вийдете з програми, незбережені дані будуть втрачені
-          </span>
-          <span className={css.buttons}>
+        <div className={css.centered}>
+          <p className={css.notice}>
+            Якщо ви вийдете з програми, незбережені дані будуть втрачені
+          </p>
+          <div className={css.buttons}>
             <button
               type="button"
               className={css.button}
@@ -31,7 +31,7 @@ const ModalLogout = ({ setLogout, onLogOut }) => {
             >
               Вийти
             </button>
-          </span>
+          </div>
         </div>
       </div>
     </div>
