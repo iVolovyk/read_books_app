@@ -4,7 +4,6 @@ import styles from './styles.module.css';
 import { ReactComponent as Deletelogo } from '../../../assets/icons/delete/delete-24px.svg';
 import { ReactComponent as LibraryBook } from '../../../assets/icons/library/menu_book-24px.svg';
 
-// eslint-disable-next-line no-unused-vars
 const ChosenBooks = ({ books, onClick }) => {
   const mobileMaxWidth = 767;
   const tabletWidth = 768;
