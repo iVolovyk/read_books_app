@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Result from './Result';
-import { getResult } from '../../redux/training/trainingSelectors';
+import { sortResult } from '../../redux/training/trainingSelectors';
 
 const mapStateToProps = state => ({
-  result: getResult(state),
+  sortResult: sortResult(state),
 });
 
 export default connect(mapStateToProps)(Result);

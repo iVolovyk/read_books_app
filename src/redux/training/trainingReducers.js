@@ -77,6 +77,13 @@ const books = (state = [], { type, payload }) => {
     case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.books;
+    case Type.POST_CHEKED_SUCCESS: {
+      return state.map(book =>
+        book.trainingBookId === payload.bookId
+          ? { ...book, isRead: payload.checked }
+          : book,
+      );
+    }
     default:
       return state;
   }
