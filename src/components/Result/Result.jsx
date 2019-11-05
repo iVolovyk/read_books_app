@@ -4,9 +4,7 @@ import moment from 'moment';
 import ResultForm from '../ResultForm/ResultFormConteiner';
 import css from './Result.module.css';
 
-const Result = ({ result }) => {
-  const sortResult = [...result].sort();
-
+const Result = ({ sortResult }) => {
   return (
     <div className={css.result}>
       <ResultForm />
@@ -38,11 +36,11 @@ const Result = ({ result }) => {
 };
 
 Result.defaultProps = {
-  result: [],
+  sortResult: [],
 };
 
 Result.propTypes = {
-  result: PropTypes.arrayOf(
+  sortResult: PropTypes.arrayOf(
     PropTypes.shape({
       data: PropTypes.string,
       time: PropTypes.string,
