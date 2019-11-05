@@ -1,36 +1,53 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {
+  getBooksForCheckList,
+  getTrainingId,
+  getReadPages,
+  getReadPagesCheked,
+} from '../../redux/training/trainingSelectors';
 import styles from './WorkoutInfo.module.css';
-import BooksBase from '../../books.json';
+import { addChekedBook } from '../../redux/training/trainingOperations';
 
-export default class Timer extends Component {
-  state = {
-    books: [],
-  };
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
 
-  componentDidMount() {
-    this.setState({
-      books: BooksBase,
-    });
-  }
+class WorkoutInfo extends Component {
+  state = {};
 
   handleChange = e => {
-    const { name } = e.target;
+    const { name, checked, value } = e.target;
+    const { ReadPages, ReadPagesCheked } = this.props;
+    if (value <= ReadPages - ReadPagesCheked) {
+      const chekBookInfo = {
+        bookId: name,
+        TrainingId: this.props.TrainingId,
+        checked,
+      };
 
-    this.setState(state => ({
-      books: state.books.map(book =>
-        book.id === name ? { ...book, checked: !book.checked } : book,
-      ),
-    }));
+      this.props.addChekedBook(chekBookInfo);
+    } else {
+      toast.error('Недостатня кількість прочитаних сторінок.', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        className: 'foo-bar',
+      });
+    }
   };
 
   render() {
-    const { books } = this.state;
     const mobileMaxWidth = 767;
     const tabletWidth = 768;
     const deviseWidth = document.documentElement.clientWidth;
+    const { books } = this.props;
+
     return (
-      <>
+      <div className={styles.WorkoutInfo}>
         {deviseWidth > mobileMaxWidth && (
           <div className={styles.headTable}>
             <p className={styles.bookNameTable}>Назва книги</p>
@@ -42,40 +59,41 @@ export default class Timer extends Component {
 
         <div>
           <ul className={styles.listBooks}>
-            {books.map(({ title, author, year, pageNumber, checked, id }) => (
-              <li key={id} className={styles.liBookBorder}>
+            {books.map(({ book, isRead, trainingBookId }) => (
+              <li key={trainingBookId} className={styles.liBookBorder}>
                 <label>
                   <div className={styles.itemBook}>
                     <input
                       className={styles.checkbox}
                       type="checkbox"
-                      name={id}
-                      checked={checked}
+                      name={trainingBookId}
+                      checked={isRead}
+                      value={book.pagesCount}
                       onChange={this.handleChange}
                     />
 
                     <p className={styles.fakeCheckbox} />
-                    <p className={styles.titleBook}>{title}</p>
+                    <p className={styles.titleBook}>{book.title}</p>
 
                     <p className={styles.author}>
                       {deviseWidth < tabletWidth && (
                         <p className={styles.titleAuthor}>Автор:</p>
                       )}
-                      {author}
+                      {book.author}
                     </p>
 
                     <p className={styles.year}>
                       {deviseWidth < tabletWidth && (
                         <p className={styles.titleYear}>Рік:</p>
                       )}
-                      {year}
+                      {book.year}
                     </p>
 
                     <p className={styles.pages}>
                       {deviseWidth < tabletWidth && (
                         <p className={styles.titlePages}>Стор.:</p>
                       )}
-                      {pageNumber}
+                      {book.pagesCount}
                     </p>
                   </div>
                 </label>
@@ -83,7 +101,39 @@ export default class Timer extends Component {
             ))}
           </ul>
         </div>
-      </>
+      </div>
     );
   }
 }
+
+const mapStateToProps = store => ({
+  books: getBooksForCheckList(store),
+  TrainingId: getTrainingId(store),
+  ReadPages: getReadPages(store),
+  ReadPagesCheked: getReadPagesCheked(store),
+});
+
+const mapDispatchToProps = {
+  addChekedBook,
+};
+
+WorkoutInfo.defaultProps = {
+  TrainingId: '',
+  ReadPages: 0,
+  ReadPagesCheked: 0,
+};
+
+WorkoutInfo.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({ isRead: PropTypes.bool.isRequired }),
+  ).isRequired,
+  addChekedBook: PropTypes.func.isRequired,
+  TrainingId: PropTypes.string,
+  ReadPages: PropTypes.number,
+  ReadPagesCheked: PropTypes.number,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(WorkoutInfo);

@@ -1,8 +1,8 @@
 .box {
+  box-sizing: border-box;
   width: 100%;
   background-color: #ffffff;
   box-shadow: 0px 2px 1px 0px rgba(193, 197, 208, 0.4);
-  box-sizing: border-box;
 }
 
 .boxTitle {
@@ -28,62 +28,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 35px;
   color: #00183e;
   font-weight: 700;
   background-color: #f5f7fa;
   box-shadow: 3px 5.196px 6px 0px rgba(0, 24, 62, 0.15);
 }
 
-.boxCounterNumberOrange {
-  color: #ff6b00;
-}
-
 .boxCounterText {
   padding: 0;
   margin: 0;
-  font-size: 11px;
   color: #8890a1;
 }
 
 @media (max-width: 767px), (min-width: 1280px) {
   .box {
-    min-height: 240px;
+    height: 280px;
   }
 
   .boxCounter {
     width: 250px;
     margin: 0 auto;
-    padding-top: 28px;
+    padding-top: 44px;
   }
 
   .boxCounterItem {
-    flex: 0 0 76px;
+    flex: 0 0 118px;
   }
 
   .boxCounterNumber {
-    width: 76px;
-    height: 80px;
-    margin-bottom: 16px;
+    width: 118px;
+    height: 98px;
+    margin-bottom: 12px;
+    font-size: 45px;
   }
 
   .boxCounterText {
     text-align: center;
+    font-size: 13px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .box {
-    min-height: 130px;
+    height: 106px;
     padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 56px;
+    padding-right: 56px;
     display: flex;
     justify-content: space-between;
   }
 
   .boxCounter {
-    width: 326px;
+    width: 250px;
   }
 
   .boxTitle {
@@ -91,12 +87,17 @@
   }
 
   .boxCounterItem {
-    flex: 0 0 100px;
+    flex: 0 0 118px;
   }
 
   .boxCounterNumber {
-    width: 100px;
+    width: 118px;
     height: 60px;
     margin-bottom: 6px;
+    font-size: 40px;
+  }
+
+  .boxCounterText {
+    font-size: 11px;
   }
 }
