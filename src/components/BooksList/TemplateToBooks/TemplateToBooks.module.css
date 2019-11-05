@@ -99,10 +99,10 @@
 
   /* Name */
   .nameHead {
-    width: 260px;
+    width: 255px;
   }
   .nameBody {
-    width: 200px;
+    width: 195px;
     padding: 0 10px;
   }
   /* Author */
@@ -115,18 +115,18 @@
   }
   /* Year */
   .yearHead {
-    width: 110px;
+    width: 65px;
   }
   .yearBody {
-    width: 110px;
+    width: 70px;
     padding: 0 10px;
   }
   /* Page */
   .pageHead {
-    width: 110px;
+    width: 75px;
   }
   .pageBody {
-    width: 110px;
+    width: 70px;
     padding: 0 10px;
   }
 
@@ -135,7 +135,7 @@
     width: 90px;
   }
   .ratingBody {
-    width: 90px;
+    width: 80px;
     padding: 0 10px;
   }
   .wrapPenLogo {
