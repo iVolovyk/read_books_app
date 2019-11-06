@@ -23,10 +23,12 @@ const summaryModalOpenReducer = (state = false, { type, payload }) => {
   }
 };
 
-const modalCongratsOpenReducer = (state = false, { type }) => {
+const modalCongratsOpenReducer = (state = false, { type, payload }) => {
   switch (type) {
-    case Type.RESET_COMPONENT:
-      return false;
+    case Type.SET_MODAL_CONGRATS_OPEN:
+      return payload;
+    case Type.SET_MODAL_CONGRATS_CLOSE:
+      return payload;
     default:
       return state;
   }

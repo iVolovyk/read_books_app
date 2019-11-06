@@ -37,6 +37,9 @@ export const register = credentials =>
 
 export const login = credentials => axios.post('/auth/login', credentials);
 
+export const fechCloseTraning = (object, token, trainingId) =>
+  axios.patch(`/training/${trainingId}`, object, setToken(token));
+
 export const editBookStats = (booksStats, token, bookId) =>
   axios.patch(`/books/${bookId}`, booksStats, setToken(token));
 

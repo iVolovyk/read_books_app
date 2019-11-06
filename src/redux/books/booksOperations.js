@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import {
   addBookStart,
   addBookSuccess,
@@ -8,6 +9,11 @@ import {
 } from './booksActions';
 import { addBookOnServer, editBookStats } from '../../services/api';
 
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
+
 export const addBook = book => (dispatch, getStore) => {
   const { token } = getStore().session;
   dispatch(addBookStart());
@@ -16,7 +22,14 @@ export const addBook = book => (dispatch, getStore) => {
       dispatch(addBookSuccess(response.data));
     })
     .catch(error => {
-      dispatch(addBookError(error));
+      toast.error(
+        'Сталася помилка. Сервіс тимчасово недоступний. Спробуйте, будь-ласка, пізніше',
+        {
+          position: toast.POSITION.TOP_CENTER,
+          className: 'foo-bar',
+        },
+      );
+      return dispatch(addBookError(error));
     });
 };
 

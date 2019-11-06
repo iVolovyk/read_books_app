@@ -7,6 +7,9 @@ export const Type = {
   GET_BOOK_FAILURE: 'GET_BOOK_FAILURE',
   GET_TRENING_SUCCESS: 'GET_TRENING_SUCCESS',
   GET_TRENING_FAILURE: 'GET_TRENING_FAILURE',
+  CLOSE_TRANING_START: 'CLOSE_TRANING_START',
+  CLOSE_TRANING_SUCCESS: 'CLOSE_TRANING_SUCCESS',
+  CLOSE_TRANING_ERROR: 'CLOSE_TRANING_ERROR',
   SEND_TRAINING_START: 'SEND_TRAINING_START',
   SEND_TRAINING_SUCCESS: 'SEND_TRAINING_SUCCESS',
   SEND_TRAINING_FAILURE: 'SEND_TRAINING_FAILURE',
@@ -14,6 +17,20 @@ export const Type = {
   POST_CHEKED_SUCCESS: 'POST_CHEKED_SUCCESS',
   POST_CHEKED_ERROR: 'POST_CHEKED_ERROR',
 };
+
+export const closeTraningStart = () => ({
+  type: Type.CLOSE_TRANING_START,
+});
+
+export const closeTraningSuccess = data => ({
+  type: Type.CLOSE_TRANING_SUCCESS,
+  payload: data,
+});
+
+export const closeTraningError = error => ({
+  type: Type.CLOSE_TRANING_ERROR,
+  payload: error,
+});
 
 export const fetchStartAddRes = () => ({
   type: Type.ADD_RESULT_START,
