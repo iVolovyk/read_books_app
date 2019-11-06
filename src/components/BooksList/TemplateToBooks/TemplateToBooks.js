@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import css from './TemplateToBooks.module.css';
 import { ReactComponent as LibLogo } from '../../../assets/icons/library/menu_book-24px.svg';
 import { ReactComponent as PenLogo } from '../../../assets/icons/pen/create-24px.svg';
+import { StatusBooks } from '../../../redux/books/booksSelectors';
 
 class TemplateToBooks extends Component {
   state = {};
@@ -25,7 +26,11 @@ class TemplateToBooks extends Component {
         <ul className={css.ulBooks}>
           {list.map(el => (
             <li className={css.liBooks} key={el._id}>
-              <LibLogo className={css.libLogo} />
+              <LibLogo
+                className={`${css.libLogo} ${el.status ===
+                  StatusBooks.READING && css.libLogoOrange} ${el.status ===
+                  StatusBooks.PLANNED && css.libLogoGrey} `}
+              />
               <div className={css.nameBody}>{el.title}</div>
               <div className={css.authorBody}>{el.author}</div>
               <div className={css.yearBody}>{el.year}</div>
@@ -51,9 +56,9 @@ class TemplateToBooks extends Component {
                     }}
                     value={el._id}
                     className={
-                      el.comment.length === 0
-                        ? `${css.wrapPenLogo}`
-                        : `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
+                      el.comment
+                        ? `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
+                        : `${css.wrapPenLogo} `
                     }
                   >
                     <PenLogo className={css.penLogo} />
