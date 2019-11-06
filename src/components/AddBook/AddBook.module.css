@@ -21,7 +21,7 @@
 
 .buttonAddBook {
   display: block;
-  width: 180px;
+  width: 200px;
   margin: 0 auto;
   background-color: #f5f7fa;
   font-family: Montserrat;
@@ -67,7 +67,7 @@
   }
 
   .buttonAddBook {
-    width: 180px;
+    width: 200px;
     padding: 8px;
   }
 }
