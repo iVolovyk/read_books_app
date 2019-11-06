@@ -51,9 +51,9 @@ class TemplateToBooks extends Component {
                     }}
                     value={el._id}
                     className={
-                      el.comment.length === 0
-                        ? `${css.wrapPenLogo}`
-                        : `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
+                      el.comment
+                        ? `${css.wrapPenLogo} ${css.wrapPenLogoActive}`
+                        : `${css.wrapPenLogo} `
                     }
                   >
                     <PenLogo className={css.penLogo} />
