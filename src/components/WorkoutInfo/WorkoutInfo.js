@@ -16,7 +16,7 @@ class WorkoutInfo extends Component {
   handleChange = e => {
     const { name, checked, value } = e.target;
     const { ReadPages, ReadPagesCheked } = this.props;
-    if (value <= ReadPages - ReadPagesCheked) {
+    if (value <= ReadPages - ReadPagesCheked || !checked) {
       const chekBookInfo = {
         bookId: name,
         TrainingId: this.props.TrainingId,

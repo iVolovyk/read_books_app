@@ -28,21 +28,17 @@ export default class Timer extends Component {
     return setInterval(() => {
       const { dateFin } = this.props;
       const time = new Date(dateFin) - Date.now();
-      const daysTimer = String(
-        Math.floor(time / (1000 * 60 * 60 * 24)),
-      ).padStart(3, '0');
+      const daysTimer = String(Math.floor(time / (1000 * 60 * 60 * 24))); // .padStart(3, '0');
 
       const hoursTimer = String(
         Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      ).padStart(2, '0');
+      ); // .padStart(2, '0');
 
       const minsTimer = String(
         Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
-      ).padStart(2, '0');
+      ); // .padStart(2, '0');
 
-      const secsTimer = String(
-        Math.floor((time % (1000 * 60)) / 1000),
-      ).padStart(2, '0');
+      const secsTimer = String(Math.floor((time % (1000 * 60)) / 1000)); // .padStart(2, '0');
 
       this.setState({
         days: daysTimer,
