@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
 import style from './style.module.css';
 import WorkSelect from './CreateSelect/Select';
 import ChosenBooks from './ChoosenBooks/ChoosenBooks';
 import 'react-datetime/css/react-datetime.css';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
 
 class CreateWorkout extends Component {
   state = {
@@ -17,9 +24,19 @@ class CreateWorkout extends Component {
     options: [],
   };
 
+  componentDidMount() {
+    const { books } = this.props;
+    const options = books.map(book => ({
+      value: book._id,
+      label: book.title,
+    }));
+
+    this.addToState(books, options);
+  }
+
   componentDidUpdate(prevProps) {
     const { books } = this.props;
-    if (prevProps.books !== books) {
+    if (prevProps !== this.props) {
       const options = books.map(book => ({
         value: book._id,
         label: book.title,
@@ -45,6 +62,14 @@ class CreateWorkout extends Component {
 
   addButt = () => {
     const { selectedOption, localBooks, options } = this.state;
+
+    if (!selectedOption) {
+      toast.error('Будь ласка оберіть книгу', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        className: 'foo-bar',
+      });
+      return;
+    }
     const newOptions = options.filter(
       book => book.value !== selectedOption.value,
     );
@@ -57,6 +82,7 @@ class CreateWorkout extends Component {
       return {
         selectedBook: [ChosenOne, ...state.selectedBook],
         options: newOptions,
+        selectedOption: null,
       };
     });
   };
@@ -64,6 +90,23 @@ class CreateWorkout extends Component {
   hendleStartTraining = () => {
     const { selectedBook, todayDate, chosenDate } = this.state;
     const { sendTraining } = this.props;
+    if (selectedBook.length < 1) {
+      toast.error(
+        'Додайте хоча б одну книгу!  Кількість книг повинна бути більше за 0!',
+        {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          className: 'foo-bar',
+        },
+      );
+      return;
+    }
+    if (chosenDate === '') {
+      toast.error('Будь ласка, оберіть дату!', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        className: 'foo-bar',
+      });
+      return;
+    }
 
     const totalPages = selectedBook.reduce(
       (acc, book) => acc + book.pagesCount,
@@ -110,7 +153,7 @@ class CreateWorkout extends Component {
   };
 
   render() {
-    const { selectedBook, chosenDate, selectedOption, options } = this.state;
+    const { selectedBook, selectedOption, options } = this.state;
     const yesterday = Datetime.moment().subtract(1, 'day');
     const valid = current => {
       return current.isAfter(yesterday);
@@ -122,9 +165,10 @@ class CreateWorkout extends Component {
           isValidDate={valid}
           className={style.dataPeacker}
           onChange={this.dateOnchangeMethod}
-          defaultValue="Я справлюсь за"
+          defaultValue="Оберіть Дату"
           locale="uk"
-          dateFormat="YYYY-MM-DD"
+          dateFormat="DD.MM.YYYY"
+          timeFormat={false}
         />
         <div className={style.bookChooser}>
           <WorkSelect
@@ -136,7 +180,6 @@ class CreateWorkout extends Component {
             onClick={this.addButt}
             className={style.addButt}
             type="button"
-            disabled={!selectedOption}
           >
             Додати
           </button>
@@ -146,7 +189,6 @@ class CreateWorkout extends Component {
           className={style.startButt}
           type="button"
           onClick={this.hendleStartTraining}
-          disabled={!(selectedBook.length > 0 && chosenDate)}
         >
           Почати тренування
         </button>

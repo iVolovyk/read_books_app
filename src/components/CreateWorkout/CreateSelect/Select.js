@@ -38,12 +38,12 @@ class WorkSelect extends Component {
       },
     };
 
-    const { onChange } = this.props;
-    const { options } = this.props;
+    const { onChange, options, selectedOption } = this.props;
+
     return (
       <Select
+        value={selectedOption}
         styles={customStyles}
-        // value={value}
         onChange={onChange}
         options={options}
         placeholder="Обрати книги з бібліотеки"
@@ -53,6 +53,7 @@ class WorkSelect extends Component {
 }
 
 WorkSelect.propTypes = {
+  selectedOption: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.shape({
     value: PropTypes.string.isRequired,
