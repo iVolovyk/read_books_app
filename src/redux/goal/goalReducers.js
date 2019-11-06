@@ -1,12 +1,25 @@
 // eslint-disable-next-line
-import { Type } from './goalActions';
+import { combineReducers } from 'redux';
+// import { Type } from './goalActions';
 
 // eslint-disable-next-line
-const goalReducer = (state = null, { type, payload }) => {
+// const BookNeedRead = (state = 0, { type, payload }) => {
+const BookNeedRead = (state = 0, { type }) => {
   switch (type) {
     default:
       return state;
   }
 };
 
-export default goalReducer;
+// const YouNeedDay = (state = 0, { type, payload }) => {
+const YouNeedDay = (state = 0, { type }) => {
+  switch (type) {
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  BookNeedRead,
+  YouNeedDay,
+});
