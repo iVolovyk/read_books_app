@@ -55,6 +55,7 @@ class ResultForm extends Component {
     this.props.onSetResult(resObject);
 
     this.setState({ datetime: Datetime.moment(), pagesRead: 0 });
+    
   };
 
   render() {

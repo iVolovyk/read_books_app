@@ -28,6 +28,9 @@ import {
   fetchFailureTrening,
   fetchStartAddRes,
   fetchSuccessAddRes,
+  closeTraningStart,
+  closeTraningSuccess,
+  closeTraningError,
   sendTrainingStart,
   sendTrainingSuccess,
   sendTrainingFailure,
@@ -97,6 +100,28 @@ export const onSetResult = dataResult => (dispatch, getStore) => {
         return dispatch(fetchFailureAddRes(err));
       });
   }
+};
+
+export const closeTraning = object => (dispatch, getStore) => {
+  const { token } = getStore().session;
+  const { trainingId } = getStore().training;
+  if (!token) {
+    return;
+  }
+  dispatch(closeTraningStart());
+  api
+    .fechCloseTraning(object, token, trainingId)
+    .then(data => dispatch(closeTraningSuccess(data.data)))
+    .catch(error => {
+      toast.error(
+        'Сталася помилка. Сервіс тимчасово недоступний. Спробуйте, будь-ласка, пізніше',
+        {
+          position: toast.POSITION.TOP_CENTER,
+          className: 'foo-bar',
+        },
+      );
+      return dispatch(closeTraningError(error));
+    });
 };
 
 export const sendTraining = trainingObj => (dispatch, getStore) => {

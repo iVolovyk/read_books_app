@@ -8,6 +8,7 @@ import Timer from '../../components/DablTimerContainer/DablTimerContainer';
 import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
 import Result from '../../components/Result/ResultConteiner';
 import Schedule from '../../components/Schedule/ScheduleConteiner';
+import ModalCongrats from '../../components/ModalCongrats/ModalCongratsContainer';
 
 class TrainingPage extends Component {
   state = {};
@@ -16,7 +17,7 @@ class TrainingPage extends Component {
     const desctopWidth = 1280;
     const deviseWidth = document.documentElement.clientWidth;
 
-    const { goal, openmodal } = this.props;
+    const { goal } = this.props;
 
     return (
       <main className={css.mainblok}>
@@ -102,7 +103,7 @@ class TrainingPage extends Component {
               </>
             )}
           </div>
-          {openmodal && <p>Модал Конгратс</p>}
+          <ModalCongrats />
         </div>
       </main>
     );
@@ -111,7 +112,6 @@ class TrainingPage extends Component {
 
 TrainingPage.propTypes = {
   goal: PropTypes.bool.isRequired,
-  openmodal: PropTypes.bool.isRequired,
 };
 
 export default TrainingPage;

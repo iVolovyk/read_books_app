@@ -2,6 +2,8 @@ import moment from 'moment';
 
 export const giveTrainingId = state => state.training.trainingId;
 
+export const totalPage = state => state.training.allPagesCount;
+
 export const getResult = state => state.training.pagesReadResult;
 
 export const pagesPerDay = state => state.training.avgReadPages;
@@ -16,6 +18,10 @@ export const dataSchedule = state =>
     return { date: moment(i.date).format('DD.MM'), pages: i.count };
   });
 
+export const totalReadPage = state =>
+  getResult(state).reduce((acum, item) => {
+    return acum + item.count;
+  }, 0);
 export const getBooksForCheckList = state => state.training.books;
 export const getTrainingId = state => state.training.trainingId;
 

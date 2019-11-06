@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
 import Header from './Header';
 import { setLogout } from '../../redux/controls/controlsActions';
-import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
+import {
+  getIsAuthenticated,
+  getUser,
+} from '../../redux/session/sessionSelectors';
 
 const mapStateToProps = state => ({
   logout: state.componentController.modalLogoutOpen,
   isAuthenticated: getIsAuthenticated(state),
+  user: getUser(state),
 });
 
 const mapDispatchToProps = {

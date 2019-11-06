@@ -1,83 +1,71 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './ModalCongrats.module.css';
+import thumup from '../../assets/icons/thumup/thumb up.png';
 
 class ModalCongrats extends Component {
-  state = { on: false };
-
-  componentDidMount() {
-    const { isOpen } = this.props;
-    window.addEventListener('keyup', this.handleKeyPress);
-    this.setState({ on: isOpen });
-  }
-
   componentDidUpdate(prevProps) {
-    const { isOpen } = this.props;
-    if (prevProps.isOpen !== isOpen) {
-      this.openProps(isOpen);
+    const { totalPage, totalReadPage, setModalCongratsOpen } = this.props;
+    if (prevProps.totalReadPage !== totalReadPage) {
+      if (totalReadPage >= totalPage) {
+        setModalCongratsOpen();
+      }
     }
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('keyup', this.handleKeyPress);
-  }
-
-  openProps = isOpen => {
-    this.setState({ on: isOpen });
-  };
-
-  handleKeyPress = e => {
-    const keyCode = e.keyCode || e.which;
-    if (keyCode === 27) {
-      this.setState({ on: false });
-      e.preventDefault();
-    }
-  };
-
-  handleModalCongratsClick = ({ target, currentTarget }) => {
-    if (currentTarget && target !== currentTarget) {
-      return;
-    }
-
-    this.open();
-  };
-
-  open = () => {
-    const { on } = this.state;
-    this.setState({ on: !on });
+  onClose = () => {
+    const { closeTraning } = this.props;
+    const objCloseTraning = {
+      isDone: true,
+      booksCount: 0,
+      unreadCount: 0,
+      readPagesCount: 0,
+      avgReadPages: 0,
+    };
+    closeTraning(objCloseTraning);
+    this.props.setModalCongratsClose();
   };
 
   render() {
-    const { children } = this.props;
-    const { on } = this.state;
-
+    const { modalCongratsOpen } = this.props;
     return (
-      <>
-        {on && (
+      <div>
+        {modalCongratsOpen && (
           <div
             role="toolbar"
             aria-label="Закрыть"
             tabIndex={-1}
             className={css.modal_overlay}
-            onClick={this.handleModalCongratsClick}
-            onKeyUp={this.handleKeyPress}
           >
             <div className={css.modal}>
-              {children({
-                isOn: on,
-                onClose: this.open,
-              })}
+              <img src={thumup} alt="thumup" className={css.image} />
+              <h2>Ти молодчина!!!</h2>
+              <p>
+                можеш залишити відгук на прочитані книги та почати нове
+                тренування
+              </p>
+              <button
+                type="button"
+                onClick={this.onClose}
+                className={css.congratsbtnClose}
+              >
+                Ok
+              </button>
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
 
 ModalCongrats.propTypes = {
-  children: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+  totalPage: PropTypes.number.isRequired,
+  totalReadPage: PropTypes.number.isRequired,
+  setModalCongratsOpen: PropTypes.func.isRequired,
+  setModalCongratsClose: PropTypes.func.isRequired,
+  modalCongratsOpen: PropTypes.bool.isRequired,
+  closeTraning: PropTypes.func.isRequired,
 };
 
 export default ModalCongrats;
