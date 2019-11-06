@@ -5,7 +5,7 @@ import CreateWorkout from '../../components/CreateWorkout/CreateWorkContainer';
 import Goal from '../../components/Goal/GoalContainer';
 import GoalToo from '../../components/GoalToo/GoalTooContainer';
 import Timer from '../../components/DablTimerContainer/DablTimerContainer';
-import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
+import WorkoutInfo from '../../components/WorkoutInfo/WorkoutinfoContainer';
 import Result from '../../components/Result/ResultConteiner';
 import Schedule from '../../components/Schedule/ScheduleConteiner';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongratsContainer';

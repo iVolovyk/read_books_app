@@ -1,15 +1,10 @@
 import { connect } from 'react-redux';
-import {
-  getBooksForCheckList,
-  getTimeStart,
-  getTimeEnd,
-} from '../../redux/training/trainingSelectors';
+import { DayNeed, BookNeedRead } from '../../redux/goal/goalSelectors';
 import GoalToo from './GoalToo';
 
 const mapStateToProps = store => ({
-  books: getBooksForCheckList(store),
-  timeStart: getTimeStart(store),
-  timeEnd: getTimeEnd(store),
+  books: BookNeedRead(store),
+  day: DayNeed(store),
 });
 
 export default connect(mapStateToProps)(GoalToo);
