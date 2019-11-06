@@ -37,5 +37,8 @@ export const register = credentials =>
 
 export const login = credentials => axios.post('/auth/login', credentials);
 
+export const editBookStats = (booksStats, token, bookId) =>
+  axios.patch(`/books/${bookId}`, booksStats, setToken(token));
+
 export const addTraining = (trainingData, token) =>
   axios.post('/training', trainingData, setToken(token));

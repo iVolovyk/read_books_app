@@ -23,7 +23,6 @@ class LibraryPage extends Component {
           <div className={css.library}>
             <AddBook />
             <BookList />
-            <h3>Summary Modal</h3>
           </div>
         </main>
       </div>
