@@ -3,3 +3,6 @@ export const modalCongratsOpen = state =>
 
 export const getSummaryModalOpen = state =>
   state.componentController.summaryModalOpen;
+
+export const modalNeedFasterOpen = state =>
+  state.componentController.modalNeedFasterOpen;

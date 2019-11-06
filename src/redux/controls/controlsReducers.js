@@ -34,8 +34,20 @@ const modalCongratsOpenReducer = (state = false, { type, payload }) => {
   }
 };
 
+const modalNeedFasterReducer = (state = false, { type, payload }) => {
+  switch (type) {
+    case Type.RESET_COMPONENT:
+      return false;
+    case Type.SET_MODAL_NEED_FASTER_OPEN:
+      return payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   modalLogoutOpen: modalLogoutOpenReducer,
   summaryModalOpen: summaryModalOpenReducer,
   modalCongratsOpen: modalCongratsOpenReducer,
+  modalNeedFasterOpen: modalNeedFasterReducer,
 });
