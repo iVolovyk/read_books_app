@@ -10,13 +10,17 @@ const ChosenBooks = ({ books, onClick }) => {
   const deviseWidth = document.documentElement.clientWidth;
   return (
     <div className={styles.ChosenBooks}>
-      {deviseWidth > mobileMaxWidth && (
-        <div className={styles.notMobileHeadline}>
-          <p className={styles.bookName}>Назва Книги</p>
-          <p className={styles.authorName}>Автор</p>
-          <p className={styles.year}>Рік</p>
-          <p className={styles.pageNumber}>Сторінок</p>
-        </div>
+      {books.length > 0 && (
+        <>
+          {deviseWidth > mobileMaxWidth && (
+            <div className={styles.notMobileHeadline}>
+              <p className={styles.bookName}>Назва Книги</p>
+              <p className={styles.authorName}>Автор</p>
+              <p className={styles.year}>Рік</p>
+              <p className={styles.pageNumber}>Сторінок</p>
+            </div>
+          )}
+        </>
       )}
       <ul className={styles.bookList}>
         {books.map(book => (

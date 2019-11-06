@@ -49,7 +49,7 @@ class App extends Component {
             timeout={0}
           />
         )}
-        <HeaderContainer name="Marta Stweart" />
+        <HeaderContainer />
         <Switch>
           <Route path="/login" component={LoginPage} />
           <Route path="/registration" component={RegistrationPage} />
