@@ -37,10 +37,10 @@ class TrainingPage extends Component {
                       <WorkoutInfo />
                     </section>
                     <section className={css.treningSection}>
-                      <Schedule />
+                      <Result />
                     </section>
                     <section className={css.treningSection}>
-                      <Result />
+                      <Schedule />
                     </section>
                   </>
                 ) : (
@@ -77,9 +77,9 @@ class TrainingPage extends Component {
                     <section className={css.treningSection}>
                       <CreateWorkout />
                     </section>
-                    <section className={css.treningSection}>
+                    {/* <section className={css.treningSection}>
                       <Schedule />
-                    </section>
+                    </section> */}
                   </>
                 ) : (
                   <>
@@ -89,9 +89,9 @@ class TrainingPage extends Component {
                           <CreateWorkout />
                         </div>
                       </section>
-                      <section className={css.treningSection}>
+                      {/* <section className={css.treningSection}>
                         <Schedule />
-                      </section>
+                      </section> */}
                     </div>
                     <div className={css.rightArea}>
                       <section className={css.treningSection}>
