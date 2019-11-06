@@ -7,7 +7,7 @@ const NextStepButton = () => (
   <div className={css.wrapNextStepBtn}>
     <Link to="/training">
       <button className={css.nextStepButton} type="button">
-        Далі
+        Перейти до тренування
       </button>
     </Link>
   </div>

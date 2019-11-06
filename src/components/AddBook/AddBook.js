@@ -36,6 +36,7 @@ class AddBook extends Component {
               name="title"
               value={title}
               required
+              pattern="[A-Za-zА-Яа-яЁё]{1}[A-Za-zА-Яа-яЁё-0-9]+$"
             />
           </label>
           <div className={css.tablet}>

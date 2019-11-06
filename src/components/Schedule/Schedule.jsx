@@ -50,10 +50,11 @@ class Schedule extends Component {
 
 Schedule.defaultProps = {
   data: [],
+  pagesPerDay: 0,
 };
 
 Schedule.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({}).isRequired),
-  pagesPerDay: PropTypes.number.isRequired,
+  pagesPerDay: PropTypes.number,
 };
 export default Schedule;

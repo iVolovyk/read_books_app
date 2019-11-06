@@ -28,6 +28,13 @@
   height: 1rem;
   top: 20%;
   left: 4%;
+  fill: #6d7a8d;
+}
+.libLogoOrange {
+  fill: #ff9a17;
+}
+.libLogoGrey {
+  fill: rgb(208, 214, 214);
 }
 .wrapPenLogo {
   position: absolute;

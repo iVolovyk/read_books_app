@@ -152,11 +152,14 @@ export const sendTraining = trainingObj => (dispatch, getStore) => {
   }
 };
 
-export const addChekedBook = chekBookInfo => (dispatch, getStore) => {
+export const addChekedBook = (chekBookInfo, patchObject) => (
+  dispatch,
+  getStore,
+) => {
   const { token } = getStore().session;
 
   dispatch(chekBookStart());
-  chekBookOnServer(chekBookInfo, token)
+  chekBookOnServer(chekBookInfo, patchObject, token)
     .then(response => {
       dispatch(chekBookSuccess(chekBookInfo));
     })

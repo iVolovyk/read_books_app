@@ -1,4 +1,4 @@
-const StatusBooks = {
+export const StatusBooks = {
   READING: 'reading',
   READED: 'readed',
   PLANNED: 'planned',

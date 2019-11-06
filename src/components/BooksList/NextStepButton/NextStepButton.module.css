@@ -2,14 +2,14 @@
   text-align: center;
 }
 .nextStepButton {
-  width: 180px;
+  width: 200px;
   background-color: #ff9a17;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 13px;
   border: 1px solid #00183e;
   outline-color: none;
-  padding: 6px;
+  padding: 6px 0;
   margin-bottom: 15px;
   color: white;
 }

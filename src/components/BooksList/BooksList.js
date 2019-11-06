@@ -33,7 +33,7 @@ const BookList = ({
 
       {readBooks.length === 0 &&
         nowReadBooks.length === 0 &&
-        planeReadBooks.length && <StartHelper />}
+        planeReadBooks.length === 0 && <StartHelper />}
     </div>
   );
 };
