@@ -1,9 +1,9 @@
-const logger = store => next => action => {
-  console.group(action.type);
-  console.info('dispatching', action);
-  console.groupEnd(action.type);
+// const logger = store => next => action => {
+//   console.group(action.type);
+//   console.info('dispatching', action);
+//   console.groupEnd(action.type);
 
-  next(action);
-};
+//   next(action);
+// };
 
-export default logger;
+// export default logger;

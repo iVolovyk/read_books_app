@@ -21,6 +21,12 @@ export const getBooks = token => axios.get('/books', setToken(token));
 
 export const getTraining = token => axios.get('/training', setToken(token));
 
+export const chekBookOnServer = (chekBookInfo, token) =>
+  axios.patch(
+    `/training/${chekBookInfo.TrainingId}/book/${chekBookInfo.bookId}`,
+    { isRead: chekBookInfo.checked },
+    setToken(token),
+  );
 export const addResult = (result, token, trainingId) =>
   axios.post(`/training/time/${trainingId}`, result, setToken(token));
 
@@ -30,3 +36,6 @@ export const register = credentials =>
   axios.post('/auth/register', credentials);
 
 export const login = credentials => axios.post('/auth/login', credentials);
+
+export const addTraining = (trainingData, token) =>
+  axios.post('/training', trainingData, setToken(token));
