@@ -10,6 +10,8 @@ const user = (state = null, { type, payload }) => {
       return payload.userData;
     case trainingType.Type.CLOSE_TRANING_SUCCESS:
       return { ...state, haveTraining: false };
+    case trainingType.Type.SEND_TRAINING_SUCCESS:
+      return { ...state, haveTraining: true };
     case Type.LOG_OUT:
       return null;
     default:

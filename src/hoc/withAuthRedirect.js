@@ -18,7 +18,7 @@ const withAuthRedirect = BaseComponent => {
         return;
       }
 
-      console.log('WithAuthRedirect: ', this.props);
+      // console.log('WithAuthRedirect: ', this.props);
 
       if (this.props.location.state && this.props.location.state.from) {
         return this.props.history.replace(this.props.location.state.from);

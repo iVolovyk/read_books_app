@@ -14,6 +14,8 @@ export const booksReducer = (state = [], { type, payload }) => {
       return [payload, ...state];
     case Type.ADD_BOOK_SUCCESS:
       return [payload.book, ...state];
+    case Type.CHANGE_BOOKS_STATS_SUCCESS:
+      return state.map(i => (i._id === payload._id ? { ...payload } : i));
     default:
       return state;
   }

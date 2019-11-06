@@ -31,6 +31,9 @@ import {
   closeTraningStart,
   closeTraningSuccess,
   closeTraningError,
+  sendTrainingStart,
+  sendTrainingSuccess,
+  sendTrainingFailure,
 } from './trainingActions';
 
 //Экспортируем Оперецию в HOC getUserInfo
@@ -119,6 +122,34 @@ export const closeTraning = object => (dispatch, getStore) => {
       );
       return dispatch(closeTraningError(error));
     });
+};
+
+export const sendTraining = trainingObj => (dispatch, getStore) => {
+  const { token } = getStore().session;
+
+  // проверяем наличие токина если  он не пришел выходим
+  if (!token) {
+    return;
+  }
+  // если токен пришел
+  //Запускаем Акшен сиглализирующий о начале асинхронной операции..
+  dispatch(sendTrainingStart());
+
+  if (!haveTraining(getStore())) {
+    api
+      .addTraining(trainingObj, token)
+      .then(data => dispatch(sendTrainingSuccess(data.data.training)))
+      .catch(err => {
+        toast.error(
+          'Ваш тренінг не було додано. Будь ласка, спробуйте ще раз.',
+          {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            className: 'foo-bar',
+          },
+        );
+        return dispatch(sendTrainingFailure(err));
+      });
+  }
 };
 
 export const addChekedBook = chekBookInfo => (dispatch, getStore) => {

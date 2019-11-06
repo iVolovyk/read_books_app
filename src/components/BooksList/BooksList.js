@@ -5,30 +5,43 @@ import NowReadBooks from './NowReadBooks/NowReadBooks';
 import PlanRadeBooks from './PlanReadBooks/PlanReadBooks';
 import NextStepButton from './NextStepButton/NextStepButton';
 import StartHelper from './StartHelper/StartHelper';
-import SummaryModal from '../SummaryModal/SummaryModal';
+import SummaryModal from '../SummaryModal/SummaryModalContainer';
 import Backdrop from '../Backdrop/BackdropConteiner';
-import listBooks from './toDeletebookList';
 import css from './BooksList.module.css';
 
-const BookList = ({ summaryModalOpen }) => (
-  <div className={css.bookList}>
-    <ReadBooks listBooks={listBooks.toRead} />
-    <NowReadBooks listBooks={listBooks.nowRead} />
-    <PlanRadeBooks listBooks={listBooks.finishRead} />
+const BookList = ({
+  summaryModalOpen,
+  readBooks,
+  nowReadBooks,
+  planeReadBooks,
+}) => {
+  return (
+    <div className={css.bookList}>
+      {readBooks.length > 0 && <ReadBooks listBooks={readBooks} />}
 
-    <Backdrop isOpen={summaryModalOpen}>
-      {({ onClose }) => <SummaryModal onClose={onClose} />}
-    </Backdrop>
+      {nowReadBooks.length > 0 && <NowReadBooks listBooks={nowReadBooks} />}
 
-    <NextStepButton />
+      {planeReadBooks.length > 0 && (
+        <PlanRadeBooks listBooks={planeReadBooks} />
+      )}
 
-    <StartHelper />
-    {/* TODO */}
-    {/* {listBooks.length === 0 && <StartHelper />} */}
-  </div>
-);
+      <Backdrop isOpen={summaryModalOpen}>
+        {({ onClose }) => <SummaryModal onClose={onClose} />}
+      </Backdrop>
+
+      {nowReadBooks.length === 0 && <NextStepButton />}
+
+      {readBooks.length === 0 &&
+        nowReadBooks.length === 0 &&
+        planeReadBooks.length && <StartHelper />}
+    </div>
+  );
+};
 BookList.propTypes = {
   summaryModalOpen: PropTypes.bool.isRequired,
+  readBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  nowReadBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  planeReadBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
 };
 
 export default BookList;

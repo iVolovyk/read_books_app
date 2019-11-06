@@ -1,6 +1,21 @@
-export const getBooks = state => state.booksReducer.books;
+const StatusBooks = {
+  READING: 'reading',
+  READED: 'readed',
+  PLANNED: 'planned',
+};
 
-// export const getReadBooks = state => getBooks(state).filter(el => el.status = "read");
-// export const getNowReadBooks = state => getBooks(state).filter(el => el.status === 'now';
-export const getPlaneReadBooks = state =>
-  getBooks(state).filter(el => el.status === 'planned');
+export const getBooks = state => state.books;
+
+export const getReadBooks = state => {
+  return getBooks(state).filter(el => el.status === StatusBooks.READED);
+};
+
+export const getNowReadBooks = state => {
+  return getBooks(state).filter(el => el.status === StatusBooks.READING);
+};
+
+export const getPlaneReadBooks = state => {
+  return getBooks(state).filter(el => el.status === StatusBooks.PLANNED);
+};
+
+export const getBooksForList = state => state.books;

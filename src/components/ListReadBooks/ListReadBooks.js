@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './stl.module.css';
+import styles from './WorkoutInfo.module.css'; // Где твои стили исправь??!!!
 import BooksBase from '../../books.json';
 
 class ListReadBooks extends Component {
@@ -25,13 +25,13 @@ class ListReadBooks extends Component {
 
   render() {
     const { books } = this.state;
-    const mobileMaxWidth = 767;
-    const tabletWidth = 768;
-    const deviseWidth = document.documentElement.clientWidth;
+    // const mobileMaxWidth = 767;
+    // const tabletWidth = 768;
+    // const deviseWidth = document.documentElement.clientWidth;
     return (
       <>
         <form>
-          {books.map(({ title, author, year, pageNumber, checked, id }) => (
+          {books.map(({ title, checked, id }) => (
             <label key={id} className={styles.checkbox}>
               <input
                 className={styles.checkbox}
