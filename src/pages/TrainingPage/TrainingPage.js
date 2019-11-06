@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './TrainingPage.module.css';
-import CreateWorkout from '../../components/CreateWorkout/CreateWorkout';
-import Goal from '../../components/Goal/Goal';
+import CreateWorkout from '../../components/CreateWorkout/CreateWorkContainer';
+import Goal from '../../components/Goal/GoalContainer';
+import GoalToo from '../../components/GoalToo/GoalTooContainer';
 import Timer from '../../components/DablTimerContainer/DablTimerContainer';
 import WorkoutInfo from '../../components/WorkoutInfo/WorkoutInfo';
 import Result from '../../components/Result/ResultConteiner';
@@ -70,7 +71,7 @@ class TrainingPage extends Component {
                 {deviseWidth < desctopWidth ? (
                   <>
                     <section className={css.treningSection}>
-                      <div style={{ backgroundColor: '#98f' }}>Goal</div>
+                      <GoalToo />
                     </section>
                     <section className={css.treningSection}>
                       <CreateWorkout />
@@ -93,7 +94,7 @@ class TrainingPage extends Component {
                     </div>
                     <div className={css.rightArea}>
                       <section className={css.treningSection}>
-                        <div style={{ backgroundColor: '#98f' }}>Goal</div>
+                        <GoalToo />
                       </section>
                     </div>
                   </>

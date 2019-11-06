@@ -4,6 +4,7 @@ import { Type } from './trainingActions';
 
 const trainingId = (state = null, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.trainingId;
     default:
@@ -13,6 +14,7 @@ const trainingId = (state = null, { type, payload }) => {
 
 const isDone = (state = false, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.isDone;
     default:
@@ -22,6 +24,7 @@ const isDone = (state = false, { type, payload }) => {
 
 const timeStart = (state = null, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.timeStart;
     default:
@@ -31,6 +34,7 @@ const timeStart = (state = null, { type, payload }) => {
 
 const timeEnd = (state = null, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.timeEnd;
     default:
@@ -40,6 +44,7 @@ const timeEnd = (state = null, { type, payload }) => {
 
 const avgReadPages = (state = null, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.avgReadPages;
     default:
@@ -49,6 +54,7 @@ const avgReadPages = (state = null, { type, payload }) => {
 
 const booksCount = (state = null, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.booksCount;
     default:
@@ -58,6 +64,7 @@ const booksCount = (state = null, { type, payload }) => {
 
 const unreadCount = (state = null, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.unreadCount;
     default:
@@ -67,8 +74,16 @@ const unreadCount = (state = null, { type, payload }) => {
 
 const books = (state = [], { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.books;
+    case Type.POST_CHEKED_SUCCESS: {
+      return state.map(book =>
+        book.trainingBookId === payload.bookId
+          ? { ...book, isRead: payload.checked }
+          : book,
+      );
+    }
     default:
       return state;
   }
@@ -76,6 +91,7 @@ const books = (state = [], { type, payload }) => {
 
 const allPagesCount = (state = 0, { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.allPagesCount;
     default:
@@ -85,6 +101,7 @@ const allPagesCount = (state = 0, { type, payload }) => {
 
 const pagesReadResult = (state = [], { type, payload }) => {
   switch (type) {
+    case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.pagesReadResult;
     case Type.ADD_RESULT_SUCCESS:

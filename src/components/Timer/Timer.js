@@ -4,26 +4,30 @@ import styles from './Timer.module.css';
 
 export default class Timer extends Component {
   state = {
-    deadline: '',
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
+    timerStart: null,
   };
 
   componentDidMount() {
-    const { date } = this.props;
     this.setState({
-      deadline: new Date(date),
+      timerStart: this.reversClock(),
     });
 
-    this.reversClock();
+    // clearInterval(newTimer);
+  }
+
+  componentWillUnmount() {
+    const { timerStart } = this.state;
+    clearInterval(timerStart);
   }
 
   reversClock = () => {
-    setInterval(() => {
-      const time = this.state.deadline - Date.now();
-
+    return setInterval(() => {
+      const { dateFin } = this.props;
+      const time = new Date(dateFin) - Date.now();
       const daysTimer = String(
         Math.floor(time / (1000 * 60 * 60 * 24)),
       ).padStart(3, '0');
@@ -92,6 +96,6 @@ export default class Timer extends Component {
 }
 
 Timer.propTypes = {
-  date: PropTypes.string.isRequired,
+  dateFin: PropTypes.string.isRequired,
   nameTimer: PropTypes.string.isRequired,
 };
