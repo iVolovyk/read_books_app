@@ -39,12 +39,15 @@ class CreateWorkout extends Component {
     const { selectedBook, todayDate, chosenDate } = this.state;
     const { books, addBookNeedRead, addDayNeed } = this.props;
 
+    // (prevProps !== this.props)
     if (prevProps !== this.props) {
-      const options = books.map(book => ({
-        value: book._id,
-        label: book.title,
-      }));
-      this.addToState(books, options);
+      if (selectedBook.length === 0) {
+        const options = books.map(book => ({
+          value: book._id,
+          label: book.title,
+        }));
+        this.addToState(books, options);
+      }
     }
     const timeStartFormat = moment(todayDate).format('x');
     const timeEndFormat = moment(chosenDate).format('x');
@@ -81,6 +84,8 @@ class CreateWorkout extends Component {
     const newOptions = options.filter(
       book => book.value !== selectedOption.value,
     );
+
+    // this.setState({})
 
     const ChosenOne = localBooks.find(
       book => book._id === selectedOption.value,
