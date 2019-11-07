@@ -14,6 +14,7 @@ const BookList = ({
   readBooks,
   nowReadBooks,
   planeReadBooks,
+  isUserHaveTraining,
 }) => {
   return (
     <div className={css.bookList}>
@@ -29,7 +30,7 @@ const BookList = ({
         {({ onClose }) => <SummaryModal onClose={onClose} />}
       </Backdrop>
 
-      {nowReadBooks.length > 0 && <NextStepButton />}
+      {planeReadBooks.length > 0 && !isUserHaveTraining && <NextStepButton />}
 
       {readBooks.length === 0 &&
         nowReadBooks.length === 0 &&
@@ -42,6 +43,7 @@ BookList.propTypes = {
   readBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
   nowReadBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
   planeReadBooks: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  isUserHaveTraining: PropTypes.bool.isRequired,
 };
 
 export default BookList;
