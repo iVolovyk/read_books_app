@@ -6,7 +6,6 @@ export const Type = {
   SET_MODAL_CONGRATS_OPEN: 'SET_MODAL_CONGRATS_OPEN',
   SET_MODAL_CONGRATS_CLOSE: 'SET_MODAL_CONGRATS_CLOSE',
   SET_MODAL_NEED_FASTER_OPEN: 'SET_MODAL_NEED_FASTER_OPEN',
-  SET_MODAL_NEED_FASTER_CLOSE: 'SET_MODAL_NEED_FASTER_CLOSE',
 };
 
 export const exampleAction = () => {};
@@ -38,4 +37,9 @@ export const setModalCongratsOpen = () => ({
 export const setModalCongratsClose = () => ({
   type: Type.SET_MODAL_CONGRATS_CLOSE,
   payload: false,
+});
+
+export const setModalNeedFasterOpen = () => ({
+  type: Type.SET_MODAL_NEED_FASTER_OPEN,
+  payload: true,
 });

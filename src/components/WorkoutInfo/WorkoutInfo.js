@@ -73,21 +73,21 @@ class WorkoutInfo extends Component {
 
                     <p className={styles.author}>
                       {deviseWidth < tabletWidth && (
-                        <p className={styles.titleAuthor}>Автор:</p>
+                        <span className={styles.titleAuthor}>Автор:</span>
                       )}
                       {book.author}
                     </p>
 
                     <p className={styles.year}>
                       {deviseWidth < tabletWidth && (
-                        <p className={styles.titleYear}>Рік:</p>
+                        <span className={styles.titleYear}>Рік:</span>
                       )}
                       {book.year}
                     </p>
 
                     <p className={styles.pages}>
                       {deviseWidth < tabletWidth && (
-                        <p className={styles.titlePages}>Стор.:</p>
+                        <span className={styles.titlePages}>Стор.:</span>
                       )}
                       {book.pagesCount}
                     </p>

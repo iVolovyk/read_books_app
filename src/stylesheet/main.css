@@ -51,6 +51,11 @@ input[type='radio'].visually-hidden {
   overflow: hidden;
 }
 
+g.recharts-layer.recharts-reference-line > text {
+  transform: translateY(-10px);
+  font-weight: 600;
+}
+
 .container {
   margin: 0 auto;
   width: 100%;

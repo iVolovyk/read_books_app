@@ -41,6 +41,7 @@ class TemplateToBooks extends Component {
                   <div className={css.ratingBody}>
                     <StarRatingComponent
                       name={el._id}
+                      starColor="#ef6537"
                       className={css.starRatingComponent}
                       editing={false}
                       starCount={5}

@@ -68,6 +68,7 @@ class SummaryModal extends Component {
               name="rate1"
               starCount={5}
               value={rating}
+              starColor="#ef6537"
               onStarClick={this.onStarClick}
             />
           </div>
@@ -95,11 +96,15 @@ class SummaryModal extends Component {
   }
 }
 
+SummaryModal.defaultProps = {
+  bookFromClickBtnEditComment: '',
+};
+
 SummaryModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   changeBookStats: PropTypes.func.isRequired,
   bookFromClickBtnEditRating: PropTypes.number.isRequired,
-  bookFromClickBtnEditComment: PropTypes.string.isRequired,
+  bookFromClickBtnEditComment: PropTypes.string,
   bookId: PropTypes.string.isRequired,
 };
 
