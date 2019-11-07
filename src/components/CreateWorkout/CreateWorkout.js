@@ -76,8 +76,7 @@ class CreateWorkout extends Component {
 
   addButt = () => {
     const { selectedOption, localBooks, options } = this.state;
-
-    if (!selectedOption) {
+    if (selectedOption.value === undefined) {
       toast.error('Будь ласка оберіть книгу', {
         position: toast.POSITION.BOTTOM_RIGHT,
         className: 'foo-bar',
@@ -114,7 +113,7 @@ class CreateWorkout extends Component {
       );
       return;
     }
-    if (chosenDate === '') {
+    if (chosenDate === null) {
       toast.error('Будь ласка, оберіть дату!', {
         position: toast.POSITION.BOTTOM_RIGHT,
         className: 'foo-bar',
