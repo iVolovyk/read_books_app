@@ -78,10 +78,14 @@ class Backdrop extends Component {
   }
 }
 
+Backdrop.defaultProps = {
+  resetComponentControls: null,
+};
+
 Backdrop.propTypes = {
   children: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  resetComponentControls: PropTypes.func.isRequired,
+  resetComponentControls: PropTypes.func,
 };
 
 export default Backdrop;
