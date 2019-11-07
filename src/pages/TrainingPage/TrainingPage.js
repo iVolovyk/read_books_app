@@ -9,6 +9,7 @@ import WorkoutInfo from '../../components/WorkoutInfo/WorkoutinfoContainer';
 import Result from '../../components/Result/ResultConteiner';
 import Schedule from '../../components/Schedule/ScheduleConteiner';
 import ModalCongrats from '../../components/ModalCongrats/ModalCongratsContainer';
+import ModalNeedFaster from '../../components/ModalNeedFaster/ModalNeedFasterContainer';
 
 class TrainingPage extends Component {
   state = {};
@@ -104,6 +105,7 @@ class TrainingPage extends Component {
             )}
           </div>
           <ModalCongrats />
+          <ModalNeedFaster />
         </div>
       </main>
     );

@@ -26,11 +26,14 @@
 }
 
 .congratsbtnClose {
-  width: 130px;
+  width: 144px;
   padding: 10px;
   background-color: orange;
   color: #ffffff;
   border: none;
+  margin: auto;
+  margin-top: 20px;
+  text-transform: uppercase;
 }
 
 .congratsbtnClose:hover {
@@ -38,7 +41,8 @@
 }
 
 .image {
-  width: 44px;
+  width: 114px;
+  height: 110px;
   display: block;
   margin: 0 auto;
   border-radius: inherit;
@@ -48,5 +52,10 @@
   .modal {
     max-width: 36.25rem;
     padding: 2.5rem 5rem;
+  }
+
+  .congratsbtnClose {
+    margin-left: 20px;
+    margin-top: 6px;
   }
 }
