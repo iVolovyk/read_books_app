@@ -17,16 +17,19 @@ toast.configure({
 class CreateWorkout extends Component {
   state = {
     localBooks: [],
-    todayDate: '',
-    chosenDate: '',
-    selectedOption: null,
+    todayDate: null,
+    chosenDate: null,
+    selectedOption: {},
     selectedBook: [],
     options: [],
+    plannedBooks: [],
   };
 
   componentDidMount() {
     const { books } = this.props;
-    const options = books.map(book => ({
+    const { plannedBooks } = this.state;
+
+    const options = plannedBooks.map(book => ({
       value: book._id,
       label: book.title,
     }));
@@ -35,15 +38,26 @@ class CreateWorkout extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { books } = this.props;
+    const { selectedBook, todayDate, chosenDate } = this.state;
+    const { books, addBookNeedRead, addDayNeed } = this.props;
+
+    const plannedBooks = books.filter(book => book.status === 'planned');
+
     if (prevProps !== this.props) {
-      const options = books.map(book => ({
+      const options = plannedBooks.map(book => ({
         value: book._id,
         label: book.title,
       }));
 
       this.addToState(books, options);
     }
+    const timeStartFormat = moment(todayDate).format('x');
+    const timeEndFormat = moment(chosenDate).format('x');
+    const timeForTrening = timeEndFormat - timeStartFormat;
+    const DayNeeds = Number(moment(timeForTrening).format('DD'));
+
+    addBookNeedRead(selectedBook.length);
+    addDayNeed(DayNeeds || 1);
   }
 
   addToState = (booksArr, optArr) =>
@@ -62,8 +76,7 @@ class CreateWorkout extends Component {
 
   addButt = () => {
     const { selectedOption, localBooks, options } = this.state;
-
-    if (!selectedOption) {
+    if (selectedOption.value === undefined) {
       toast.error('Будь ласка оберіть книгу', {
         position: toast.POSITION.BOTTOM_RIGHT,
         className: 'foo-bar',
@@ -82,7 +95,7 @@ class CreateWorkout extends Component {
       return {
         selectedBook: [ChosenOne, ...state.selectedBook],
         options: newOptions,
-        selectedOption: null,
+        selectedOption: {},
       };
     });
   };
@@ -100,7 +113,7 @@ class CreateWorkout extends Component {
       );
       return;
     }
-    if (chosenDate === '') {
+    if (chosenDate === null) {
       toast.error('Будь ласка, оберіть дату!', {
         position: toast.POSITION.BOTTOM_RIGHT,
         className: 'foo-bar',
@@ -208,6 +221,8 @@ CreateWorkout.propTypes = {
     }),
   ).isRequired,
   sendTraining: PropTypes.func.isRequired,
+  addBookNeedRead: PropTypes.func.isRequired,
+  addDayNeed: PropTypes.func.isRequired,
 };
 
 export default CreateWorkout;
