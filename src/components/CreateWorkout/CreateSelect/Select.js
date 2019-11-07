@@ -53,12 +53,17 @@ class WorkSelect extends Component {
 }
 
 WorkSelect.propTypes = {
-  selectedOption: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
+  selectedOption: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
   }).isRequired,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default WorkSelect;
