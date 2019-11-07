@@ -20,6 +20,9 @@ class Schedule extends Component {
     const { data, pagesPerDay } = this.props;
     return (
       <div className={css.grafic}>
+        <p className={css.titleGrafic}>
+          Кількість сторінок / день - {pagesPerDay}
+        </p>
         <ResponsiveContainer width="100%" height={380}>
           <AreaChart
             data={data}
@@ -31,9 +34,10 @@ class Schedule extends Component {
             <Tooltip />
             <ReferenceLine
               y={pagesPerDay}
-              label={`Кількість сторінок / день - ${pagesPerDay}`}
+              label={`${pagesPerDay} стр/день.`}
               stroke="#ff6b00"
               strokeWidth={1}
+              textAnchor="start"
             />
             <Area
               type="monotone"
