@@ -12,12 +12,13 @@
   padding: 6px 0;
   margin-bottom: 15px;
   color: white;
+  border: none;
 }
 
 .nextStepButton:hover,
 .nextStepButton:focus {
-  background-color: #f58e07;
-  color: black;
+  background-color: #d34f23;
+  color: #fff;
 }
 
 @media (min-width: 768px) {
