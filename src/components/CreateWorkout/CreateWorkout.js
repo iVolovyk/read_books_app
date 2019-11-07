@@ -39,21 +39,20 @@ class CreateWorkout extends Component {
     const { selectedBook, todayDate, chosenDate } = this.state;
     const { books, addBookNeedRead, addDayNeed } = this.props;
 
-    if (prevProps.books !== books) {
+    if (prevProps !== this.props) {
       const options = books.map(book => ({
         value: book._id,
         label: book.title,
       }));
-
       this.addToState(books, options);
-      const timeStartFormat = moment(todayDate).format('x');
-      const timeEndFormat = moment(chosenDate).format('x');
-      const timeForTrening = timeEndFormat - timeStartFormat;
-      const DayNeeds = Number(moment(timeForTrening).format('DD'));
-
-      addBookNeedRead(selectedBook.length);
-      addDayNeed(DayNeeds || 1);
     }
+    const timeStartFormat = moment(todayDate).format('x');
+    const timeEndFormat = moment(chosenDate).format('x');
+    const timeForTrening = timeEndFormat - timeStartFormat;
+    const DayNeeds = Number(moment(timeForTrening).format('DD'));
+
+    addBookNeedRead(selectedBook.length);
+    addDayNeed(DayNeeds || 1);
   }
 
   addToState = (booksArr, optArr) =>
