@@ -93,8 +93,9 @@
   padding: 16px 20px;
   margin-bottom: 40px;
 }
+.startButt:hover,
 .startButt:active {
-  background-color: #ff6b00;
+  background-color: #e05527;
   color: white;
 }
 
