@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
+import moment from 'moment';
 import 'react-datetime/css/react-datetime.css';
 import { toast } from 'react-toastify';
 import css from './ResultForm.module.css';
@@ -27,9 +28,9 @@ class ResultForm extends Component {
     });
   };
 
-  hendelPagestData = moment => {
+  hendelPagestData = mom => {
     this.setState({
-      datetime: moment,
+      datetime: mom,
     });
   };
 
@@ -55,7 +56,15 @@ class ResultForm extends Component {
     this.props.onSetResult(resObject);
 
     this.setState({ datetime: Datetime.moment(), pagesRead: 0 });
-    
+  };
+
+  getValidDates = currentDate => {
+    const { timeStart } = this.props;
+
+    return (
+      currentDate.isBefore(moment()) &&
+      currentDate.isAfter(moment(timeStart).subtract(1, 'day'))
+    );
   };
 
   render() {
@@ -66,12 +75,13 @@ class ResultForm extends Component {
         <label htmlFor="datetime" className={css.labelStyles}>
           Дата
           <Datetime
-            inputProps={{ id: 'datetime' }}
             value={datetime}
             locale="uk"
             dateFormat="DD.MM.YYYY"
             timeFormat={false}
             onChange={this.hendelPagestData}
+            isValidDate={this.getValidDates}
+            closeOnSelect
           />
         </label>
         <label htmlFor="numberOfPagesRead" className={css.labelStyles}>
@@ -93,9 +103,13 @@ class ResultForm extends Component {
     );
   }
 }
+ResultForm.defaultProps = {
+  timeStart: 0,
+};
 
 ResultForm.propTypes = {
   onSetResult: PropTypes.func.isRequired,
+  timeStart: PropTypes.number,
 };
 
 export default ResultForm;
