@@ -17,8 +17,8 @@ toast.configure({
 class CreateWorkout extends Component {
   state = {
     localBooks: [],
-    todayDate: '',
-    chosenDate: '',
+    todayDate: null,
+    chosenDate: null,
     selectedOption: null,
     selectedBook: [],
     options: [],
@@ -35,7 +35,8 @@ class CreateWorkout extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { books } = this.props;
+    const { selectedBook, todayDate, chosenDate } = this.state;
+    const { books, addBookNeedRead, addDayNeed } = this.props;
     if (prevProps !== this.props) {
       const options = books.map(book => ({
         value: book._id,
@@ -44,6 +45,13 @@ class CreateWorkout extends Component {
 
       this.addToState(books, options);
     }
+    const timeStartFormat = moment(todayDate).format('x');
+    const timeEndFormat = moment(chosenDate).format('x');
+    const timeForTrening = timeEndFormat - timeStartFormat;
+    const DayNeeds = Number(moment(timeForTrening).format('DD'));
+
+    addBookNeedRead(selectedBook.length);
+    addDayNeed(DayNeeds || 1);
   }
 
   addToState = (booksArr, optArr) =>
@@ -208,6 +216,8 @@ CreateWorkout.propTypes = {
     }),
   ).isRequired,
   sendTraining: PropTypes.func.isRequired,
+  addBookNeedRead: PropTypes.func.isRequired,
+  addDayNeed: PropTypes.func.isRequired,
 };
 
 export default CreateWorkout;
