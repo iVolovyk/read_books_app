@@ -28,13 +28,13 @@
 .congratsbtnClose {
   width: 130px;
   padding: 10px;
-  background-color: orange;
+  background-color: #ef6537;
   color: #ffffff;
   border: none;
 }
 
 .congratsbtnClose:hover {
-  background-color: red;
+  background-color: #e75a2b;
 }
 
 .image {

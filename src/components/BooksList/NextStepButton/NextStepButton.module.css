@@ -3,21 +3,22 @@
 }
 .nextStepButton {
   width: 200px;
-  background-color: #ff9a17;
+  background-color: #ef6537;
   font-family: Montserrat;
   font-weight: 500;
   font-size: 13px;
-  border: 1px solid #00183e;
+  /* border: 1px solid #00183e; */
   outline-color: none;
   padding: 6px 0;
   margin-bottom: 15px;
   color: white;
+  border: none;
 }
 
 .nextStepButton:hover,
 .nextStepButton:focus {
-  background-color: #f58e07;
-  color: black;
+  background-color: #d34f23;
+  color: #fff;
 }
 
 @media (min-width: 768px) {

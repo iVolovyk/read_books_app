@@ -68,6 +68,7 @@ class SummaryModal extends Component {
               name="rate1"
               starCount={5}
               value={rating}
+              starColor="#ef6537"
               onStarClick={this.onStarClick}
             />
           </div>

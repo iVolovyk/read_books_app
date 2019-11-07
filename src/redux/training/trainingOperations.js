@@ -109,6 +109,7 @@ export const closeTraning = object => (dispatch, getStore) => {
     return;
   }
   dispatch(closeTraningStart());
+  dispatch(loaderOn());
   api
     .fechCloseTraning(object, token, trainingId)
     .then(data => dispatch(closeTraningSuccess(data.data)))
@@ -121,10 +122,12 @@ export const closeTraning = object => (dispatch, getStore) => {
         },
       );
       return dispatch(closeTraningError(error));
-    });
+    })
+    .finally(dispatch(loaderOff()));
 };
 
 export const sendTraining = trainingObj => (dispatch, getStore) => {
+  // console.log('sendTraining(training) work!!!');
   const { token } = getStore().session;
 
   // проверяем наличие токина если  он не пришел выходим
@@ -138,7 +141,10 @@ export const sendTraining = trainingObj => (dispatch, getStore) => {
   if (!haveTraining(getStore())) {
     api
       .addTraining(trainingObj, token)
-      .then(data => dispatch(sendTrainingSuccess(data.data.training)))
+      .then(data => {
+        dispatch(asyncGetBook());
+        dispatch(sendTrainingSuccess(data.data.training));
+      })
       .catch(err => {
         toast.error(
           'Ваш тренінг не було додано. Будь ласка, спробуйте ще раз.',

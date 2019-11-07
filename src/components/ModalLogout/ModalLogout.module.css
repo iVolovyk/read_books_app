@@ -51,9 +51,10 @@
   border: 1px solid rgb(9, 30, 63);
   cursor: pointer;
   min-width: 130px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   line-height: 16px;
+  font-weight: 600;
 }
 
 .button:last-child {
@@ -62,8 +63,9 @@
 
 .button:hover,
 .button:focus {
-  background-color: rgb(255, 107, 8);
-  border: 1px solid rgb(255, 107, 8);
+  background-color: #ef6537;
+  border: 1px solid #ef6537;
+  color: #fff;
   outline: none;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
 }
