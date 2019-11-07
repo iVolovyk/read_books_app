@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { validateAll } from 'indicative/validator';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,11 +12,24 @@ import * as sessionActions from '../../redux/session/sessionActions';
 import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
 
+const validationRules = {
+  email: 'required|email',
+  password: 'required|min:6|max:30',
+};
+
+const validationMessages = {
+  required: field => `${field} обов'язкове поле`,
+  'email.email': 'Введіть валідну електронну пошту',
+  'password.min': 'Пароль має бути не менше 6 символів',
+  'password.max': 'Пароль має бути не більше 30 символів',
+};
+
 class LoginPage extends Component {
   state = {
     email: '',
     password: '',
     citeNumber: 0,
+    error: null,
   };
 
   componentDidMount() {
@@ -44,13 +58,6 @@ class LoginPage extends Component {
     }
   }
 
-  componentDidUpdate() {
-    // const { isAuthenticated, history } = this.props;
-    // if (isAuthenticated) {
-    //   history.replace('/library');
-    // }
-  }
-
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -60,14 +67,26 @@ class LoginPage extends Component {
     const { email, password } = this.state;
     const { onLogin } = this.props;
     e.preventDefault();
-    onLogin({ email, password });
-    this.setState({ email: '', password: '' });
+    validateAll({ email, password }, validationRules, validationMessages)
+      .then(data => {
+        onLogin(data);
+        this.setState({ email: '', password: '', error: null });
+      })
+      .catch(errors => {
+        const formatedErrors = {};
+        errors.forEach(error => {
+          formatedErrors[error.field] = error.message;
+        });
+        this.setState({
+          error: formatedErrors,
+        });
+      });
   };
 
   randomNumber = array => Math.floor(Math.random() * array.length);
 
   render() {
-    const { email, password, citeNumber } = this.state;
+    const { email, password, citeNumber, error } = this.state;
     return (
       <section className={css.reg_section}>
         <div className={css.reg_form}>
@@ -81,8 +100,8 @@ class LoginPage extends Component {
                   Google
                 </a>
               </div>
-              <label label htmlFor="email">
-                <span>Електронна адреса</span>
+              <label htmlFor="email">
+                <span className={css.label}>Електронна адреса</span>
                 <input
                   onChange={this.handleChange}
                   type="email"
@@ -90,22 +109,21 @@ class LoginPage extends Component {
                   name="email"
                   value={email}
                   placeholder="your@mail.com"
-                  required="required"
                 />
+                {error && <span className={css.error}>{error.email}</span>}
               </label>
-              <label label htmlFor="password">
-                <span>Пароль</span>
+              <label htmlFor="password">
+                <span className={css.label}>Пароль</span>
                 <input
                   onChange={this.handleChange}
                   autoComplete="off"
                   type="password"
                   id="password"
-                  minLength="6"
                   name="password"
                   value={password}
                   placeholder="Пароль"
-                  required="required"
                 />
+                {error && <span className={css.error}>{error.password}</span>}
               </label>
               <button type="submit">Увійти</button>
               <p className={css.relink}>

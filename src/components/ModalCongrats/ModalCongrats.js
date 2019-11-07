@@ -41,8 +41,8 @@ class ModalCongrats extends Component {
               <img src={thumup} alt="thumup" className={css.image} />
               <h2>Ти молодчина!!!</h2>
               <p>
-                можеш залишити відгук на прочитані книги та почати нове
-                тренування
+                ВІТАЄМО! YOU ARE THE BEST! ЦІЛЬ ДОСЯГНУТА В ВИЗНАЧЕНИЙ СТРОК ,
+                МОЖНА РОЗПОЧИНАТИ НОВЕ ТРЕНУВАННЯ
               </p>
               <button
                 type="button"
