@@ -38,6 +38,7 @@
   padding: 0;
   margin: 0;
   color: #8890a1;
+  text-align: center;
 }
 
 @media (max-width: 767px), (min-width: 1280px) {
@@ -70,8 +71,7 @@
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .box {
-    height: 106px;
-    padding-top: 20px;
+    padding: 25px;
     padding-left: 56px;
     padding-right: 56px;
     display: flex;
