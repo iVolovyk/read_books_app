@@ -31,6 +31,9 @@
   background-color: orange;
   color: #ffffff;
   border: none;
+  margin: auto;
+  margin-top: 20px;
+  text-transform: uppercase;
 }
 
 .congratsbtnClose:hover {
@@ -41,11 +44,17 @@
   width: 44px;
   display: block;
   margin: 0 auto;
+  border-radius: inherit;
 }
 
 @media screen and (min-width: 768px) {
   .modal {
     max-width: 36.25rem;
     padding: 2.5rem 5rem;
+  }
+
+  .congratsbtnClose {
+    margin-left: 20px;
+    margin-top: 6px;
   }
 }

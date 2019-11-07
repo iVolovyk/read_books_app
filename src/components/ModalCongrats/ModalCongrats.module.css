@@ -41,6 +41,7 @@
   width: 44px;
   display: block;
   margin: 0 auto;
+  border-radius: inherit;
 }
 
 @media screen and (min-width: 768px) {
