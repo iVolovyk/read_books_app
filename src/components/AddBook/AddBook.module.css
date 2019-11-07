@@ -32,7 +32,8 @@
 }
 
 .buttonAddBook:hover {
-  background-color: orange;
+  border-color: #ef6537;
+  background-color: #ef6537;
   color: #ffffff;
 }
 
