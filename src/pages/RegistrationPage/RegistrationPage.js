@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { validateAll } from 'indicative/validator';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
-import css from './RegistrationPage.module.css';
+import css from '../LoginPage/LoginPage.module.css';
 import * as sessionOperations from '../../redux/session/sessionOperations';
 import { getIsAuthenticated } from '../../redux/session/sessionSelectors';
+
+const validationRules = {
+  name: 'required|min:3|max:50',
+  email: 'required|email',
+  password: 'required|min:6|max:30',
+  confirmPassword: 'required|min:6|max:30|same:password',
+};
+
+const validationMessages = {
+  required: field => `${field} обов'язкове поле`,
+  'name.min': "Ім'я має бути не менше 3 символів",
+  'name.max': "Ім'я має бути не більше 50 символів",
+  'email.email': 'Введіть валідну електронну пошту',
+  'password.min': 'Пароль має бути не менше 6 символів',
+  'password.max': 'Пароль має бути не більше 30 символів',
+  'confirmPassword.min': 'Пароль має бути не менше 6 символів',
+  'confirmPassword.max': 'Пароль має бути не більше 30 символів',
+  'confirmPassword.same': 'Паролі не співпадають',
+};
 
 class RegistrationPage extends Component {
   state = {
@@ -14,21 +34,8 @@ class RegistrationPage extends Component {
     email: '',
     password: '',
     confirmPassword: '',
+    error: null,
   };
-
-  componentDidMount() {
-    const { isAuthenticated, history } = this.props;
-    if (isAuthenticated) {
-      history.replace('/library');
-    }
-  }
-
-  componentDidUpdate() {
-    const { isAuthenticated, history } = this.props;
-    if (isAuthenticated) {
-      history.replace('/library');
-    }
-  }
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -39,13 +46,39 @@ class RegistrationPage extends Component {
     const { name, email, password, confirmPassword } = this.state;
     const { onRegistrate } = this.props;
     e.preventDefault();
-    if (password !== confirmPassword) return;
-    onRegistrate({ email, password, name: { fullName: name } });
-    this.setState({ name: '', email: '', password: '', confirmPassword: '' });
+    validateAll(
+      { name, email, password, confirmPassword },
+      validationRules,
+      validationMessages,
+    )
+      .then(data => {
+        const credentials = {
+          email: data.email,
+          password: data.password,
+          name: { fullName: data.name },
+        };
+        onRegistrate(credentials);
+        this.setState({
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          error: null,
+        });
+      })
+      .catch(errors => {
+        const formatedErrors = {};
+        errors.forEach(error => {
+          formatedErrors[error.field] = error.message;
+        });
+        this.setState({
+          error: formatedErrors,
+        });
+      });
   };
 
   render() {
-    const { name, email, password, confirmPassword } = this.state;
+    const { name, email, password, confirmPassword, error } = this.state;
     return (
       <section className={css.reg_section}>
         <div className={css.reg_form}>
@@ -68,8 +101,8 @@ class RegistrationPage extends Component {
                   name="name"
                   value={name}
                   placeholder="Ім'я"
-                  required="required"
                 />
+                {error && <span className={css.error}>{error.name}</span>}
               </label>
               <label label htmlFor="email">
                 <span>Електронна адреса</span>
@@ -80,8 +113,8 @@ class RegistrationPage extends Component {
                   name="email"
                   value={email}
                   placeholder="your@mail.com"
-                  required="required"
                 />
+                {error && <span className={css.error}>{error.email}</span>}
               </label>
               <label label htmlFor="password">
                 <span>Пароль</span>
@@ -93,9 +126,8 @@ class RegistrationPage extends Component {
                   name="password"
                   value={password}
                   placeholder="Пароль"
-                  required="required"
-                  minLength="6"
                 />
+                {error && <span className={css.error}>{error.password}</span>}
               </label>
               <label label htmlFor="confirmPassword">
                 <span>Підтвердити пароль</span>
@@ -106,9 +138,10 @@ class RegistrationPage extends Component {
                   name="confirmPassword"
                   value={confirmPassword}
                   placeholder="Підтвердити пароль"
-                  required="required"
-                  minLength="6"
                 />
+                {error && (
+                  <span className={css.error}>{error.confirmPassword}</span>
+                )}
               </label>
               <button type="submit">Зареєструватися</button>
               <p className={css.relink}>
@@ -144,7 +177,6 @@ class RegistrationPage extends Component {
 }
 RegistrationPage.propTypes = {
   onRegistrate: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     replace: PropTypes.func,
   }).isRequired,

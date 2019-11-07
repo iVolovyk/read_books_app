@@ -4,7 +4,7 @@ import * as trainingType from '../training/trainingActions';
 
 const user = (state = null, { type, payload }) => {
   switch (type) {
-    case Type.GET_USER:
+    case Type.GET_USER_SUCCESS:
     case Type.REGISTRATION_SUCCESS:
     case Type.LOG_IN_SUCCESS:
       return payload.userData;
@@ -21,7 +21,7 @@ const user = (state = null, { type, payload }) => {
 
 const authenticated = (state = false, { type }) => {
   switch (type) {
-    case Type.GET_USER:
+    case Type.GET_USER_SUCCESS:
     case Type.REGISTRATION_SUCCESS:
     case Type.LOG_IN_SUCCESS:
       return true;
@@ -49,6 +49,8 @@ const token = (state = null, { type, payload }) => {
 const error = (state = null, { type, payload }) => {
   switch (type) {
     case Type.GET_USER_ERROR:
+    case Type.LOG_IN_ERROR:
+    case Type.REGISTRATION_ERROR:
       return payload;
     default:
       return state;
