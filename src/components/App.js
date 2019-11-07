@@ -34,7 +34,7 @@ class App extends Component {
       alignItems: 'center',
       height: '100vh',
       width: '100%',
-      backgroundColor: 'rgba(0,0,0,0.2)',
+      backgroundColor: '#fff',
       zIndex: '10',
     };
     return (

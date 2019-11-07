@@ -311,10 +311,15 @@
     background-color: #f6f7fc;
   }
 }
+@media (max-width: 1279px) {
+  .reg_form {
+    padding-top: 6.5rem;
+  }
+}
 @media (min-width: 1280px) {
   .reg_section {
     display: flex;
-    min-height: calc(100vh - 41px);
+    min-height: 100vh;
   }
   .reg_form {
     width: 45%;

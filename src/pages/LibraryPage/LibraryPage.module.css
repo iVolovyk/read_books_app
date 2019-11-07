@@ -1,5 +1,7 @@
 .containerLibraryPage {
   background-color: #f5f7fa;
+  min-height: 100vh;
+  padding-top: 60px;
 }
 
 .library {
@@ -13,7 +15,6 @@
     width: 680px;
   }
 }
-
 @media (min-width: 1264px) {
   .library {
     width: 1228px;

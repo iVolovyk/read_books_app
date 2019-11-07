@@ -1,9 +1,10 @@
-.treningSection {
-  padding-bottom: 33px;
+.trainingPageWrapper {
+  padding-top: 93px;
+  min-height: 100vh;
 }
 
-.trainingPageWrapper {
-  padding-top: 33px;
+.treningSection {
+  padding-bottom: 33px;
 }
 
 .mainblok {
@@ -12,7 +13,6 @@
 
 @media screen and (min-width: 1280px) {
   .trainingPageWrapper {
-    padding-top: 36px;
     padding-right: 16px;
     padding-left: 16px;
     display: flex;

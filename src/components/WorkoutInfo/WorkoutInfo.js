@@ -2,16 +2,8 @@
 import React, { Component } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-  getBooksForCheckList,
-  getTrainingId,
-  getReadPages,
-  getReadPagesCheked,
-} from '../../redux/training/trainingSelectors';
 import styles from './WorkoutInfo.module.css';
-import { addChekedBook } from '../../redux/training/trainingOperations';
 
 toast.configure({
   autoClose: 5000,
@@ -24,14 +16,18 @@ class WorkoutInfo extends Component {
   handleChange = e => {
     const { name, checked, value } = e.target;
     const { ReadPages, ReadPagesCheked } = this.props;
-    if (value <= ReadPages - ReadPagesCheked) {
+    if (value <= ReadPages - ReadPagesCheked || !checked) {
       const chekBookInfo = {
         bookId: name,
         TrainingId: this.props.TrainingId,
         checked,
       };
 
-      this.props.addChekedBook(chekBookInfo);
+      const patchObject = {
+        isRead: checked,
+      };
+
+      this.props.addChekedBook(chekBookInfo, patchObject);
     } else {
       toast.error('Недостатня кількість прочитаних сторінок.', {
         position: toast.POSITION.BOTTOM_RIGHT,
@@ -106,17 +102,6 @@ class WorkoutInfo extends Component {
   }
 }
 
-const mapStateToProps = store => ({
-  books: getBooksForCheckList(store),
-  TrainingId: getTrainingId(store),
-  ReadPages: getReadPages(store),
-  ReadPagesCheked: getReadPagesCheked(store),
-});
-
-const mapDispatchToProps = {
-  addChekedBook,
-};
-
 WorkoutInfo.defaultProps = {
   TrainingId: '',
   ReadPages: 0,
@@ -133,7 +118,4 @@ WorkoutInfo.propTypes = {
   ReadPagesCheked: PropTypes.number,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(WorkoutInfo);
+export default WorkoutInfo;

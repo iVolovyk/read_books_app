@@ -86,7 +86,7 @@ class SummaryModal extends Component {
               Назад
             </button>
             <button className={style.saveBut} type="submit">
-              Зберігти
+              Зберегти
             </button>
           </div>
         </form>
