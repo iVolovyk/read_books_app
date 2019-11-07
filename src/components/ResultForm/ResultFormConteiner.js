@@ -6,7 +6,11 @@ const mapDispatchToProps = {
   onSetResult,
 };
 
+const mapStateToProps = state => ({
+  timeStart: state.training.timeStart,
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(ResultForm);
