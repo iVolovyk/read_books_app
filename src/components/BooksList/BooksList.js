@@ -29,7 +29,7 @@ const BookList = ({
         {({ onClose }) => <SummaryModal onClose={onClose} />}
       </Backdrop>
 
-      {nowReadBooks.length === 0 && <NextStepButton />}
+      {nowReadBooks.length > 0 && <NextStepButton />}
 
       {readBooks.length === 0 &&
         nowReadBooks.length === 0 &&
