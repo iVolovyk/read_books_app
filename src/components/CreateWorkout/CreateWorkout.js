@@ -22,14 +22,12 @@ class CreateWorkout extends Component {
     selectedOption: {},
     selectedBook: [],
     options: [],
-    plannedBooks: [],
   };
 
   componentDidMount() {
     const { books } = this.props;
-    const { plannedBooks } = this.state;
 
-    const options = plannedBooks.map(book => ({
+    const options = books.map(book => ({
       value: book._id,
       label: book.title,
     }));
@@ -41,23 +39,21 @@ class CreateWorkout extends Component {
     const { selectedBook, todayDate, chosenDate } = this.state;
     const { books, addBookNeedRead, addDayNeed } = this.props;
 
-    const plannedBooks = books.filter(book => book.status === 'planned');
-
-    if (prevProps !== this.props) {
-      const options = plannedBooks.map(book => ({
+    if (prevProps.books !== books) {
+      const options = books.map(book => ({
         value: book._id,
         label: book.title,
       }));
 
       this.addToState(books, options);
-    }
-    const timeStartFormat = moment(todayDate).format('x');
-    const timeEndFormat = moment(chosenDate).format('x');
-    const timeForTrening = timeEndFormat - timeStartFormat;
-    const DayNeeds = Number(moment(timeForTrening).format('DD'));
+      const timeStartFormat = moment(todayDate).format('x');
+      const timeEndFormat = moment(chosenDate).format('x');
+      const timeForTrening = timeEndFormat - timeStartFormat;
+      const DayNeeds = Number(moment(timeForTrening).format('DD'));
 
-    addBookNeedRead(selectedBook.length);
-    addDayNeed(DayNeeds || 1);
+      addBookNeedRead(selectedBook.length);
+      addDayNeed(DayNeeds || 1);
+    }
   }
 
   addToState = (booksArr, optArr) =>
@@ -66,7 +62,7 @@ class CreateWorkout extends Component {
   dateOnchangeMethod = date => {
     this.setState({
       todayDate: Datetime.moment().format('YYYY-MM-DD'),
-      chosenDate: date.format('YYYY-MM-DD'),
+      chosenDate: date,
     });
   };
 
@@ -90,19 +86,17 @@ class CreateWorkout extends Component {
     const ChosenOne = localBooks.find(
       book => book._id === selectedOption.value,
     );
-
-    this.setState(state => {
-      return {
-        selectedBook: [ChosenOne, ...state.selectedBook],
-        options: newOptions,
-        selectedOption: {},
-      };
-    });
+    this.setState(state => ({
+      selectedBook: [ChosenOne, ...state.selectedBook],
+      options: newOptions,
+      selectedOption: {},
+    }));
   };
 
   hendleStartTraining = () => {
     const { selectedBook, todayDate, chosenDate } = this.state;
     const { sendTraining } = this.props;
+
     if (selectedBook.length < 1) {
       toast.error(
         'Додайте хоча б одну книгу!  Кількість книг повинна бути більше за 0!',
@@ -168,8 +162,11 @@ class CreateWorkout extends Component {
   render() {
     const { selectedBook, selectedOption, options } = this.state;
     const yesterday = Datetime.moment().subtract(1, 'day');
+
     const valid = current => {
-      return current.isAfter(yesterday);
+      return (
+        current.isAfter(yesterday) && current.isBefore(moment().add(28, 'day'))
+      );
     };
     return (
       <section className={style.Workout}>
@@ -180,8 +177,9 @@ class CreateWorkout extends Component {
           onChange={this.dateOnchangeMethod}
           defaultValue="Оберіть Дату"
           locale="uk"
-          dateFormat="DD.MM.YYYY"
+          dateFormat="DD-MM-YYYY"
           timeFormat={false}
+          closeOnSelect
         />
         <div className={style.bookChooser}>
           <WorkSelect

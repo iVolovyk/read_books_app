@@ -18,4 +18,5 @@ export const getPlaneReadBooks = state => {
   return getBooks(state).filter(el => el.status === StatusBooks.PLANNED);
 };
 
-export const getBooksForList = state => state.books;
+export const getBooksForList = state =>
+  state.books.filter(book => book.status === StatusBooks.PLANNED);

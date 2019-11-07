@@ -8,7 +8,11 @@ const mapStateToProps = state => ({
   books: getBooksForList(state),
 });
 
-const mapDispatchToProps = { sendTraining, addDayNeed, addBookNeedRead };
+const mapDispatchToProps = dispatch => ({
+  sendTraining: p => dispatch(sendTraining(p)),
+  addDayNeed: p => dispatch(addDayNeed(p)),
+  addBookNeedRead: p => dispatch(addBookNeedRead(p)),
+});
 
 const CreateWorkoutContainer = connect(
   mapStateToProps,
