@@ -39,21 +39,23 @@ class CreateWorkout extends Component {
     const { selectedBook, todayDate, chosenDate } = this.state;
     const { books, addBookNeedRead, addDayNeed } = this.props;
 
-    if (prevProps.books !== books) {
-      const options = books.map(book => ({
-        value: book._id,
-        label: book.title,
-      }));
-
-      this.addToState(books, options);
-      const timeStartFormat = moment(todayDate).format('x');
-      const timeEndFormat = moment(chosenDate).format('x');
-      const timeForTrening = timeEndFormat - timeStartFormat;
-      const DayNeeds = Number(moment(timeForTrening).format('DD'));
-
-      addBookNeedRead(selectedBook.length);
-      addDayNeed(DayNeeds || 1);
+    // (prevProps !== this.props)
+    if (prevProps !== this.props) {
+      if (selectedBook.length === 0) {
+        const options = books.map(book => ({
+          value: book._id,
+          label: book.title,
+        }));
+        this.addToState(books, options);
+      }
     }
+    const timeStartFormat = moment(todayDate).format('x');
+    const timeEndFormat = moment(chosenDate).format('x');
+    const timeForTrening = timeEndFormat - timeStartFormat;
+    const DayNeeds = Number(moment(timeForTrening).format('DD'));
+
+    addBookNeedRead(selectedBook.length);
+    addDayNeed(DayNeeds || 1);
   }
 
   addToState = (booksArr, optArr) =>
@@ -82,6 +84,8 @@ class CreateWorkout extends Component {
     const newOptions = options.filter(
       book => book.value !== selectedOption.value,
     );
+
+    // this.setState({})
 
     const ChosenOne = localBooks.find(
       book => book._id === selectedOption.value,
