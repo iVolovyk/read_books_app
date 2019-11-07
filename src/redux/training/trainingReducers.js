@@ -91,8 +91,6 @@ const books = (state = [], { type, payload }) => {
     case Type.SEND_TRAINING_SUCCESS:
     case Type.GET_TRENING_SUCCESS:
       return payload.books;
-    case Type.CLOSE_TRANING_SUCCESS:
-      return [];
     case Type.POST_CHEKED_SUCCESS: {
       return state.map(book =>
         book.trainingBookId === payload.bookId
@@ -100,6 +98,8 @@ const books = (state = [], { type, payload }) => {
           : book,
       );
     }
+    case Type.CLOSE_TRANING_SUCCESS:
+      return [];
     default:
       return state;
   }
