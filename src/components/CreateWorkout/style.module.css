@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Montserrat';
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-weight: 600;
-}
 .Workout {
   display: flex;
   flex-direction: column;

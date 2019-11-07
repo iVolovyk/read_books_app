@@ -1,6 +1,7 @@
 export const Type = {
   LOGIN_WITH_GOOGLE: 'session/LOGIN_WITH_GOOGLE',
-  GET_USER: 'session/GET_USER',
+  GET_USER_START: 'session/GET_USER_START',
+  GET_USER_SUCCESS: 'session/GET_USER_SUCCESS',
   GET_USER_ERROR: 'session/GET_USER_ERROR',
   REGISTRATION_START: 'session/REGISTRATION_START',
   REGISTRATION_SUCCESS: 'session/REGISTRATION_SUCCESS',
@@ -25,8 +26,12 @@ export const logInWithGoogle = token => ({
  * Get Current User
  */
 
-export const getUser = response => ({
-  type: Type.GET_USER,
+export const getUserStart = () => ({
+  type: Type.GET_USER_START,
+});
+
+export const getUserSuccess = response => ({
+  type: Type.GET_USER_SUCCESS,
   payload: response,
 });
 
@@ -51,8 +56,9 @@ export const registrationSuccess = response => ({
   type: Type.REGISTRATION_SUCCESS,
   payload: response,
 });
-export const registrationError = () => ({
+export const registrationError = error => ({
   type: Type.REGISTRATION_ERROR,
+  payload: error,
 });
 
 /*
@@ -66,8 +72,9 @@ export const loginSuccess = response => ({
   type: Type.LOG_IN_SUCCESS,
   payload: response,
 });
-export const loginError = () => ({
+export const loginError = error => ({
   type: Type.LOG_IN_ERROR,
+  payload: error,
 });
 
 /*

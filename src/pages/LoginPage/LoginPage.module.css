@@ -2,9 +2,15 @@
   width: 300px;
   margin: 0 auto;
 }
+
+/* 
+* Form styles
+*/
+
 .reg_form {
   padding: 1.8rem 0;
   width: 100%;
+  background-size: cover;
   background-image: url('../../assets/images/signupBg.jpg');
 }
 .reg_social {
@@ -44,13 +50,23 @@
 .reg_form label {
   display: block;
   margin-bottom: 1.2rem;
+  position: relative;
 }
 .reg_form label:last-of-type {
   margin-bottom: 2.6rem;
 }
-.reg_form label span:after {
+.reg_form label .label:after {
   content: ' *';
-  color: red;
+  color: #ef6537;
+}
+.reg_form label .error {
+  display: block;
+  color: #ef6537;
+  position: absolute;
+  bottom: -1rem;
+}
+.reg_form label .error::first-letter {
+  text-transform: uppercase;
 }
 .reg_form input {
   display: block;
@@ -84,6 +100,7 @@
 .relink a {
   color: #ef6537;
 }
+
 .reg_text {
   padding: 1.8rem 0;
 }
@@ -92,6 +109,11 @@
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* 
+* Cites login
+*/
+
 .cite {
   margin: 0 auto;
   width: 220px;
@@ -116,6 +138,50 @@
   height: 1px;
   margin: 0 auto 0.8rem;
   background-color: #e0e5ee;
+}
+
+/* 
+* Registration tutorial
+ */
+
+.reg_text {
+  padding: 1rem 0;
+  background-color: #fff;
+}
+
+.reg_text h1 {
+  margin-top: 0;
+  font-family: 'Abril Fatface', serif;
+  font-size: 2rem;
+}
+.reg_text h2 {
+  font-family: 'Montserrat';
+  padding-left: 2.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+.reg_text ul {
+  text-align: left;
+  color: #9e9fa1;
+  padding-left: 2.5rem;
+  font-weight: 600;
+}
+.reg_text li {
+  position: relative;
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+.reg_text li:before {
+  position: absolute;
+  top: 3px;
+  content: '';
+  color: #ef6537;
+  font-weight: bold;
+  left: -1rem;
+  background-image: url('../../assets/icons/arrow/right-arrow.svg');
+  height: 9px;
+  width: 9px;
+  background-size: contain;
 }
 
 @media (min-width: 768px) {
@@ -150,6 +216,11 @@
   .author {
     font-size: 1rem;
     color: #9e9fa1;
+  }
+}
+@media (max-width: 1279px) {
+  .reg_form {
+    padding-top: 6.5rem;
   }
 }
 @media (min-width: 1280px) {
