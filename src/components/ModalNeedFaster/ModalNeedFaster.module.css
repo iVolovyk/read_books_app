@@ -26,9 +26,9 @@
 }
 
 .congratsbtnClose {
-  width: 144px;
+  width: 130px;
   padding: 10px;
-  background-color: orange;
+  background-color: #ef6537;
   color: #ffffff;
   border: none;
   margin: auto;
@@ -37,12 +37,11 @@
 }
 
 .congratsbtnClose:hover {
-  background-color: red;
+  background-color: #e75a2b;
 }
 
 .image {
-  width: 114px;
-  height: 110px;
+  width: 44px;
   display: block;
   margin: 0 auto;
   border-radius: inherit;

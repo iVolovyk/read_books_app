@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import css from './ModalNeedFaster.module.css';
+import thumup from '../../assets/icons/thumup/thumb up.png';
 
 class ModalNeedFaster extends Component {
   componentDidMount() {
@@ -42,7 +43,7 @@ class ModalNeedFaster extends Component {
   };
 
   render() {
-    const { modalNeedFasterOpen, getPhoto } = this.props;
+    const { modalNeedFasterOpen } = this.props;
     return (
       <div>
         {modalNeedFasterOpen && (
@@ -53,26 +54,22 @@ class ModalNeedFaster extends Component {
             className={css.modal_overlay}
           >
             <div className={css.modal}>
-              <img src={getPhoto} alt="thumup" className={css.image} />
-              <img
-                src="https://imrur.ru/wp-content/uploads/2017/12/unnamed-file-8.png"
-                alt="thumup"
-                className={css.image}
-              />
-              <p> потрібно швидше!!! Наступного разу тобі все вдасться)</p>
+              <img src={thumup} alt="thumup" className={css.image} />
+              <h2>Ти молодчина!!!</h2>
+              <p> але потрібно швидше!!! Наступного разу тобі все вдасться)</p>
               <button
                 type="button"
                 onClick={this.closeModal}
                 className={css.congratsbtnClose}
               >
-                Ні, продовжити тренування
+                продовжити тренування
               </button>
               <button
                 type="button"
                 onClick={this.onClose}
                 className={css.congratsbtnClose}
               >
-                ДА, завершити тренування
+                завершити тренування
               </button>
             </div>
           </div>
@@ -95,5 +92,4 @@ ModalNeedFaster.propTypes = {
   getTimeEnd: PropTypes.string,
   closeTraning: PropTypes.func.isRequired,
   setModalCongratsClose: PropTypes.func.isRequired,
-  getPhoto: PropTypes.string.isRequired,
 };
