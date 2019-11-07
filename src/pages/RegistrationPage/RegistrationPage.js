@@ -104,7 +104,7 @@ class RegistrationPage extends Component {
                 />
                 {error && <span className={css.error}>{error.name}</span>}
               </label>
-              <label label htmlFor="email">
+              <label htmlFor="email">
                 <span>Електронна адреса</span>
                 <input
                   onChange={this.handleChange}
@@ -116,7 +116,7 @@ class RegistrationPage extends Component {
                 />
                 {error && <span className={css.error}>{error.email}</span>}
               </label>
-              <label label htmlFor="password">
+              <label htmlFor="password">
                 <span>Пароль</span>
                 <input
                   onChange={this.handleChange}
@@ -129,7 +129,7 @@ class RegistrationPage extends Component {
                 />
                 {error && <span className={css.error}>{error.password}</span>}
               </label>
-              <label label htmlFor="confirmPassword">
+              <label htmlFor="confirmPassword">
                 <span>Підтвердити пароль</span>
                 <input
                   onChange={this.handleChange}

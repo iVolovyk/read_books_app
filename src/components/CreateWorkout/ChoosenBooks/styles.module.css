@@ -16,7 +16,7 @@
   padding: 0px 20px;
   width: 100%;
   overflow-y: auto;
-  max-height: 168px;
+  max-height: 50vh;
 }
 
 .bookList::-webkit-scrollbar {
@@ -37,15 +37,15 @@
 .bookInfo {
   position: relative;
   list-style: none;
-  padding-top: 16px;
-  padding-bottom: 20px;
-  border-top: 1px solid #dfe6ec;
+  /* padding-top: 16px;
+  padding-bottom: 20px; */
+  /* border-top: 1px solid #dfe6ec; */
   border-bottom: 1px solid #dfe6ec;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .bookInfo:last-child {
-  margin-bottom: 35px;
+  /* margin-bottom: 35px; */
 }
 .deleteButt {
   background: none;
@@ -88,10 +88,13 @@
 
 @media (min-width: 768px) {
   .notMobileHeadline {
+    margin-top: 10px;
     display: flex;
     color: #8890a1;
     font-family: Montserrat;
     font-size: 13px;
+    border-top: 1px solid #dfe6ec;
+    border-bottom: 1px solid #dfe6ec;
   }
 
   .bookName {
@@ -111,7 +114,9 @@
   }
 
   .bookList {
+    margin-top: 0;
     padding: 0px;
+    margin-bottom: 35px;
   }
 
   .bookInfo {
@@ -140,7 +145,7 @@
 
   .delete {
     width: 80px;
-    margin-top: 10px;
+    margin-top: 0;
     cursor: pointer;
     position: static;
   }
@@ -153,21 +158,22 @@
 
 @media (min-width: 1280px) {
   .bookName {
-    padding-left: 10px;
-    padding-right: 190px;
+    padding-left: 3%;
+    padding-right: 30%;
   }
 
   .authorName {
-    padding-right: 130px;
+    padding-right: 18.8%;
   }
 
   .year {
-    padding-right: 80px;
+    padding-right: 12%;
   }
 
   .pageNumber {
-    padding-right: 80px;
+    padding-right: 9.1%;
   }
+
   .bookList {
     padding: 0px;
   }
