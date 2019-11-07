@@ -31,7 +31,7 @@
   fill: #6d7a8d;
 }
 .libLogoOrange {
-  fill: #ff9a17;
+  fill: #ef6537;
 }
 .libLogoGrey {
   fill: rgb(208, 214, 214);
@@ -62,7 +62,7 @@
   transform: translate(-50%, -50%);
 }
 .wrapPenLogoActive {
-  background-color: #ff9a17;
+  background-color: #ef6537;
 }
 .authorBody:before {
   width: 100px;
@@ -146,6 +146,7 @@
   .ratingBody {
     width: 80px;
     padding: 0 10px;
+    padding-right: 0;
   }
   .wrapPenLogo {
     right: 0;
