@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import css from './ModalNeedFaster.module.css';
-import thumup from '../../assets/icons/thumup/thumb up.png';
 
 class ModalNeedFaster extends Component {
   componentDidMount() {
@@ -12,7 +11,7 @@ class ModalNeedFaster extends Component {
   componentDidUpdate(prevProps) {
     const { setModalNeedFasterOpen, getTimeEnd } = this.props;
     if (prevProps.getTimeEnd !== getTimeEnd)
-      if (Date.now() + 100000000 > Number(moment(getTimeEnd).format('x'))) {
+      if (Date.now() + 1000000000000 > Number(moment(getTimeEnd).format('x'))) {
         setModalNeedFasterOpen();
       }
   }
@@ -43,7 +42,7 @@ class ModalNeedFaster extends Component {
   };
 
   render() {
-    const { modalNeedFasterOpen } = this.props;
+    const { modalNeedFasterOpen, getPhoto } = this.props;
     return (
       <div>
         {modalNeedFasterOpen && (
@@ -54,22 +53,26 @@ class ModalNeedFaster extends Component {
             className={css.modal_overlay}
           >
             <div className={css.modal}>
-              <img src={thumup} alt="thumup" className={css.image} />
-              <h2>Ти молодчина,</h2>
-              <p>але потрібно швидше!!! Наступного разу тобі все вдасться)</p>
+              <img src={getPhoto} alt="thumup" className={css.image} />
+              <img
+                src="https://imrur.ru/wp-content/uploads/2017/12/unnamed-file-8.png"
+                alt="thumup"
+                className={css.image}
+              />
+              <p> потрібно швидше!!! Наступного разу тобі все вдасться)</p>
               <button
                 type="button"
                 onClick={this.closeModal}
                 className={css.congratsbtnClose}
               >
-                Продовжити тренування
+                Ні, продовжити тренування
               </button>
               <button
                 type="button"
                 onClick={this.onClose}
                 className={css.congratsbtnClose}
               >
-                Закінчити тренування
+                ДА, завершити тренування
               </button>
             </div>
           </div>
@@ -92,4 +95,5 @@ ModalNeedFaster.propTypes = {
   getTimeEnd: PropTypes.string,
   closeTraning: PropTypes.func.isRequired,
   setModalCongratsClose: PropTypes.func.isRequired,
+  getPhoto: PropTypes.string.isRequired,
 };
