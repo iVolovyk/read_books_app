@@ -19,6 +19,7 @@ export const addBook = book => (dispatch, getStore) => {
   dispatch(addBookStart());
   addBookOnServer(book, token)
     .then(response => {
+      console.log(response.data);
       dispatch(addBookSuccess(response.data));
     })
     .catch(error => {
