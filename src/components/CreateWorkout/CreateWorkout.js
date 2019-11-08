@@ -55,7 +55,7 @@ class CreateWorkout extends Component {
     const DayNeeds = Number(moment(timeForTrening).format('DD'));
 
     addBookNeedRead(selectedBook.length);
-    addDayNeed(DayNeeds || 1);
+    addDayNeed(DayNeeds);
   }
 
   addToState = (booksArr, optArr) =>
