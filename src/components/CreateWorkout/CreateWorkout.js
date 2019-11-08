@@ -55,7 +55,7 @@ class CreateWorkout extends Component {
     const DayNeeds = Number(moment(timeForTrening).format('DD'));
 
     addBookNeedRead(selectedBook.length);
-    addDayNeed(DayNeeds);
+    addDayNeed(DayNeeds - 1 || 0);
   }
 
   addToState = (booksArr, optArr) =>
@@ -165,7 +165,7 @@ class CreateWorkout extends Component {
 
   render() {
     const { selectedBook, selectedOption, options } = this.state;
-    const yesterday = Datetime.moment().subtract(1, 'day');
+    const yesterday = Datetime.moment().subtract(0, 'day');
 
     const valid = current => {
       return (

@@ -1,6 +1,7 @@
 .sumModal {
   margin: 0 auto;
 }
+
 .stars {
   font-size: 20px;
 }
@@ -32,23 +33,39 @@
 
 .exitBut,
 .saveBut {
-  background: none;
+  background-color: transparent;
   outline: none;
-  border: 1px #1c2534 solid;
   color: #00183e;
   font-family: 'Montserrat';
   font-size: 13px;
   width: 124px;
   padding: 14px 0px;
+  border: none;
 }
 
-.exitBut:active {
-  background: #ff6b00;
+.saveBut {
+  margin-left: 5px;
+  color: #fff;
+  background-color: #ef6537;
+  border: 1px #ef6537 solid;
+}
+
+.exitBut {
+  border: 1px #1c2534 solid;
+}
+
+.exitBut:hover,
+.exitBut:focus {
+  background-color: #ef6537;
+  border-color: #ef6537;
   color: white;
   border: none;
 }
-.saveBut:active {
-  background: #ff6b00;
+
+.saveBut:hover,
+.saveBut:focus {
+  border-color: #f1511c;
+  background-color: #f1511c;
   color: white;
   border: none;
 }
@@ -64,6 +81,7 @@
   .sumModal {
     padding: 0px 64px;
   }
+
   .buttDiv {
     width: 280px;
     margin: 0 auto;

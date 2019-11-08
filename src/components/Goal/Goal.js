@@ -21,7 +21,7 @@ const Goal = ({ books, timeStart, timeEnd, NeedToRead }) => {
               <p className={styles.boxCounterText}>Кількість книжок</p>
             </li>
             <li className={styles.boxCounterItem}>
-              <div className={styles.boxCounterNumber}>{DayNeeds}</div>
+              <div className={styles.boxCounterNumber}>{DayNeeds - 1}</div>
               <p className={styles.boxCounterText}>Кількість днів</p>
             </li>
             <li className={styles.boxCounterItem}>

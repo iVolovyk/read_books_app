@@ -29,7 +29,6 @@ export default class Timer extends Component {
       const { dateFin } = this.props;
       const time = new Date(dateFin) - Date.now();
       const daysTimer = String(Math.floor(time / (1000 * 60 * 60 * 24)) + 1); // .padStart(3, '0');
-
       const hoursTimer = String(
         Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       ); // .padStart(2, '0');
