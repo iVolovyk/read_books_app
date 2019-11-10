@@ -161,15 +161,16 @@
 @media (min-width: 1280px) {
   .bookName {
     padding-left: 10px;
-    padding-right: 190px;
+    padding-right: 275px;
   }
 
   .authorName {
-    padding-right: 130px;
+    /* padding-right: 130px; */
+    padding-right: 162px;
   }
 
   .year {
-    padding-right: 80px;
+    padding-right: 116px;
   }
 
   .pageNumber {

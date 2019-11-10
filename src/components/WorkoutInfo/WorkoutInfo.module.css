@@ -34,6 +34,7 @@
   color: rgb(36, 42, 55);
   font-weight: 700;
   font-size: 13px;
+  display: flex;
 }
 
 .liBookBorder {
@@ -103,6 +104,12 @@
   margin-right: 38px;
   margin-left: 35px;
   color: #898f9f;
+}
+
+@media (max-width: 767px) {
+  .author {
+    display: flex;
+  }
 }
 
 @media (min-width: 768px) {
@@ -233,6 +240,7 @@
     display: inline-block;
     width: 25%;
     margin: 0;
+    padding-right: 5px;
   }
 
   .year {

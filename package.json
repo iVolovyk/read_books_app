@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "gh-pages": "^2.1.1",
     "indicative": "^7.2.3",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
@@ -30,6 +31,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
