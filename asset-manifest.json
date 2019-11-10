@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/iVolovyk/read_books_app/static/css/main.7833950c.chunk.css",
+    "main.js": "/iVolovyk/read_books_app/static/js/main.b0f5dedd.chunk.js",
+    "main.js.map": "/iVolovyk/read_books_app/static/js/main.b0f5dedd.chunk.js.map",
+    "runtime~main.js": "/iVolovyk/read_books_app/static/js/runtime~main.a7838ec7.js",
+    "runtime~main.js.map": "/iVolovyk/read_books_app/static/js/runtime~main.a7838ec7.js.map",
+    "static/css/2.085750d3.chunk.css": "/iVolovyk/read_books_app/static/css/2.085750d3.chunk.css",
+    "static/js/2.533eb845.chunk.js": "/iVolovyk/read_books_app/static/js/2.533eb845.chunk.js",
+    "static/js/2.533eb845.chunk.js.map": "/iVolovyk/read_books_app/static/js/2.533eb845.chunk.js.map",
+    "index.html": "/iVolovyk/read_books_app/index.html",
+    "precache-manifest.d62f0beb0f1a1c2df8392fd724756abb.js": "/iVolovyk/read_books_app/precache-manifest.d62f0beb0f1a1c2df8392fd724756abb.js",
+    "service-worker.js": "/iVolovyk/read_books_app/service-worker.js",
+    "static/css/2.085750d3.chunk.css.map": "/iVolovyk/read_books_app/static/css/2.085750d3.chunk.css.map",
+    "static/css/main.7833950c.chunk.css.map": "/iVolovyk/read_books_app/static/css/main.7833950c.chunk.css.map",
+    "static/media/main.css": "/iVolovyk/read_books_app/static/media/roboto-v20-latin_cyrillic-ext_cyrillic-regular.fa18727a.woff2",
+    "static/media/create-24px.e088fb76.svg": "/iVolovyk/read_books_app/static/media/create-24px.e088fb76.svg",
+    "static/media/delete-24px.d98e9b10.svg": "/iVolovyk/read_books_app/static/media/delete-24px.d98e9b10.svg",
+    "static/media/home-24px.svg": "/iVolovyk/read_books_app/static/media/home-24px.5a70e98d.svg",
+    "static/media/LoginPage.module.css": "/iVolovyk/read_books_app/static/media/signupBg.4b30740b.jpg",
+    "static/media/menu_book-24px.svg": "/iVolovyk/read_books_app/static/media/menu_book-24px.976196a5.svg"
+  }
+}
