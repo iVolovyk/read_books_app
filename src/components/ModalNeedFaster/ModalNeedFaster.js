@@ -12,7 +12,7 @@ class ModalNeedFaster extends Component {
   componentDidUpdate(prevProps) {
     const { setModalNeedFasterOpen, getTimeEnd } = this.props;
     if (prevProps.getTimeEnd !== getTimeEnd)
-      if (Date.now() + 1000000000000 > Number(moment(getTimeEnd).format('x'))) {
+      if (Date.now() > Number(moment(getTimeEnd).format('x'))) {
         setModalNeedFasterOpen();
       }
   }
