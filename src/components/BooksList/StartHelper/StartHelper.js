@@ -9,7 +9,7 @@ const StartHelper = () => (
     <h2 className={css.title}>Крок 1.</h2>
     <h3 className={css.subTitle}>
       <LibLogo className={css.libLogo} />
-      Своріть особисту бібліотеку
+      Створіть особисту бібліотеку
     </h3>
     <p className={css.text}>
       <img className={css.arrowLogo} src={arrow} alt="arrow" />
