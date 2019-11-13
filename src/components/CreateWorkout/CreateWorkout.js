@@ -62,6 +62,7 @@ class CreateWorkout extends Component {
     this.setState({ localBooks: booksArr, options: optArr });
 
   dateOnchangeMethod = date => {
+    console.log(date);
     this.setState({
       todayDate: Datetime.moment().format('YYYY-MM-DD'),
       chosenDate: date,
@@ -137,7 +138,7 @@ class CreateWorkout extends Component {
     const training = {
       books: chosenBooksForTraning,
       timeStart: todayDate,
-      timeEnd: chosenDate,
+      timeEnd: chosenDate.format('YYYY-MM-DD'),
       avgReadPages: avgPages,
       readPagesCount: totalPages,
     };
@@ -165,7 +166,7 @@ class CreateWorkout extends Component {
 
   render() {
     const { selectedBook, selectedOption, options } = this.state;
-    const yesterday = Datetime.moment().subtract(1, 'day');
+    const yesterday = Datetime.moment().subtract(0, 'day');
 
     const valid = current => {
       return (
