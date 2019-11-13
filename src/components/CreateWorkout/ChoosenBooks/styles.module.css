@@ -28,6 +28,7 @@
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
 }
+
 .bookList::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -47,6 +48,7 @@
 .bookInfo:last-child {
   /* margin-bottom: 35px; */
 }
+
 .deleteButt {
   background: none;
   outline: none;
@@ -159,15 +161,16 @@
 @media (min-width: 1280px) {
   .bookName {
     padding-left: 10px;
-    padding-right: 190px;
+    padding-right: 275px;
   }
 
   .authorName {
-    padding-right: 130px;
+    /* padding-right: 130px; */
+    padding-right: 162px;
   }
 
   .year {
-    padding-right: 80px;
+    padding-right: 116px;
   }
 
   .pageNumber {

@@ -55,14 +55,13 @@ class CreateWorkout extends Component {
     const DayNeeds = Number(moment(timeForTrening).format('DD'));
 
     addBookNeedRead(selectedBook.length);
-    addDayNeed(DayNeeds || 1);
+    addDayNeed(DayNeeds - 1 || 0);
   }
 
   addToState = (booksArr, optArr) =>
     this.setState({ localBooks: booksArr, options: optArr });
 
   dateOnchangeMethod = date => {
-    console.log(date);
     this.setState({
       todayDate: Datetime.moment().format('YYYY-MM-DD'),
       chosenDate: date,
