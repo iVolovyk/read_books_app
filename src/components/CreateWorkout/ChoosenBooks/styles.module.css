@@ -165,7 +165,6 @@
   }
 
   .authorName {
-    /* padding-right: 130px; */
     padding-right: 162px;
   }
 
@@ -182,23 +181,24 @@
   }
 
   .bookHeadline {
-    width: 23.1%;
-    margin-right: 13.58%;
+    padding-left: 10px;
+    width: 315px;
+    margin-right: 112px;
   }
 
   .authorsNameSername {
-    width: 11.78%;
-    margin-right: 11.5%;
+    width: 270px;
+    margin-right: 22px;
   }
 
   .yearOfPublication {
-    width: 8.1%;
-    margin-right: 8.1%;
+    width: 80px;
+    margin-right: 88px;
   }
 
   .numberOfBookPages {
-    width: 2.44%;
-    margin-right: 6.18%;
+    width: 60px;
+    margin-right: 20px;
   }
 
   .delete {

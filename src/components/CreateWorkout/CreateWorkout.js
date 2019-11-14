@@ -137,7 +137,7 @@ class CreateWorkout extends Component {
     const training = {
       books: chosenBooksForTraning,
       timeStart: todayDate,
-      timeEnd: chosenDate,
+      timeEnd: chosenDate.format('YYYY-MM-DD'),
       avgReadPages: avgPages,
       readPagesCount: totalPages,
     };
